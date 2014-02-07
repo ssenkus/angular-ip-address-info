@@ -4,8 +4,8 @@
     <button ng-hide="addedTestVals" type="button" ng-click="addValidIps()">Add Valid IPs</button> <pre> {{ipAddress}}</pre>
 
     <ul>
-        <li ng-repeat="loc in locations" ng-animate="'animate'">
-            <ul class="location">
+        <li ng-repeat="loc in locations" >
+            <ul class="location" ng-animate="'animate'">
                 <li>
                     <h4>IP: {{loc.ip}}</h4>
 

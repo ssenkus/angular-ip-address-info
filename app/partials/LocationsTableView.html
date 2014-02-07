@@ -1,0 +1,30 @@
+<div class="table-responsive">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>IP Address</th>
+                <th>Area Code</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Coordinates (Lat, Long)</th>
+                <th>Metro Code</th>
+                <th>Region</th>
+                <th>Zipcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="loc in locs">
+                <td>{{loc.ip}}</td>
+                <td>{{loc.areacode}}</td>
+                <td>{{loc.city}}</td>
+                <td>{{loc.country_name}} ({{loc.country_code}})</td>
+                <td>{{loc.latitude}}, {{loc.longitude}}</td>
+                <td>{{loc.metro_code}}</td>
+                <td>{{loc.region_code}} {{loc.region_name}}</td>
+                <td>{{loc.zipcode}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

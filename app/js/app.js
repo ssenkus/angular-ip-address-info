@@ -10,7 +10,8 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/locate', {templateUrl: 'partials/LocatorView.html', controller: 'LocatorController'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+    $routeProvider.when('/home', {templateUrl: 'partials/Home.html', controller: 'HomeController'});
+    $routeProvider.when('/locate', {templateUrl: 'partials/LocatorView.html', controller: 'LocatorController'});
+    $routeProvider.when('/locations', {templateUrl: 'partials/LocationsTableView.html', controller: 'LocationsTableController'});
+    $routeProvider.otherwise({redirectTo: '/home'});
 }]);

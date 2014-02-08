@@ -10,8 +10,8 @@ angular.module('myApp', [
   'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/home', {templateUrl: 'partials/Home.html', controller: 'HomeController'});
-    $routeProvider.when('/locate', {templateUrl: 'partials/LocatorView.html', controller: 'LocatorController'});
+    $routeProvider.when('/home', {templateUrl: 'partials/HomeView.html', controller: 'HomeController'});
+    $routeProvider.when('/search-by-ip', {templateUrl: 'partials/SearchByIpView.html', controller: 'SearchByIpController'});
     $routeProvider.when('/locations', {templateUrl: 'partials/LocationsTableView.html', controller: 'LocationsTableController'});
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);

@@ -5,18 +5,32 @@
 angular.module('myApp.controllers', []).
     controller('HomeController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
         $scope.message = "Hello, World";
-        
+
     }]).
-    controller('LocatorController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
+    controller('SearchByIpController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
         $scope.ipAddress;
         $scope.ips = [];
+        $scope.ipAddress = null;
         $scope.locations = [];
-
+        $scope.validInput = false;
+        $scope.inputPattern = /\d{3}/;
         $scope.myFunct = function(ev) {
             if (ev.which === 13)
-                $scope.getIp($scope.ipAddress)
+                ($scope.ipAddressMatch($scope.ipAddress)) ? $scope.getIp($scope.ipAddress) : '';
         }
+        $scope.ipAddressMatch = function(str) {
+            var validator = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/;
+            console.log('', validator.test(str))
+            if (validator.test(str)) {
+                $scope.validInput = true;
+                return true;
+            } else {
+                $scope.validInput = false;
+                return false;
 
+            }
+
+        };
         $scope.addedTestVals = false;
         $scope.addValidIps = function() {
             if (this.addedTestVals) {
@@ -36,6 +50,10 @@ angular.module('myApp.controllers', []).
                 return;
             }
         };
+        $scope.$watch('ipAddress', function() {
+            $scope.ipAddressMatch($scope.ipAddress);
+        });
+        
         $scope.getIp = function(ip) {
             $http({
                 method: 'GET',

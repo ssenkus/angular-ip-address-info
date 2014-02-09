@@ -11,7 +11,7 @@ angular.module('myApp.controllers', []).
         $scope.ipAddress;
         $scope.ips = [];
         $scope.ipAddress = null;
-        $scope.locations = [];
+        $scope.locations = locationHandler.locations;
         $scope.validInput = false;
         $scope.inputPattern = /\d{3}/;
         $scope.myFunct = function(ev) {
@@ -62,7 +62,6 @@ angular.module('myApp.controllers', []).
                 success(function(data, status, headers, config) {
                 console.log('success', data);
                 locationHandler.addLocation(data);
-                $scope.locations.push(data)
                 // this callback will be called asynchronously
                 // when the response is available
             }).

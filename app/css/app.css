@@ -1,5 +1,8 @@
 /* app css stylesheet */
-
+.row {
+    margin-bottom: 20px;
+    
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -59,4 +62,14 @@
 }
 .animate-enter.animate-enter-active {
     opacity: 0.5;
+}
+
+.ipSearchSubmit {
+    -webkit-transition: alll 0.3s linear;
+    transition: all 0.3s linear;
+    
+}
+.testIpVals {
+    visibility: hidden;
+    
 }

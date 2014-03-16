@@ -1,20 +1,38 @@
 <div class="locatorView" ng-controller="SearchByIpController">
-    <form >
-        <input type="text" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
-        <button type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
-        <button type="button" ng-hide="addedTestVals"  ng-click="addValidIps()">Add Valid IPs</button> 
-        
-    </form>
-    <ul><pre> {{ipAddress}}</pre>
-        <li ng-repeat="loc in locations" >
-            <ul class="location" ng-animate="'animate'">
-                <li>
-                    <h4>IP: {{loc.ip}}</h4>
-                </li>
-                <li>{{loc.city}}, {{loc.region_name}} {{loc.zipcode}}</li>
-                <li>{{loc.country_name}}</li>
-                <li>Lat/Lng: ({{loc.latitude}}, {{loc.longitude}})</li>
-            </ul>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-4 input-group">
+            <input class="form-control" type="text" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
+            <span class="input-group-btn">
+                <button class="ipSearchSubmit btn" ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
+                <!--                </span>
+                                <span class="input-group-btn">-->
+                <button class="btn btn-default" type="button" ng-class="{'testIpVals': addedTestVals}"  ng-click="addValidIps()">Add Valid IPs</button> 
+            </span>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+
+
+                <div class="col-md-3" ng-repeat="loc in locations" >
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-primary">
+                            <h3 class="panel-title">IP: {{loc.ip}}</h3>
+                        </div>
+                        <div class="panel-body panel-primary">
+                            <ul>
+                        <li>{{loc.city}}, {{loc.region_name}} {{loc.zipcode}}</li>
+                        <li>{{loc.country_name}}</li>
+                        <li>Lat/Lng: ({{loc.latitude}}, {{loc.longitude}})</li>
+                        </ul>
+                        </div>
+                        <div class="panel-footer"><button class='btn btn-success'>Locate on map</button><button class='btn btn-danger'>Delete</button></div>
+                    </div>
+                </div>
+
+
+        </div>
+    </div>        
 </div>

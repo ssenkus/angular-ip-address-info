@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
+angular.module('IpLocatorApp.controllers', []).
     controller('HomeController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
         $scope.message = "Hello, World";
 
@@ -13,31 +13,18 @@ angular.module('myApp.controllers', []).
         $scope.ipAddress = null;
         $scope.locations = locationHandler.locations;
         $scope.validInput = false;
-        $scope.inputPattern = /\d{3}/;
+        $scope.inputPattern = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
         $scope.myFunct = function(ev) {
             if (ev.which === 13)
                 ($scope.ipAddressMatch($scope.ipAddress)) ? $scope.getIp($scope.ipAddress) : '';
         }
-        $scope.ipAddressMatch = function(str) {
-            var validator = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/;
-            console.log('', validator.test(str))
-            if (validator.test(str)) {
-                $scope.validInput = true;
-                return true;
-            } else {
-                $scope.validInput = false;
-                return false;
-
-            }
-
-        };
         $scope.addedTestVals = false;
         $scope.addValidIps = function() {
             if (this.addedTestVals) {
                 return;
             } else {
                 var newer = [
-                    '50.43.90.82',
+                    '52.43.90.82',
                     '14.21.124.55',
                     '22.54.76.202',
                     '24.4.76.202',
@@ -50,11 +37,10 @@ angular.module('myApp.controllers', []).
                 return;
             }
         };
-        $scope.$watch('ipAddress', function() {
-            $scope.ipAddressMatch($scope.ipAddress);
-        });
         
         $scope.getIp = function(ip) {
+            $scope.ipAddress = '';
+            
             $http({
                 method: 'GET',
                 url: 'http://www.freegeoip.net/json/' + ip

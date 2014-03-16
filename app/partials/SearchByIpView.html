@@ -1,11 +1,11 @@
 <div class="locatorView" ng-controller="SearchByIpController">
     <form >
-        <input type="text" ng-pattern="inputPattern" ng-keypress="myFunct($event)" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
-        <button type="button" ng-disabled="!validInput" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
+        <input type="text" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
+        <button type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
         <button type="button" ng-hide="addedTestVals"  ng-click="addValidIps()">Add Valid IPs</button> 
         
     </form>
-    <ul><pre> {{validInput}}</pre>
+    <ul><pre> {{ipAddress}}</pre>
         <li ng-repeat="loc in locations" >
             <ul class="location" ng-animate="'animate'">
                 <li>

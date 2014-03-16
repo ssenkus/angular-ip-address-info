@@ -2,12 +2,12 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+angular.module('IpLocatorApp', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
+  'IpLocatorApp.filters',
+  'IpLocatorApp.services',
+  'IpLocatorApp.directives',
+  'IpLocatorApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/home', {templateUrl: 'partials/HomeView.html', controller: 'HomeController'});

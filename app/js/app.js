@@ -3,15 +3,23 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('IpLocatorApp', [
-  'ngRoute',
-  'IpLocatorApp.filters',
-  'IpLocatorApp.services',
-  'IpLocatorApp.directives',
-  'IpLocatorApp.controllers'
+    'ngRoute',
+    'd3',
+    'IpLocatorApp.filters',
+    'IpLocatorApp.services',
+    'IpLocatorApp.directives',
+    'IpLocatorApp.controllers'
+    
 ]).
-config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/home', {templateUrl: 'partials/HomeView.html', controller: 'HomeController'});
-    $routeProvider.when('/search-by-ip', {templateUrl: 'partials/SearchByIpView.html', controller: 'SearchByIpController'});
-    $routeProvider.when('/locations', {templateUrl: 'partials/LocationsTableView.html', controller: 'LocationsTableController'});
-    $routeProvider.otherwise({redirectTo: '/home'});
-}]);
+    config(['$routeProvider', function($routeProvider) {
+        $routeProvider.when('/home', {templateUrl: 'partials/HomeView.html',
+            controller: 'HomeController'});
+        $routeProvider.when('/search-by-ip', {templateUrl: 'partials/SearchByIpView.html',
+            controller: 'SearchByIpController'});
+        $routeProvider.when('/locations', {templateUrl: 'partials/LocationsTableView.html',
+            controller: 'LocationsTableController'});
+        $routeProvider.otherwise({redirectTo: '/home'});
+    }]);
+
+
+

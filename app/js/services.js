@@ -6,7 +6,6 @@
 // Demonstrate how to register services
 // In this case it is a simple value service.
 angular.module('IpLocatorApp.services', []).
-    value('version', '0.1').
     service('locationHandler', function() {
     this.locations = [];
     this.addLocation = function(location) {
@@ -14,10 +13,6 @@ angular.module('IpLocatorApp.services', []).
         console.log('added location', this.locations);
     };
 
-
-
-}).
-    service('Recipe', function() {
 
 
 });

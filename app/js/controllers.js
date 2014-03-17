@@ -2,9 +2,22 @@
 
 /* Controllers */
 
-angular.module('IpLocatorApp.controllers', []).
-    controller('HomeController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
+angular.module('IpLocatorApp.controllers', ['d3']).
+    controller('HomeController', ['$scope', '$http', 'locationHandler', 'd3Service', function($scope, $http, locationHandler, d3Service) {
         $scope.message = "Hello, World";
+        console.log('d3Service', d3Service)
+        $scope.data = [
+            {name: "Greg",
+                score: 98},
+            {name: "Ari",
+                score: 96},
+            {name: 'Q',
+                score: 75},
+            {name: "Loser",
+                score: 48}
+        ];
+
+
 
     }]).
     controller('SearchByIpController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
@@ -37,10 +50,10 @@ angular.module('IpLocatorApp.controllers', []).
                 return;
             }
         };
-        
+
         $scope.getIp = function(ip) {
             $scope.ipAddress = '';
-            
+
             $http({
                 method: 'GET',
                 url: 'http://www.freegeoip.net/json/' + ip

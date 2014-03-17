@@ -98,7 +98,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
         };
     }])
 
-
+// Placeholder for now!
     .directive('d3WorldMap', ['$window', '$timeout', 'd3Service', function($window, $timeout, d3Service) {
         return {
             restrict: 'A',

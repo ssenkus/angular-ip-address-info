@@ -71,7 +71,7 @@ angular.module('IpLocatorApp.controllers', ['d3']).
 
 
 
-        }
+        };
 
 
 

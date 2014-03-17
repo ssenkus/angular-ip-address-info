@@ -11,11 +11,11 @@
     <div class="row">
         <div class="col-md-3" ng-repeat="loc in locations" >
 
-            <div class="panel panel-primary">
-                <div class="panel-heading panel-primary">
+            <div ng-class="{'panel-primary': loc.locStatus == 'ok', 'panel-danger': loc.locStatus == 'warn' }" class="panel">
+                <div ng-class="{'panel-primary': loc.locStatus == 'ok', 'panel-danger': loc.locStatus == 'warn' }" class="panel-heading">
                     <h3 class="panel-title">IP: {{loc.ip}}</h3>
                 </div>
-                <div class="panel-body panel-primary">
+                <div class="panel-body" ng-class="{'panel-primary': loc.locStatus == 'ok', 'panel-danger': loc.locStatus == 'warn' }">
                     <ul>
                         <li>{{loc.city}}, {{loc.region_name}} {{loc.zipcode}}</li>
                         <li>{{loc.country_name}}</li>

@@ -5,8 +5,7 @@
 angular.module('IpLocatorApp.controllers', ['d3']).
     controller('HomeController', ['$scope', '$http', 'locationHandler', 'd3Service', function($scope, $http, locationHandler, d3Service) {
         $scope.message = "Hello, World";
-        console.log('d3Service', d3Service)
-        $scope.data = [
+        $scope.d3Data = [
             {name: "Greg",
                 score: 98},
             {name: "Ari",
@@ -80,7 +79,16 @@ angular.module('IpLocatorApp.controllers', ['d3']).
     }]).
     controller('LocationsTableController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
         $scope.locs = locationHandler.locations;
-
+        $scope.d3Data = [
+            {name: "Greg",
+                score: 98},
+            {name: "Ari",
+                score: 96},
+            {name: 'Q',
+                score: 75},
+            {name: "Loser",
+                score: 48}
+        ];
 
 
     }]);

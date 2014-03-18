@@ -6,25 +6,27 @@ angular.module('IpLocatorApp.controllers', ['d3']).
     controller('HomeController', ['$scope', '$http', 'locationHandler', 'd3Service', function($scope, $http, locationHandler, d3Service) {
         $scope.message = "Hello, World";
         $scope.d3Data = [
-            {name: "Greg",
-                score: 98},
-            {name: "Ari",
-                score: 96},
-            {name: 'Q',
-                score: 75},
-            {name: "Loser",
-                score: 48}
+            {
+                name: "This",
+                score: 98
+            }, {
+                name: "is",
+                score: 66
+            }, {
+                name: 'AWESOME',
+                score: 75
+            }, {
+                name: "d3.js Stuff",
+                score: 28
+            }
         ];
-
-
-
     }]).
     controller('SearchByIpController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
         $scope.ipAddress = '';
         $scope.locations = locationHandler.locations;
         $scope.validInput = false;
         $scope.inputPattern = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
-        $scope.myFunct = function(ev) {
+        $scope.submitIp = function(ev) {
             if (ev.which === 13) {
                 ($scope.ipAddressMatch($scope.ipAddress)) ? $scope.getIp($scope.ipAddress) : '';
             }
@@ -32,13 +34,10 @@ angular.module('IpLocatorApp.controllers', ['d3']).
         $scope.ipAddressMatch = function(ip) {
             console.log($scope.inputPattern.test(ip));
             return $scope.inputPattern.test(ip);
-            
+
         };
-        
-        
-        
-        
-        
+
+
         $scope.addedTestVals = false;
         $scope.addValidIps = function() {
             if (this.addedTestVals) {
@@ -80,14 +79,7 @@ angular.module('IpLocatorApp.controllers', ['d3']).
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
             });
-
-
-
         };
-
-
-
-
     }]).
     controller('LocationsTableController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
         $scope.locs = locationHandler.locations;

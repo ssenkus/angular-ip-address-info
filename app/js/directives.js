@@ -89,7 +89,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
                             })
                                 .attr('x', 15)
                                 .text(function(d) {
-                                return d.name + " (scored: " + d.score + ")";
+                                return d.name + " = " + d.score;
                             });
                         }, 200);
                     };
@@ -109,6 +109,53 @@ angular.module('IpLocatorApp.directives', ['d3'])
             },
             link: function(scope, ele, attrs) {
                 d3Service.d3().then(function(d3) {
+
+                    var width = 960,
+                        height = 500;
+
+                    var projection = d3.geo.equirectangular();
+                    var color = d3.scale.category20c();
+//                graticule = d3.geo.graticule();
+
+                    var path = d3.geo.path()
+                        .projection(projection);
+
+                    var svg = d3.select("body").append("svg")
+                        .attr("width", width)
+                        .attr("height", height);
+
+                    d3.json("readme-world.json", function(error, world) {
+                        var countries = topojson.feature(world, world.objects.countries).features,
+                            neighbors = topojson.neighbors(world.objects.countries.geometries);
+
+                        svg.selectAll(".country")
+                            .data(countries)
+                            .enter().insert("path", ".graticule")
+                            .attr("class", "country")
+                            .attr("d", path)
+                            .style("fill", function(d, i) {
+                            return '#000';
+
+                        });
+
+                        svg.append("circle").attr("r", 2).attr("transform", function() {
+                            return "translate(" + projection([-75, 43]) + ")";
+                        }).attr('fill', '#ff0');
+
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
                     var renderTimeout;
                     var margin = parseInt(attrs.margin) || 20,
                         barHeight = parseInt(attrs.barHeight) || 20,

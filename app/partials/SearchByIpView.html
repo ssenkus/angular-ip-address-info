@@ -1,7 +1,7 @@
 <div class="locatorView" ng-controller="SearchByIpController">
     <div class="row">
         <div class="col-md-4 input-group">
-            <input class="form-control" type="text" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
+            <input class="form-control" type="text" ng-keypress="myFunct($event)" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
             <span class="input-group-btn">
                 <button class="ipSearchSubmit btn" ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
                 <button class="btn btn-default" type="button" ng-class="{'testIpVals': addedTestVals}"  ng-click="addValidIps()">Add Valid IPs</button> 

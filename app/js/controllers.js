@@ -20,16 +20,25 @@ angular.module('IpLocatorApp.controllers', ['d3']).
 
     }]).
     controller('SearchByIpController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
-        $scope.ipAddress;
-        $scope.ips = [];
-        $scope.ipAddress = null;
+        $scope.ipAddress = '';
         $scope.locations = locationHandler.locations;
         $scope.validInput = false;
         $scope.inputPattern = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
         $scope.myFunct = function(ev) {
-            if (ev.which === 13)
+            if (ev.which === 13) {
                 ($scope.ipAddressMatch($scope.ipAddress)) ? $scope.getIp($scope.ipAddress) : '';
+            }
         };
+        $scope.ipAddressMatch = function(ip) {
+            console.log($scope.inputPattern.test(ip));
+            return $scope.inputPattern.test(ip);
+            
+        };
+        
+        
+        
+        
+        
         $scope.addedTestVals = false;
         $scope.addValidIps = function() {
             if (this.addedTestVals) {
@@ -43,7 +52,6 @@ angular.module('IpLocatorApp.controllers', ['d3']).
                     '24.24.24.24',
                     '84.45.22.12'
                 ];
-                newer.concat($scope.ips);
                 newer.forEach($scope.getIp);
                 $scope.addedTestVals = true;
                 return;
@@ -51,9 +59,7 @@ angular.module('IpLocatorApp.controllers', ['d3']).
         };
 
         $scope.deleteLoc = function(idx) {
-            console.log(locationHandler.locations, idx)
             locationHandler.locations.splice(idx, 1);
-
         };
 
         $scope.getIp = function(ip) {

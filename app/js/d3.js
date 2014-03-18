@@ -18,7 +18,6 @@ angular.module('d3', [])
         scriptTag.src = 'http://d3js.org/d3.v3.min.js';
         scriptTag.onreadystatechange = function() {
             if (this.readyState == 'complete')
-                alert('getdata')
                 onScriptLoad();
         }
         scriptTag.onload = onScriptLoad;

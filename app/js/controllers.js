@@ -29,7 +29,7 @@ angular.module('IpLocatorApp.controllers', ['d3']).
         $scope.myFunct = function(ev) {
             if (ev.which === 13)
                 ($scope.ipAddressMatch($scope.ipAddress)) ? $scope.getIp($scope.ipAddress) : '';
-        }
+        };
         $scope.addedTestVals = false;
         $scope.addValidIps = function() {
             if (this.addedTestVals) {
@@ -48,6 +48,12 @@ angular.module('IpLocatorApp.controllers', ['d3']).
                 $scope.addedTestVals = true;
                 return;
             }
+        };
+
+        $scope.deleteLoc = function(idx) {
+            console.log(locationHandler.locations, idx)
+            locationHandler.locations.splice(idx, 1);
+
         };
 
         $scope.getIp = function(ip) {

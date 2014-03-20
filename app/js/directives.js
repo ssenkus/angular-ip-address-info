@@ -114,52 +114,38 @@ angular.module('IpLocatorApp.directives', ['d3'])
                     var margin = parseInt(attrs.margin) || 20,
                         barHeight = parseInt(attrs.barHeight) || 20,
                         barPadding = parseInt(attrs.barPadding) || 5;
-
-
                     var width = 940,
                         height = 500;
-
                     var projection = d3.geo.equirectangular();
                     var color = d3.scale.category20c();
                     var path = d3.geo.path()
                         .projection(projection);
-
                     var svg = d3.select(ele[0]).append("svg")
                         .attr("width", width)
                         .attr("height", height).style('background-color', '#009');
-
-
-
-
                     $window.onresize = function() {
                         scope.$apply();
                     };
-
                     scope.$watch(function() {
                         return angular.element($window)[0].innerWidth;
                     }, function() {
                         scope.render(scope.data);
                     });
-
                     scope.$watch('data', function(newData) {
                         scope.render(newData);
                     }, true);
-
                     scope.render = function(data) {
                         svg.selectAll('circle').remove();
-
                         if (!data)
                             return;
                         console.log('data', data)
 
                         if (renderTimeout)
                             clearTimeout(renderTimeout);
-
                         renderTimeout = $timeout(function() {
                             d3.json("http://localhost/github/angular-ip-address-info/app/lib/data/readme-world.json", function(error, world) {
                                 var countries = topojson.feature(world, world.objects.countries).features,
                                     neighbors = topojson.neighbors(world.objects.countries.geometries);
-
                                 svg.selectAll(".country")
                                     .data(countries)
                                     .enter().insert("path", ".graticule")
@@ -167,27 +153,34 @@ angular.module('IpLocatorApp.directives', ['d3'])
                                     .attr("d", path)
                                     .style("fill", function(d, i) {
                                     return '#000';
-
                                 });
-
                                 svg.selectAll('circle').data(data).enter().append('circle').attr("r", 2).attr("transform", function(d, i) {
                                     console.log(d, i)
                                     //return "translate(" + projection([-75, 43]) + ")";
                                     return "translate(" + projection([d.longitude, d.latitude]) + ")";
-                                }).attr('fill', function(d) { 
+                                }).attr('fill', function(d) {
                                     if (d['locStatus'] == 'warn') {
-                                    return '#f00';
+                                        return '#f00';
                                     } else {
                                         return '#f70';
-                                        
                                     }
-                                
-                            }).on('mouseover', function(d){
-        d3.select(this).attr('fill', '#0f0')
-     //   d3.select("text").style({opacity:'1.0'});
-                });
 
-                            });
+                                }).on('mouseover', function(d) {
+                                    d3.select(this).attr('fill','#ff0').transition()
+      .duration(750)
+      .attr("transform", "translate(0,0)scale(0)").attr('fill','#f00')
+                                    
+                                    console.log(this, d3.select(this))
+                                    
+                                    
+                                    
+                                    
+                               //     d['test'] = '123'
+                                })
+                            }).on('mouseout', function(d) {
+                                console.log(d)
+
+                            })
                         }, 200);
                     };
                 });

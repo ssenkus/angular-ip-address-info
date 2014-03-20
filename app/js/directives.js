@@ -182,7 +182,10 @@ angular.module('IpLocatorApp.directives', ['d3'])
                                         
                                     }
                                 
-                            });
+                            }).on('mouseover', function(d){
+        d3.select(this).attr('fill', '#0f0')
+     //   d3.select("text").style({opacity:'1.0'});
+                });
 
                             });
                         }, 200);

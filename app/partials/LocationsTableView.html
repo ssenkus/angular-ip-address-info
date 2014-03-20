@@ -1,12 +1,12 @@
-<div ng-hide='locs' class='row'>
+<div class="table-responsive">
+    <div ng-hide='locs' class='row'>
     <h1>No locations added yet!</h1>
     <p>Add Locations </p>
 
-</div>
-
-<div ng-show="locs" class="table-responsive">    
-    <div style="margin: 10px auto 0; text-align: center;" ng-show="locs" data="locs" d3-worldmap></div>
-    <table  class="table table-striped">
+    </div>
+    <div ng-show="locs" data="d3Data" d3-worldmap></div>
+    
+    <table ng-show="locs" class="table table-striped">
         <thead>
             <tr>
                 <th>IP Address</th>
@@ -28,7 +28,7 @@
                 <td>{{loc.country_name}} ({{loc.country_code}})</td>
                 <td>{{loc.latitude}}, {{loc.longitude}}</td>
                 <td>{{loc.metro_code}}</td>
-
+                
                 <td>{{loc.zipcode}}</td>
             </tr>
         </tbody>

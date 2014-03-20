@@ -116,7 +116,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
                         barPadding = parseInt(attrs.barPadding) || 5;
 
 
-                    var width = 940,
+                    var width = '100%',
                         height = 500;
 
                     var projection = d3.geo.equirectangular();
@@ -126,7 +126,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
 
                     var svg = d3.select(ele[0]).append("svg")
                         .attr("width", width)
-                        .attr("height", height).style('background-color', '#009');
+                        .attr("height", height);
 
 
 
@@ -146,11 +146,11 @@ angular.module('IpLocatorApp.directives', ['d3'])
                     }, true);
 
                     scope.render = function(data) {
-                        svg.selectAll('circle').remove();
+                        svg.selectAll('*').remove();
 
                         if (!data)
                             return;
-                        console.log('data', data)
+                        console.log('data',data)
 
                         if (renderTimeout)
                             clearTimeout(renderTimeout);
@@ -174,15 +174,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
                                     console.log(d, i)
                                     //return "translate(" + projection([-75, 43]) + ")";
                                     return "translate(" + projection([d.longitude, d.latitude]) + ")";
-                                }).attr('fill', function(d) { 
-                                    if (d['locStatus'] == 'warn') {
-                                    return '#f00';
-                                    } else {
-                                        return '#f70';
-                                        
-                                    }
-                                
-                            });
+                                }).attr('fill', '#f00');
 
                             });
                         }, 200);

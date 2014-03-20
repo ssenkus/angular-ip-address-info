@@ -34,19 +34,65 @@ angular.module('IpLocatorApp.controllers', ['d3']).
         $scope.ipAddressMatch = function(ip) {
             console.log($scope.inputPattern.test(ip));
             return $scope.inputPattern.test(ip);
+
         };
 
-        $scope.addValidIps = locationHandler.addValidIps;
-        $scope.addedTestVals = locationHandler.addedTestVals;
-        $scope.deleteLocation = function(ip) {
-            locationHandler.deleteLocation(ip);
+
+        $scope.addedTestVals = false;
+        $scope.addValidIps = function() {
+            if (this.addedTestVals) {
+                return;
+            } else {
+                var newer = [
+                    '52.43.90.82',
+                    '14.21.124.55',
+                    '22.54.76.202',
+                    '24.4.76.202',
+                    '24.24.24.24',
+                    '84.45.22.12'
+                ];
+                newer.forEach($scope.getIp);
+                $scope.addedTestVals = true;
+                return;
+            }
+        };
+
+        $scope.deleteLoc = function(idx) {
+            locationHandler.locations.splice(idx, 1);
         };
 
         $scope.getIp = function(ip) {
             $scope.ipAddress = '';
-            locationHandler.getIp(ip);
+
+            $http({
+                method: 'GET',
+                url: 'http://www.freegeoip.net/json/' + ip
+            }).
+                success(function(data, status, headers, config) {
+                console.log('success', data);
+                locationHandler.addLocation(data);
+                // this callback will be called asynchronously
+                // when the response is available
+            }).
+                error(function(data, status, headers, config) {
+                console.log('error', status);
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
         };
     }]).
-    controller('LocationsTableController', ['$scope', '$http', 'locationHandler', 'd3Service', 'topojsonService', function($scope, $http, locationHandler) {
+    controller('LocationsTableController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
         $scope.locs = locationHandler.locations;
+        $scope.d3Data = [
+            {name: "Greg",
+                score: 98},
+            {name: "Ari",
+                score: 96},
+            {name: 'Q',
+                score: 75},
+            {name: "Loser",
+                score: 48}
+        ];
+
+
     }]);

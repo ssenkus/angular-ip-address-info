@@ -111,9 +111,6 @@ angular.module('IpLocatorApp.directives', ['d3'])
                 d3Service.d3().then(function(d3) {
 
                     var renderTimeout;
-                    var margin = parseInt(attrs.margin) || 20,
-                        barHeight = parseInt(attrs.barHeight) || 20,
-                        barPadding = parseInt(attrs.barPadding) || 5;
                     var width = 940,
                         height = 500;
                     var projection = d3.geo.equirectangular();
@@ -123,14 +120,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
                     var svg = d3.select(ele[0]).append("svg")
                         .attr("width", width)
                         .attr("height", height).style('background-color', '#009');
-                    $window.onresize = function() {
-                        scope.$apply();
-                    };
-                    scope.$watch(function() {
-                        return angular.element($window)[0].innerWidth;
-                    }, function() {
-                        scope.render(scope.data);
-                    });
+
                     scope.$watch('data', function(newData) {
                         scope.render(newData);
                     }, true);
@@ -166,16 +156,16 @@ angular.module('IpLocatorApp.directives', ['d3'])
                                     }
 
                                 }).on('mouseover', function(d) {
-                                    d3.select(this).attr('fill','#ff0').transition()
-      .duration(750)
-      .attr("transform", "translate(0,0)scale(0)").attr('fill','#f00')
-                                    
+                                    d3.select(this).attr('fill', '#ff0').transition()
+                                        .duration(750)
+                                        .attr("transform", "translate(0,0)scale(0)").attr('fill', '#f00')
+
                                     console.log(this, d3.select(this))
-                                    
-                                    
-                                    
-                                    
-                               //     d['test'] = '123'
+
+
+
+
+                                    //     d['test'] = '123'
                                 })
                             }).on('mouseout', function(d) {
                                 console.log(d)

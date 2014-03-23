@@ -3,35 +3,43 @@
     <p>Add Locations </p>
 
 </div>
+<div class="row">
+    <div ng-show="locs" class="table-responsive">    
+        <div style="margin: 10px auto 0; text-align: center;" ng-show="locs" data="locs" d3-worldmap></div>
+        <table  class="table table-striped">
+            <thead>
+                <tr>
+                    <th>IP Address</th>
+                    <th>Area Code</th>
+                    <th>City</th>
+                    <th>Metro Code</th>
+                    <th>Country</th>
+                    <th>Coordinates (Lat, Long)</th>
+                    <th>Region</th>
+                    <th>Zipcode</th>
+                    <th>WHOIS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="loc in locs">
+                    <td>{{loc.ip}}</td>
+                    <td>{{loc.areacode}}</td>
+                    <td>{{loc.city}}</td>
+                    <td>{{loc.region_name}} {{loc.region_code}}</td>
+                    <td>{{loc.country_name}} ({{loc.country_code}})</td>
+                    <td>{{loc.latitude}}, {{loc.longitude}}</td>
+                    <td>{{loc.metro_code}}</td>
+                    <td>{{loc.zipcode}}</td>
+                    <td><button class="btn btn-danger" ng-click="getWhois(loc.ip)">WHOIS</button></td>                
+                </tr>
+            </tbody>
 
-<div ng-show="locs" class="table-responsive">    
-    <div style="margin: 10px auto 0; text-align: center;" ng-show="locs" data="locs" d3-worldmap></div>
-    <table  class="table table-striped">
-        <thead>
-            <tr>
-                <th>IP Address</th>
-                <th>Area Code</th>
-                <th>City</th>
-                <th>Metro Code</th>
-                <th>Country</th>
-                <th>Coordinates (Lat, Long)</th>
-                <th>Region</th>
-                <th>Zipcode</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="loc in locs">
-                <td>{{loc.ip}}</td>
-                <td>{{loc.areacode}}</td>
-                <td>{{loc.city}}</td>
-                <td>{{loc.region_name}} {{loc.region_code}}</td>
-                <td>{{loc.country_name}} ({{loc.country_code}})</td>
-                <td>{{loc.latitude}}, {{loc.longitude}}</td>
-                <td>{{loc.metro_code}}</td>
-
-                <td>{{loc.zipcode}}</td>
-            </tr>
-        </tbody>
-
-    </table>
+        </table>
+    </div>    
+</div>
+<div class="row">
+    <div ng-repeat="report in reports" class="col-md-6">
+        <h3>{{report.regIntReg}}</h3>
+        <pre>{{report.data}}</pre>
+    </div>
 </div>

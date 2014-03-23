@@ -167,10 +167,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
 
                                     //     d['test'] = '123'
                                 })
-                            }).on('mouseout', function(d) {
-                                console.log(d)
-
-                            })
+                            });
                         }, 200);
                     };
                 });

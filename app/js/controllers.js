@@ -3,8 +3,11 @@
 /* Controllers */
 
 angular.module('IpLocatorApp.controllers', ['d3']).
-    controller('HomeController', ['$scope', '$http', 'locationHandler', 'd3Service', function($scope, $http, locationHandler, d3Service) {
+    controller('HomeController', ['$scope', '$http', 'locationHandler', 'd3Service', 'whoisHandler', function($scope, $http, locationHandler, d3Service, whoisHandler) {
         $scope.message = "Hello, World";
+        console.log('whoishanlder', whoisHandler)
+
+        $scope.getWhois = whoisHandler.getWhois();
         $scope.d3Data = [
             {
                 name: "This",
@@ -47,6 +50,21 @@ angular.module('IpLocatorApp.controllers', ['d3']).
             locationHandler.getIp(ip);
         };
     }]).
-    controller('LocationsTableController', ['$scope', '$http', 'locationHandler', 'd3Service', 'topojsonService', function($scope, $http, locationHandler) {
+    controller('LocationsTableController', ['$scope', '$http', 'locationHandler', 'd3Service', 'topojsonService', 'whoisHandler', function($scope, $http, locationHandler, d3Service, topojsonService, whoisHandler) {
         $scope.locs = locationHandler.locations;
+        $scope.$watch('reports', function() {
+            console.log('reports updated')
+            console.log('$scope.reports', $scope.reports)
+        }, true); 
+
+
+        $scope.getWhois = function(ip) {
+            whoisHandler.getWhois(ip).then(function(promise) {
+                $scope.reports = promise.data;
+                console.log('promise', promise)
+
+            });
+        }
+        $scope.reports = [{regIntReg: 'test', data: 'test data'}];
+
     }]);

@@ -51,12 +51,17 @@ angular.module('IpLocatorApp.controllers', ['d3']).
         };
     }]).
     controller('LocationsTableController', ['$scope', '$http', 'locationHandler', 'd3Service', 'topojsonService', 'whoisHandler', function($scope, $http, locationHandler, d3Service, topojsonService, whoisHandler) {
-        $scope.locs = locationHandler.locations;
+        $scope.locs = locationHandler;
         $scope.$watch('reports', function() {
             console.log('reports updated')
             console.log('$scope.reports', $scope.reports)
         }, true); 
 
+//        $scope.$watch('locs', function() { alert('sdfsd');});
+
+        $scope.deleteLoc = function(idx) {
+            locationHandler.deleteLocation(idx);
+        };
 
         $scope.getWhois = function(ip) {
             whoisHandler.getWhois(ip).then(function(promise) {

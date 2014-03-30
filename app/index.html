@@ -25,16 +25,25 @@
 
         <div class="container-fluid">
             <div class="row">
-               
+
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li><a href="#/Home">Home</a></li>
                         <li><a href="#/search-by-ip">Search by IP Address</a></li>
                         <li><a href="#/locations">Locations</a></li>
+                        <li ng-controller="SearchByIpController" style="text-align:center; padding: 0px;">
+                            <div class="input-group" style="width:100%; padding: 5px;">
+                                <input style="font-size:12px;" class="form-control" type="text" ng-keypress="submitIp ($event)" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
+                                <span class="input-group-btn">
+                                    <button class="ipSearchSubmit btn" ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
+                                </span>
+                            </div>
+                            <button style="width: 100%; display:block; clear: both;" class="btn btn-default" type="button" ng-class="{'testIpVals': addedTestVals}"  ng-click="addValidIps()">Add Valid IPs</button> 
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                       <div ng-view></div>
+                    <div ng-view></div>
                 </div>
             </div>
         </div>

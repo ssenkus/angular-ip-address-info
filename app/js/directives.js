@@ -49,7 +49,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
                         renderTimeout = $timeout(function() {
                             var width = d3.select(ele[0])[0][0].offsetWidth - margin,
                                 height = scope.data.length * (barHeight + barPadding),
-                                color = d3.scale.category20(),
+                                color = d3.scale.category20c(),
                                 xScale = d3.scale.linear()
                                 .domain([0, d3.max(data, function(d) {
                                     return d.score;
@@ -58,7 +58,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
 
                             svg.attr('height', height);
 
-                            svg.selectAll('rect')
+                            var rects = svg.selectAll('rect')
                                 .data(data)
                                 .enter()
                                 .append('rect')
@@ -73,12 +73,24 @@ angular.module('IpLocatorApp.directives', ['d3'])
                             })
                                 .attr('fill', function(d) {
                                 return color(d.score);
-                            })
+                            });
+                            rects
                                 .transition()
                                 .duration(1000)
                                 .attr('width', function(d) {
                                 return xScale(d.score);
                             });
+
+                            rects.on('click', function(obj, index) {
+                                d3.select(rects[0][index]).transition().duration(1000).attr('fill', function(d) {
+                                    return color(d.score % 10);
+                                }).transition()
+                                    .duration(1000)
+                                    .attr('height', height + 10)
+
+                            });
+
+
                             svg.selectAll('text')
                                 .data(data)
                                 .enter()

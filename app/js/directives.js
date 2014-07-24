@@ -145,7 +145,7 @@ angular.module('IpLocatorApp.directives', ['d3'])
                         if (renderTimeout)
                             clearTimeout(renderTimeout);
                         renderTimeout = $timeout(function() {
-                            d3.json("http://localhost/github/angular-ip-address-info/app/lib/data/readme-world.json", function(error, world) {
+                            d3.json("lib/data/readme-world.json", function(error, world) {
                                 var countries = topojson.feature(world, world.objects.countries).features,
                                     neighbors = topojson.neighbors(world.objects.countries.geometries);
                                 svg.selectAll(".country")

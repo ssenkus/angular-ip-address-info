@@ -8,7 +8,8 @@ angular.module('IpLocatorApp', [
     'IpLocatorApp.filters',
     'IpLocatorApp.services',
     'IpLocatorApp.directives',
-    'IpLocatorApp.controllers'
+    'IpLocatorApp.controllers',
+    'ui.bootstrap'
     
 ]).
     config(['$routeProvider', function($routeProvider) {

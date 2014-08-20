@@ -19,6 +19,8 @@ angular.module('IpLocatorApp', [
             controller: 'SearchByIpController'});
         $routeProvider.when('/locations', {templateUrl: 'partials/LocationsTableView.html',
             controller: 'LocationsTableController'});
+         $routeProvider.when('/traceroute', {templateUrl: 'partials/TracerouteTableView.html',
+            controller: 'TracerouteController'});
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);
 

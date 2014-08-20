@@ -6,59 +6,182 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/dashboard.css"/>
         <link rel="stylesheet" href="css/app.css"/>
+        <style>
+            /*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
 
+            /* Toggle Styles */
+
+            #wrapper {
+                padding-left: 0;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+
+            #wrapper.toggled {
+                padding-left: 250px;
+            }
+
+            #sidebar-wrapper {
+                z-index: 1000;
+                position: fixed;
+                left: 250px;
+                width: 0;
+                height: 100%;
+                margin-left: -250px;
+                overflow-y: auto;
+                background: #000;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+
+            #wrapper.toggled #sidebar-wrapper {
+                width: 250px;
+            }
+
+            #page-content-wrapper {
+                width: 100%;
+                padding: 15px;
+            }
+
+            #wrapper.toggled #page-content-wrapper {
+                position: absolute;
+                margin-right: -250px;
+            }
+
+            /* Sidebar Styles */
+
+            .sidebar-nav {
+                position: absolute;
+                top: 0;
+                width: 250px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .sidebar-nav li {
+                text-indent: 20px;
+                line-height: 40px;
+            }
+
+            .sidebar-nav li a {
+                display: block;
+                text-decoration: none;
+                color: #999999;
+            }
+
+            .sidebar-nav li a:hover {
+                text-decoration: none;
+                color: #fff;
+                background: rgba(255,255,255,0.2);
+            }
+
+            .sidebar-nav li a:active,
+            .sidebar-nav li a:focus {
+                text-decoration: none;
+            }
+
+            .sidebar-nav > .sidebar-brand {
+                height: 65px;
+                font-size: 18px;
+                line-height: 60px;
+            }
+
+            .sidebar-nav > .sidebar-brand a {
+                color: #999999;
+            }
+
+            .sidebar-nav > .sidebar-brand a:hover {
+                color: #fff;
+                background: none;
+            }
+
+            @media(min-width:768px) {
+                #wrapper {
+                    padding-left: 250px;
+                }
+
+                #wrapper.toggled {
+                    padding-left: 0;
+                }
+
+                #sidebar-wrapper {
+                    width: 250px;
+                }
+
+                #wrapper.toggled #sidebar-wrapper {
+                    width: 0;
+                }
+
+                #page-content-wrapper {
+                    padding: 20px;
+                }
+
+                #wrapper.toggled #page-content-wrapper {
+                    position: relative;
+                    margin-right: 0;
+                }
+            }
+
+
+        </style>
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">AngularJS IP Address Info</a>
-                </div>
-            </div>
-        </div>
 
-        <div class="container-fluid">
-            <div class="row">
+        <div id="wrapper">
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">AngularJS IP Address Info</a>
+                    </div>
+                    <ul class="nav navbar-nav">
 
-                <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class="nav nav-sidebar">
-                        <li><a href="#/Home">Home</a></li>
-                        <li><a href="#/search-by-ip">Search by IP Address</a></li>
-                        <li><a href="#/locations">Locations</a></li>
-                        <li ng-controller="SearchByIpController" style="text-align:center; padding: 0px;">
-                            <div class="input-group" style="width:100%; padding: 5px;">
-                                <input style="font-size:12px;" class="form-control" type="text" ng-keypress="submitIp ($event)" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
-                                <span class="input-group-btn">
-                                    <button class="ipSearchSubmit btn" ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
-                                </span>
-                            </div>
-                            <button style="width: 100%; display:block; clear: both;" class="btn btn-default" type="button" ng-class="{'testIpVals': addedTestVals}"  ng-click="addValidIps()">Add Valid IPs</button> 
-                        </li>
-                        <!-- Tech info: http://www.exit109.com/~jeremy/news/providers/traceroute.html#reading -->
-                        <li ng-controller="TracerouteCtrl">
-                            <ul>
-                                <li ng-repeat="route in routes">{{route.ip_address}}</li>
-                            </ul>
-                            
-                        </li>
+
+                        <li><a href="#menu-toggle"  id="menu-toggle">Toggle Menu</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <div ng-view></div>
+            </div>
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li><a href="#/Home">Home</a></li>
+                    <li><a href="#/search-by-ip">Search by IP Address</a></li>
+                    <li><a href="#/locations">Locations</a></li>
+                    <li><a href="#/traceroute">Traceroute</a></li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div ng-view></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- /#page-content-wrapper -->
 
-        <hr style="clear: both;" />
-        <!-- In production use:
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-        -->
+        </div>
+        <!-- /#wrapper -->
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="lib/angular/angular.js"></script>
         <script src="lib/angular/angular-route.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -68,5 +191,13 @@
         <script src="js/controllers.js"></script>
         <script src="js/filters.js"></script>
         <script src="js/directives.js"></script>
+
+        <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
+
     </body>
 </html>

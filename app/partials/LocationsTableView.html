@@ -1,49 +1,44 @@
 <div ng-hide='locs' class='row'>
     <h1>No locations added yet!</h1>
     <p>Add Locations </p>
-
 </div>
 <div class="row">
-    <div ng-show="locs" class="table-responsive">    
-        <div style="margin: 10px auto 0; text-align: center;" ng-show="locs" data="locs.locations" d3-worldmap></div>
-        <table  class="table table-striped">
-            <thead>
-                <tr>
-                    <th>IP Address</th>
-                    <th>Area Code</th>
-                    <th>City</th>
-                    <th>Metro Code</th>
-                    <th>Country</th>
-                    <th>Coordinates (Lat, Long)</th>
-                    <th>Region</th>
-                    <th>Zipcode</th>
-                    <th>Actions</th>
-                    <th>WHOIS</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="loc in locs.locations">
-                    <td>{{loc.ip}}</td>
-                    <td>{{loc.areacode}}</td>
-                    <td>{{loc.city}}</td>
-                    <td>{{loc.region_name}} {{loc.region_code}}</td>
-                    <td>{{loc.country_name}} ({{loc.country_code}})</td>
-                    <td>{{loc.latitude}}, {{loc.longitude}}</td>
-                    <td>{{loc.metro_code}}</td>
-                    <td>{{loc.zipcode}}</td>
-                    <td><button ng-click="deleteLoc($index)" class="btn btn-warning">DELETE</button></td>
-                    <td><button class="btn btn-danger" ng-click="getWhois(loc.ip)">WHOIS</button></td>                
-                </tr>
-            </tbody>
+    <div style="margin: 10px auto 0; text-align: center;" ng-show="locs" data="locs.locations" d3-worldmap></div>        
+</div>
+<div class="row">
+    <div ng-show="locs">    
 
-        </table>
+        <div class="table-responsive">
+            <table  class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>IP Address</th>
+                        <th>Area Code</th>
+                        <th>City</th>
+                        <th>Metro Code</th>
+                        <th>Country</th>
+                        <th>Coordinates (Lat, Long)</th>
+                        <th>Region</th>
+                        <th>Zipcode</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loc in locs.locations">
+                        <td>{{loc.ip}}</td>
+                        <td>{{loc.area_code}}</td>
+                        <td>{{loc.city}}</td>
+                        <td>{{loc.region_name}} {{loc.region_code}}</td>
+                        <td>{{loc.country_name}} ({{loc.country_code}})</td>
+                        <td>{{loc.latitude}}, {{loc.longitude}}</td>
+                        <td>{{loc.metro_code}}</td>
+                        <td>{{loc.zipcode}}</td>
+                        <td><button ng-click="deleteLoc($index)" class="btn btn-block btn-warning">DELETE</button>
+                            <button class="btn btn-block btn-danger" ng-click="getWhois(loc.ip)">WHOIS</button></td>                
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
     </div>    
-</div>
-<div class="row">
-<tabset ng-show="reports.length > 0">
-    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
-        <pre>{{tab.content}}</pre>
-    </tab>
-
-  </tabset>
 </div>

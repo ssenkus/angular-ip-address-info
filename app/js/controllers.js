@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-angular.module('IpLocatorApp.controllers', ['d3', 'ui.bootstrap']).
-        controller('HomeController', ['$scope', '$http', 'locationHandler', 'd3Service', 'whoisHandler', function($scope, $http, locationHandler, d3Service, whoisHandler) {
+angular.module('IpLocatorApp.controllers', ['d3', 'ui.bootstrap'])
+        .controller('HomeController', ['$scope', '$http', 'locationHandler', 'd3Service', 'whoisHandler', function($scope, $http, locationHandler, d3Service, whoisHandler) {
                 $scope.message = "Hello, World";
                 console.log('whoishanlder', whoisHandler)
 
@@ -23,8 +23,8 @@ angular.module('IpLocatorApp.controllers', ['d3', 'ui.bootstrap']).
                         score: 28
                     }
                 ];
-            }]).
-        controller('SearchByIpController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
+            }])
+        .controller('SearchByIpController', ['$scope', '$http', 'locationHandler', function($scope, $http, locationHandler) {
                 $scope.ipAddress = '';
                 $scope.locations = locationHandler.locations;
                 $scope.validInput = false;
@@ -49,8 +49,8 @@ angular.module('IpLocatorApp.controllers', ['d3', 'ui.bootstrap']).
                     $scope.ipAddress = '';
                     locationHandler.getIp(ip);
                 };
-            }]).
-        controller('LocationsTableController', ['$scope', '$http', 'locationHandler', 'd3Service', 'topojsonService', 'whoisHandler', function($scope, $http, locationHandler, d3Service, topojsonService, whoisHandler) {
+            }])
+        .controller('LocationsTableController', ['$scope', '$http', 'locationHandler', 'd3Service', 'topojsonService', 'whoisHandler', '$modal', function($scope, $http, locationHandler, d3Service, topojsonService, whoisHandler, $modal) {
                 $scope.locs = locationHandler;
                 $scope.tabs = [
                 ];
@@ -59,33 +59,76 @@ angular.module('IpLocatorApp.controllers', ['d3', 'ui.bootstrap']).
                     console.log('$scope.reports', $scope.reports)
                 }, true);
 
-//        $scope.$watch('locs', function() { alert('sdfsd');});
-
                 $scope.deleteLoc = function(idx) {
                     locationHandler.deleteLocation(idx);
                 };
 
                 $scope.getWhois = function(ip) {
-                    whoisHandler.getWhois(ip).then(function(promise) {
-                        $scope.reports = promise.data;
-                        console.log('promise', promise)
-                        $scope.tabs = [];
-                        for (var report in promise.data) {
 
-                            
-                            $scope.tabs.push({title: promise.data[report].regIntReg, content: promise.data[report].data})
-                            console.log('$scope.tabs',$scope.tabs);
+                    var modalInstance = $modal.open({
+                        templateUrl: 'partials/modals/WhoisModalView.html',
+                        controller: 'ModalInstanceCtrl',
+                        size: 'lg',
+                        resolve: {
+                            ip: function() {
+                                return ip;
+                            },
+                            tabs: function() {
+                                return $scope.tabs;
+                            }
                         }
                     });
+
+//                    whoisHandler.getWhois(ip).then(function(promise) {
+//                        $scope.reports = promise.data;
+//                        console.log('promise', promise)
+//                        $scope.tabs = [];
+//                        for (var report in promise.data) {
+//
+//
+//                            $scope.tabs.push({title: promise.data[report].regIntReg, content: promise.data[report].data})
+//                            console.log('$scope.tabs', $scope.tabs);
+//                        }
+//
+//                    });
                 };
                 $scope.reports = [{regIntReg: 'test', data: 'test data'}];
 
-            }]).controller('TracerouteCtrl', ['$scope', 'TracerouteService', function($scope, TracerouteService) {
-        $scope.routes = [];
-        TracerouteService.getTraceroute().then(function(resp) {
-            console.log('dsfsdfsdf', resp.data);
-            $scope.routes = resp.data.data;
-            console.log('$scope.routes', $scope.routes);
-        });
+            }]).
+        controller('TracerouteController', ['$scope', 'TracerouteService', function($scope, TracerouteService) {
+                $scope.routes = [];
+                $scope.getTracerouteData = function() {
+                    TracerouteService.getTraceroute().then(function(resp) {
+                        console.log('dsfsdfsdf', resp.data);
+                        $scope.routes = resp.data.data;
+                        console.log('$scope.routes', $scope.routes);
+                    });
+                };
+            }])
+        .controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'whoisHandler', 'ip', 'tabs', function($scope, $modalInstance, whoisHandler, ip, tabs) {
+                $scope.items = [0, 1, 2, 3]
+                $scope.reports = [];
+                $scope.tabs = tabs;
+                $scope.ip = ip;
+//                $scope.ip = '123.123.123.123';
+                $scope.selected = {
+                    item: $scope.items[0]
+                };
 
-    }]);
+                whoisHandler.getWhois($scope.ip).then(function(promise) {
+                    $scope.reports = promise.data;
+                    $scope.tabs = [];
+                    for (var report in promise.data) {
+                        $scope.tabs.push({title: promise.data[report].regIntReg, content: promise.data[report].data})
+                    }
+                });
+
+
+                $scope.ok = function() {
+                    $modalInstance.close($scope.selected.item);
+                };
+
+                $scope.cancel = function() {
+                    $modalInstance.dismiss('cancel');
+                };
+            }]);

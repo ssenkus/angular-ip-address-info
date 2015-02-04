@@ -1,0 +1,29 @@
+<div class="locatorView" ng-controller="SearchByIpCtrl">
+    <div class="row">
+        <div class="col-md-4 input-group">
+            <input class="form-control" type="text" ng-keypress="submitIp ($event)" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
+            <span class="input-group-btn">
+                <button class="ipSearchSubmit btn" ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
+                <button class="btn btn-default" type="button" ng-class="{'testIpVals': addedTestVals}"  ng-click="addValidIps()">Add Valid IPs</button> 
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" ng-repeat="loc in locations" >
+
+            <div ng-class="{'panel-primary': loc.locStatus == 'ok', 'panel-warning': loc.locStatus == 'warn' }" class="panel">
+                <div ng-class="{'panel-primary': loc.locStatus == 'ok', 'panel-warning': loc.locStatus == 'warn' }" class="panel-heading">
+                    <h3 class="panel-title">IP: {{loc.ip}}</h3>
+                </div>
+                <div class="panel-body" ng-class="{'panel-primary': loc.locStatus == 'ok', 'panel-warning': loc.locStatus == 'warn' }">
+                    <ul>
+                        <li>{{loc.city}}, {{loc.region_name}} {{loc.zipcode}}</li>
+                        <li>{{loc.country_name}}</li>
+                        <li>Lat/Lng: ({{loc.latitude}}, {{loc.longitude}}) </li>
+                    </ul>
+                </div>
+                <div class="panel-footer"><!-- <button class='btn btn-success'>Locate on map</button>--><button ng-click="deleteLocation($index)" class='btn btn-danger'>Delete</button></div>
+            </div>
+        </div>
+    </div>        
+</div>

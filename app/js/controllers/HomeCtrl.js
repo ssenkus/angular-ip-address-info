@@ -1,10 +1,7 @@
 angular.module('IpLocatorApp').controller('HomeCtrl',
-        ['$scope', '$http', 'locationHandler', 'd3Service', 'whoisHandler',
-            function ($scope, $http, locationHandler, d3Service, whoisHandler) {
+        ['$scope',
+            function ($scope) {
                 $scope.message = "Hello, World";
-                console.log('whoishanlder', whoisHandler)
-
-                $scope.getWhois = whoisHandler.getWhois();
                 $scope.d3Data = [
                     {
                         name: "This",

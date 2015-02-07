@@ -1,12 +1,12 @@
-<div ng-hide='locs' class='row'>
+<div ng-hide="locations.length >  0" class='row'>
     <h1>No locations added yet!</h1>
     <p>Add Locations </p>
 </div>
 <div class="row">
-    <div style="margin: 10px auto 0; text-align: center;" ng-show="locs" data="locs.locations" world-map></div>        
+    <div style="margin: 10px auto 0; text-align: center;" ng-show="locs" data="locations" world-map></div>        
 </div>
 <div class="row">
-    <div ng-show="locs">    
+    <div>    
 
         <div class="table-responsive">
             <table  class="table table-striped">
@@ -24,17 +24,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="loc in locs.locations">
-                        <td>{{loc.ip}}</td>
-                        <td>{{loc.area_code}}</td>
-                        <td>{{loc.city}}</td>
-                        <td>{{loc.region_name}} {{loc.region_code}}</td>
-                        <td>{{loc.country_name}} ({{loc.country_code}})</td>
-                        <td>{{loc.latitude}}, {{loc.longitude}}</td>
-                        <td>{{loc.metro_code}}</td>
-                        <td>{{loc.zipcode}}</td>
+                    <tr ng-repeat="location in locations">
+                        <td>{{location.ip}}</td>
+                        <td>{{location.area_code}}</td>
+                        <td>{{location.city}}</td>
+                        <td>{{location.region_name}} {{location.region_code}}</td>
+                        <td>{{location.country_name}} ({{location.country_code}})</td>
+                        <td>{{location.latitude}}, {{location.longitude}}</td>
+                        <td>{{location.metro_code}}</td>
+                        <td>{{location.zipcode}}</td>
                         <td><button ng-click="deleteLoc($index)" class="btn btn-block btn-warning">DELETE</button>
-                            <button class="btn btn-block btn-danger" ng-click="getWhois(loc.ip)">WHOIS</button></td>                
+                            <button class="btn btn-block btn-danger" ng-click="getWhois(location.ip)">WHOIS</button></td>                
                     </tr>
                 </tbody>
 

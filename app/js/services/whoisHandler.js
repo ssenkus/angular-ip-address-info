@@ -4,9 +4,7 @@ angular.module('IpLocatorApp').factory('whoisHandler', function ($http) {
             this.whoisReports = report;
         },
         getWhois: function (ip) {
-            console.log(ip)
             var target = 'api/whois.php';
-            console.log(target);
             var promise = $http({
                 method: 'GET',
                 url: target,

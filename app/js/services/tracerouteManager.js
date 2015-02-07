@@ -8,10 +8,7 @@ angular.module('IpLocatorApp').
                         console.log(target);
                         var promise = $http({
                             method: 'GET',
-                            url: target,
-//                            params: {
-//                                whois_domain: ip
-//                            }
+                            url: target
                         })
                                 .success(function (data, status, headers, config) {
                                     console.log('got traceroute data', data)

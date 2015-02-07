@@ -1,8 +1,8 @@
 angular.module('IpLocatorApp').controller('SearchByIpCtrl',
-        ['$scope', '$http', 'locationHandler',
-            function ($scope, $http, locationHandler) {
+        ['$scope', '$http', 'locationHandler', 'whoisHandler',
+            function ($scope, $http, locationHandler, whoisHandler) {
                 $scope.ipAddress = '';
-                $scope.locations = locationHandler.locations;
+                $scope.locations = locationHandler.getLocations();
                 $scope.validInput = false;
                 $scope.inputPattern = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
                 $scope.submitIp = function (ev) {
@@ -20,7 +20,15 @@ angular.module('IpLocatorApp').controller('SearchByIpCtrl',
                 $scope.deleteLocation = function (ip) {
                     locationHandler.deleteLocation(ip);
                 };
-
+                $scope.getWhoisReports = function(ip) {
+                    whoisHandler.getWhois(ip).then(
+                            function(response) {
+                                console.log('locations', $scope.locations, arguments);
+                                locationHandler.addWhoisDataToLocation(ip, response.data)
+                            }, 
+                            function() {});
+                    console.log('asdfad', ip);
+                };
                 $scope.getIp = function (ip) {
                     $scope.ipAddress = '';
                     locationHandler.getIp(ip);

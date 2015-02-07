@@ -1,24 +1,32 @@
-   
-       angular.module('IpLocatorApp').service('locationHandler', function($http) {
-            var that = this;
-            this.locations = [];
-            this.addLocation = function(location) {
-                console.log('location', location);
+angular.module('IpLocatorApp').factory('locationHandler', ['$http', function ($http) {
+
+        var locations = [];
+        var addedTestVals = false;
+
+        function addLocation(location) {
+            if (location.city === "") {
+                location.locStatus = "warn";
+            } else {
+                location.locStatus = "ok";
+            }
+            locations.push(location);
+        }
+
+
+        return {
+            addLocation: function (location) {
                 if (location.city === "") {
                     location.locStatus = "warn";
                 } else {
                     location.locStatus = "ok";
                 }
-
-                this.locations.push(location);
-                console.log('added location', this.locations);
-            };
-            this.deleteLocation = function(idx) {
-                this.locations.splice(idx, 1);
-            };
-            this.addedTestVals = false;
-            this.addValidIps = function() {
-                if (this.addedTestVals) {
+                locations.push(location);
+            },
+            deleteLocation: function (index) {
+                locations.splice(index, 1);
+            },
+            addValidIps: function () {
+                if (addedTestVals) {
                     return;
                 } else {
                     var newer = [
@@ -32,21 +40,50 @@
                         '84.45.22.12'
                     ];
                     newer.forEach(this.getIp);
-                    this.addedTestVals = true;
+                    addedTestVals = true;
                     return;
                 }
-            };
-            this.getIp = function(ip) {
+            },
+            getIp: function (ip) {
                 $http({
                     method: 'GET',
                     url: 'http://www.freegeoip.net/json/' + ip
                 }).
-                        success(function(data, status, headers, config) {
+                        success(function (data, status, headers, config) {
                             console.log('success', data);
-                            that.addLocation(data);
+                            addLocation(data);
                         }).
-                        error(function(data, status, headers, config) {
+                        error(function (data, status, headers, config) {
                             console.log('error', status);
                         });
-            };
-        });
+            },
+            getLocations: function () {
+                return locations;
+            },
+            addWhoisDataToLocation: function(ip, whoisData) {
+                console.log(_.findWhere(locations, {'ip': ip}));
+                var location = _.findWhere(locations, {'ip': ip});
+                location.whoisData = whoisData;
+                console.log('location!', location);
+            },
+            getWhois: function (ip) {
+                var target = 'api/whois.php';
+                var promise = $http({
+                    method: 'GET',
+                    url: target,
+                    params: {
+                        whois_domain: ip
+                    }
+                })
+                        .success(function (data, status, headers, config) {
+                            console.log('got whois data', data)
+
+                            return data;
+                        })
+                        .error(function (data, status, headers, config) {
+                            return {"status": false};
+                        });
+                return promise;
+            }
+        };
+    }]);

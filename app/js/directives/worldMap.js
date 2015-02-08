@@ -29,39 +29,46 @@ angular.module('IpLocatorApp').directive('worldMap',
 
                         scope.render = function (data) {
                             svg.selectAll('circle').remove();
-                            if (!data)
+                            if (!data) {
                                 return;
+                            }
                             console.log('data', data)
-                            if (renderTimeout)
-                                clearTimeout(renderTimeout);
-                            renderTimeout = $timeout(function () {
-                                d3.json("data/readme-world.json", function (error, world) {
-                                    var countries = topojson.feature(world, world.objects.countries).features,
-                                            neighbors = topojson.neighbors(world.objects.countries.geometries);
-                                    svg.selectAll(".country")
-                                            .data(countries)
-                                            .enter().insert("path", ".graticule")
-                                            .attr("class", "country")
-                                            .attr("d", path)
-                                            .style("fill", function (d, i) {
-                                                return '#000';
-                                            });
-                                    svg.selectAll('circle').data(data).enter().append('circle').attr("r", 3).attr("transform", function (d, i) {
+                            //    if (renderTimeout)
+                            //          clearTimeout(renderTimeout);
+                            //        renderTimeout = $timeout(function () {
+                            d3.json("data/readme-world.json", function (error, world) {
+                                var countries = topojson.feature(world, world.objects.countries).features,
+                                        neighbors = topojson.neighbors(world.objects.countries.geometries);
+                                svg.selectAll(".country")
+                                        .data(countries)
+                                        .enter().insert("path", ".graticule")
+                                        .attr("class", "country")
+                                        .attr("d", path)
+                                        .style("fill", function (d, i) {
+                                            return '#000';
+                                        });
+                                svg.selectAll('circle')
+                                        .data(data)
+                                        .enter()
+                                        .append('circle')
+                                        .attr("r", 3)
+                                        .attr("transform", function (d, i) {
 
-                                        return "translate(" + projection([d.longitude, d.latitude]) + ")";
-                                    }).attr('fill', function (d) {
-                                        if (d['locStatus'] === 'warn') {
-                                            return '#f00';
-                                        } else {
-                                            return '#f70';
-                                        }
-                                    }).on('mouseover', function (d) {
-                                        console.log('mouseover',d);
-                                        d3.select(this).attr('fill', '#00f')
-                                        
-                                    })
-                                });
-                            }, 200);
+                                            return "translate(" + projection([d.longitude, d.latitude]) + ")";
+                                        })
+                                        .attr('fill', function (d) {
+                                            if (d['locStatus'] === 'warn') {
+                                                return '#f00';
+                                            } else {
+                                                return '#f70';
+                                            }
+                                        })
+                                        .on('mouseover', function (d) {
+                                            console.log('mouseover', d);
+                                            d3.select(this).attr('fill', '#00f')
+                                        });
+                            });
+//                            }, 200);
                         };
 
                     }

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/dashboard.css"/>
         <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
     </head>
     <body>
         <div id="wrapper" ng-controller="MenuCtrl">
@@ -63,6 +64,7 @@
         <script src="vendor/angular-route/angular-route.js"></script>     
         <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="vendor/d3/d3.js"></script>
+        <script src="vendor/d3-tip/index.js"></script>
         <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
         <script src="vendor/topojson/topojson.js"></script>
 

@@ -17,10 +17,14 @@ angular.module('IpLocatorApp').directive('worldMap',
                                 color = d3.scale.category20c(),
                                 path = d3.geo.path()
                                 .projection(projection),
+                                tip = tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
+                                    console.log('ddd', d);
+                            return 'IP ADDRESS' +  d.ip;
+                        }),
                                 svg = d3.select(ele[0])
                                 .append("svg")
                                 .attr("width", width)
-                                .attr("height", height).style('background-color', '#009');
+                                .attr("height", height).style('background-color', '#009').call(tip);
 
 
                         scope.$watch('data', function (newData) {
@@ -33,6 +37,9 @@ angular.module('IpLocatorApp').directive('worldMap',
                                 return;
                             }
                             console.log('data', data)
+
+
+                            //tip.call(svg);
                             //    if (renderTimeout)
                             //          clearTimeout(renderTimeout);
                             //        renderTimeout = $timeout(function () {
@@ -52,6 +59,12 @@ angular.module('IpLocatorApp').directive('worldMap',
                                         .enter()
                                         .append('circle')
                                         .attr("r", 3)
+                                        .attr('y', function (d) {
+                                            return d
+                                        })
+                                        .attr('x', function (d, i) {
+                                            return i
+                                        })
                                         .attr("transform", function (d, i) {
 
                                             return "translate(" + projection([d.longitude, d.latitude]) + ")";
@@ -66,7 +79,8 @@ angular.module('IpLocatorApp').directive('worldMap',
                                         .on('mouseover', function (d) {
                                             console.log('mouseover', d);
                                             d3.select(this).attr('fill', '#00f')
-                                        });
+                                        }).on('mouseover', tip.show)
+                                        .on('mouseout', tip.hide);
                             });
 //                            }, 200);
                         };

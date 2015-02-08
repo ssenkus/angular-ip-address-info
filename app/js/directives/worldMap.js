@@ -18,9 +18,9 @@ angular.module('IpLocatorApp').directive('worldMap',
                                 path = d3.geo.path()
                                 .projection(projection),
                                 tip = tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
-                                    console.log('ddd', d);
-                            return 'IP ADDRESS' +  d.ip;
-                        }),
+
+                            return 'IP ADDRESS: ' + d.ip;
+                        }).direction('ne'),
                                 svg = d3.select(ele[0])
                                 .append("svg")
                                 .attr("width", width)

@@ -14,14 +14,9 @@ angular.module('IpLocatorApp', [
                     templateUrl: 'views/HomeView.html',
                     controller: 'HomeCtrl'
                 })
-                .state('search-by-ip', {
-                    url: '/search',
-                    templateUrl: 'views/SearchByIpView.html',
-                    controller: 'SearchByIpCtrl'
-                })
                 .state('locations', {
                     url: '/locations',
-                    templateUrl: 'views/LocationsTableView.html',
+                    templateUrl: 'views/LocationsLayout.html',
                     controller: 'LocationsTableCtrl'
                 })
                 .state('traceroute', {

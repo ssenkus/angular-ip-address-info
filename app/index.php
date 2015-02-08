@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/dashboard.css"/>
         <link rel="stylesheet" href="css/app.css"/>
-        <link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
     </head>
     <body>
         <div id="wrapper" ng-controller="MenuCtrl">
@@ -30,8 +29,7 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="search-by-ip">Search by IP Address</a></li>
-                    <li><a ui-sref="locations">Locations</a></li>
+                    <li><a ui-sref="locations">World Map</a></li>
                     <li><a ui-sref="traceroute">Traceroute</a></li>
                     <li  ng-controller="SearchByIpCtrl" style="padding: 10px;">
                         <input class="form-control" type="text" ng-keypress="submitIp($event)" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />

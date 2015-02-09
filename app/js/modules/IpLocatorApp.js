@@ -5,12 +5,13 @@
 angular.module('IpLocatorApp', [
     'ngRoute',
     'ui.bootstrap',
-    'ui.router'
+    'ui.router',
+    'angularSpinner'
 ]).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
         $stateProvider
                 .state('home', {
-                    url: '/home',
+                    url: '/',
                     templateUrl: 'views/HomeView.html',
                     controller: 'HomeCtrl'
                 })
@@ -24,6 +25,7 @@ angular.module('IpLocatorApp', [
                     templateUrl: 'views/TracerouteTableView.html',
                     controller: 'TracerouteCtrl'
                 });
+
     }]);
 
 

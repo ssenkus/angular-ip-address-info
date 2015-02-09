@@ -1,4 +1,4 @@
-angular.module('IpLocatorApp').factory('locationHandler', ['$http', function ($http) {
+angular.module('IpLocatorApp').factory('locationHandler', ['$http', '$q', function ($http, $q) {
 
         var locations = [];
         var addedTestVals = false;
@@ -60,15 +60,18 @@ angular.module('IpLocatorApp').factory('locationHandler', ['$http', function ($h
             getLocations: function () {
                 return locations;
             },
-            addWhoisDataToLocation: function(ip, whoisData) {
+            addWhoisDataToLocation: function (ip, whoisData) {
                 console.log(_.findWhere(locations, {'ip': ip}));
                 var location = _.findWhere(locations, {'ip': ip});
                 location.whoisData = whoisData;
                 console.log('location!', location);
             },
             getWhois: function (ip) {
+                var defer = $q.defer();
                 var target = 'api/whois.php';
-                var promise = $http({
+
+
+                $http({
                     method: 'GET',
                     url: target,
                     params: {
@@ -78,12 +81,12 @@ angular.module('IpLocatorApp').factory('locationHandler', ['$http', function ($h
                         .success(function (data, status, headers, config) {
                             console.log('got whois data', data)
 
-                            return data;
+                            defer.resolve(data);
                         })
                         .error(function (data, status, headers, config) {
-                            return {"status": false};
+                            defer.resolve({"status": false});
                         });
-                return promise;
+                return defer.promise;
             }
         };
     }]);

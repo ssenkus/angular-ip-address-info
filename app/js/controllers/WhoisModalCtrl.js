@@ -1,27 +1,23 @@
 angular.module('IpLocatorApp').controller('WhoisModalCtrl',
-        ['$scope', '$modalInstance', 'whoisHandler', 'ip', 'tabs',
-            function ($scope, $modalInstance, whoisHandler, ip, tabs) {
+        ['$scope', '$modalInstance', 'locationHandler', 'ip', 'tabs', 'usSpinnerService',
+            function ($scope, $modalInstance, locationHandler, ip, tabs, usSpinnerService) {
                 $scope.items = [0, 1, 2, 3]
                 $scope.reports = [];
                 $scope.tabs = tabs;
                 $scope.ip = ip;
-
+                console.log(arguments);
                 $scope.selected = {
                     item: $scope.items[0]
                 };
 
-                whoisHandler.getWhois($scope.ip).then(function (promise) {
-                    $scope.reports = promise.data;
+                locationHandler.getWhois($scope.ip).then(function (data) {
+                    $scope.reports = data;
                     $scope.tabs = [];
-                    for (var report in promise.data) {
-                        $scope.tabs.push({title: promise.data[report].regIntReg, content: promise.data[report].data})
+                    for (var report in $scope.reports) {
+                        $scope.tabs.push({title: $scope.reports[report].regIntReg, content: $scope.reports[report].data})
                     }
+                    usSpinnerService.stop('whois-spinner')
                 });
-
-
-                $scope.ok = function () {
-                    $modalInstance.close($scope.selected.item);
-                };
 
                 $scope.cancel = function () {
                     $modalInstance.dismiss('cancel');

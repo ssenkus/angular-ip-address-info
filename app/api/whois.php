@@ -15,11 +15,11 @@ function getDomain($domain) {
     $count = 0;
     foreach($whois_registries as $reg) {
         $out_data[$count] = array();
-        $connection = @fsockopen($reg, 43);
+        $connection = fsockopen($reg, 43);
         if ($connection) {
             @fputs($connection, $domain ."\r\n");
             while (!feof($connection)) {
-                $whois .= @fgets($connection, 128);
+                $whois .= fgets($connection, 128);
             }
 
         }

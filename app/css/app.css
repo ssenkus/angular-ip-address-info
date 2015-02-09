@@ -256,3 +256,9 @@
   top: 50%;
   left: 100%;
 }
+
+
+/* MODAL */
+.modal-body {
+    transition: all 2s linear;
+}

@@ -31,6 +31,7 @@ angular.module('IpLocatorApp').factory('locationHandler', ['$http', '$q', functi
                 } else {
                     var newer = [
                         '50.43.90.82',
+                        '107.170.178.153',
                         '71.193.202.188',
                         '209.68.11.55',
                         '14.21.124.55',
@@ -69,23 +70,29 @@ angular.module('IpLocatorApp').factory('locationHandler', ['$http', '$q', functi
             getWhois: function (ip) {
                 var defer = $q.defer();
                 var target = 'api/whois.php';
+                console.log('find before ajax', _.findWhere(locations, {ip: ip}));
+                if (_.findWhere(locations, {ip: ip}).whoisData) {
+                    var selected = _.findWhere(locations, {ip: ip});
+                    console.log('selected', selected.whoisData)
+                    defer.resolve(selected.whoisData);
 
+                } else {
+                    $http({
+                        method: 'GET',
+                        url: target,
+                        params: {
+                            whois_domain: ip
+                        }
+                    })
+                            .success(function (data, status, headers, config) {
+                                console.log('got whois data', data)
 
-                $http({
-                    method: 'GET',
-                    url: target,
-                    params: {
-                        whois_domain: ip
-                    }
-                })
-                        .success(function (data, status, headers, config) {
-                            console.log('got whois data', data)
-
-                            defer.resolve(data);
-                        })
-                        .error(function (data, status, headers, config) {
-                            defer.resolve({"status": false});
-                        });
+                                defer.resolve(data);
+                            })
+                            .error(function (data, status, headers, config) {
+                                defer.resolve({"status": false});
+                            });
+                }
                 return defer.promise;
             }
         };

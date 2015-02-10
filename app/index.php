@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <title>AngularJS IP Address Info</title>
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/dashboard.css"/>
-        <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="/css/dashboard.css"/>
+        <link rel="stylesheet" href="/css/app.css"/>
     </head>
     <body>
         <div id="wrapper" ng-controller="MenuCtrl">

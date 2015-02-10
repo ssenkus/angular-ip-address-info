@@ -11,6 +11,8 @@ angular.module('IpLocatorApp').controller('WhoisModalCtrl',
                 };
 
                 locationHandler.getWhois($scope.ip).then(function (data) {
+                    
+                    locationHandler.addWhoisDataToLocation($scope.ip, data)
                     $scope.reports = data;
                     $scope.tabs = [];
                     for (var report in $scope.reports) {

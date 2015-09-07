@@ -5,6 +5,7 @@ IpApp.controller('LocationsTableCtrl',
             $scope.tabs = [];
 
             $scope.initialize = function () {
+                locationCollection.getUserLocation();
                 $scope.locations = locationCollection.getLocations();
             };
 

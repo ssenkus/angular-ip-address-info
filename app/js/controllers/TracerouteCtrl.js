@@ -1,6 +1,6 @@
 IpApp.controller('TracerouteCtrl',
-        ['$scope', 'tracerouteManager',
-            function ($scope, tracerouteManager) {
+        ['$scope', 'tracerouteManager', 'locationCollection',
+            function ($scope, tracerouteManager, locationCollection) {
                 $scope.routes = [];
                 $scope.getTracerouteData = function () {
                     tracerouteManager.getTraceroute().then(function (resp) {
@@ -9,5 +9,10 @@ IpApp.controller('TracerouteCtrl',
                         console.log('$scope.routes', $scope.routes);
                     });
                 };
+                
+                $scope.addIpAddressToLocations = function(ip) {
+                    locationCollection.getIp(ip);
+                };
+                
             }]
         );

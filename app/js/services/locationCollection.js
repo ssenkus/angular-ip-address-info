@@ -1,6 +1,6 @@
 IpApp.factory('locationCollection',
-    ['$http','$q','ipAddressRepository',
-        function ($http,$q,ipAddressRepository) {
+    ['$http','$q','ipAddressRepository','$window',
+        function ($http,$q,ipAddressRepository,$window) {
 
             var locations = [];
             var demoLocations = [
@@ -16,7 +16,7 @@ IpApp.factory('locationCollection',
 
             var addedTestVals = false;
 
-
+            var userIp = null;
 
             function addLocation(location) {
                 if (location.city === "") {
@@ -55,8 +55,7 @@ IpApp.factory('locationCollection',
                 return e > 0 && e < t.length && (t.length = e),t
             }
 
-
-            return {
+            var locationCollection = {
                 addLocation: function (location) {
                     if (location.city === "") {
                         location.locStatus = "warn";
@@ -129,6 +128,29 @@ IpApp.factory('locationCollection',
                     }
 
                     randomIps.forEach(this.getIp);
+                },
+                getUserLocation: function () {
+                    return _.findWhere(locations,{
+                        ip: userIp
+                    });
+                },
+                initialize: function () {
+                    var self = this;
+                    function getUserIp() {
+                        return $http.jsonp('https://api.ipify.org/?format=jsonp&callback=JSON_CALLBACK').then(function (response) {
+                            userIp = response.data.ip;
+                            console.log(this);
+                            self.getIp(userIp);
+                        },function () {
+                            console.log('ERROR',arguments);
+                        });
+                    }
+
+                    getUserIp();
+
                 }
             };
+            locationCollection.initialize();
+
+            return locationCollection;
         }]);

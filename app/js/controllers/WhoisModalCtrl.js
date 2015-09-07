@@ -4,20 +4,25 @@ IpApp.controller('WhoisModalCtrl',
             $scope.items = [0,1,2,3];
             $scope.reports = [];
             $scope.ip = ip;
-            $scope.tabs = tabs;
 
 
             $scope.selected = {
                 item: $scope.items[0]
             };
 
-            locationCollection.getWhois($scope.ip).then(function (response) {
-                locationCollection.addWhoisDataToLocation($scope.ip, response.data);
-                $scope.reports = response.data;
+            locationCollection.getWhois(ip).then(function (response) {
+                locationCollection.addWhoisDataToLocation(ip, response.data);
                 
-                for (var report in $scope.reports) {
-                    $scope.tabs.push({title: $scope.reports[report].regIntReg,content: $scope.reports[report].data})
-                }
+
+                var reports = response.data;
+                $scope.tabs = [];
+                
+                reports.forEach(function(report) {
+                     $scope.tabs.push({
+                        title: report.regIntReg,
+                        content: report.data
+                    });
+                });
                 
                 usSpinnerService.stop('whois-spinner');
             });

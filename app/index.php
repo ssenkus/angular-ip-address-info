@@ -18,7 +18,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">AngularJS IP Address Info</a>
+                        <a class="navbar-brand" ui-sref="home">AngularJS IP Address Info</a>
                     </div>
                     <ul class="nav navbar-nav">
                         <li><a  ng-click="toggleMenu($event)" href="#menu-toggle" id="menu-toggle">Toggle Menu</a></li>
@@ -30,6 +30,17 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <div ui-view></div>
+                    <?php
+                    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                        $ip = $_SERVER['HTTP_CLIENT_IP'];
+                    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                    } else {
+                        $ip = $_SERVER['REMOTE_ADDR'];
+                    }
+
+                    // echo $ip;
+                    ?>
                 </div>
             </div>
         </div>

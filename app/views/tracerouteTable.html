@@ -3,7 +3,7 @@
     <table class="table">
         <tbody>
             <tr ng-repeat="route in routes">
-                <td>{{route.ip_address}}</td>
+                <td ng-click="addIpAddressToLocations(route.ip_address)">{{route.ip_address}}</td>
                 <td> {{route.router_name}}</td>
                 <td> {{route.rtt}}</td>
             </tr>

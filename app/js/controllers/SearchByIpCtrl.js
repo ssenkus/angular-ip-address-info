@@ -11,7 +11,6 @@ IpApp.controller('SearchByIpCtrl',
                 }
             };
             $scope.ipAddressMatch = function (ip) {
-                console.log($scope.inputPattern.test(ip));
                 return $scope.inputPattern.test(ip);
             };
 
@@ -23,12 +22,10 @@ IpApp.controller('SearchByIpCtrl',
             $scope.getWhoisReports = function (ip) {
                 locationCollection.getWhois(ip).then(
                     function (response) {
-                        console.log('locations',$scope.locations,arguments);
-                        locationCollection.addWhoisDataToLocation(ip,response.data)
+                        locationCollection.addWhoisDataToLocation(ip,response.data);
                     },
                     function () {
                     });
-                console.log('asdfad',ip);
             };
             $scope.getIp = function (ip) {
                 $scope.ipAddress = '';
@@ -41,7 +38,6 @@ IpApp.controller('SearchByIpCtrl',
 
             $scope.addRandomIpAddresses = function () {
                 locationCollection.addRandomIpAddresses();
-
             };
         }
     ]);

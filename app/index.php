@@ -25,21 +25,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="locations">World Map</a></li>
-                    <li><a ui-sref="traceroute">Traceroute</a></li>
-                    <li ng-controller="SearchByIpCtrl" style="padding: 10px;">
-                        <input class="form-control" type="text" ng-keypress="submitIp($event)" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
-                        <button class="ipSearchSubmit btn" ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" type="button" ng-disabled="!ipAddress" ng-model="validInput" ng-click="getIp(ipAddress)">Get IP info</button>
-                        <button class="btn btn-default" type="button" ng-class="{'testIpVals': addedTestVals}"  ng-click="addValidIps()">Add Valid IPs</button> 
-                    </li>
-                </ul>
-            </div>
-            <!-- /#sidebar-wrapper -->
-
+            <div id="sidebar-wrapper" ng-include="'/views/sidebar.html'"></div>
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid">
@@ -67,6 +53,7 @@
         <!-- App Scripts-->
         <script src="js/modules/IpLocatorApp.js"></script>
 
+        <script src="js/controllers/LocationsLayoutCtrl.js"></script>
         <script src="js/controllers/HomeCtrl.js"></script>
         <script src="js/controllers/LocationsTableCtrl.js"></script>
         <script src="js/controllers/MenuCtrl.js"></script>        
@@ -77,8 +64,9 @@
         <script src="js/directives/d3Bars.js"></script>
         <script src="js/directives/worldMap.js"></script>
 
-        <script src="js/services/locationHandler.js"></script>
+        <script src="js/services/locationCollection.js"></script>
         <script src="js/services/tracerouteManager.js"></script>
+        <script src="js/services/ipAddressRepository.js"></script>
         <?php // echo $_SERVER['REMOTE_ADDR']; ?>
     </body>
 </html>

@@ -1,0 +1,21 @@
+<ul class="sidebar-nav">
+    <li><a ui-sref="home">Home</a></li>
+    <li><a ui-sref="locations">World Map</a></li>
+    <li><a ui-sref="traceroute">Traceroute</a></li>
+    <li ng-controller="SearchByIpCtrl" style="padding: 10px;">
+        <input class="form-control" type="text" ng-keypress="submitIp($event)" ng-pattern="inputPattern" placeholder="xxx.xxx.xxx.xxx" ng-model='ipAddress' />
+        <button class="ipSearchSubmit btn" 
+                ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" 
+                type="button" ng-disabled="!ipAddress" 
+                ng-model="validInput" 
+                ng-click="getIp(ipAddress)">Get IP info</button>
+        <button class="btn btn-default" 
+                type="button" 
+                ng-class="{'testIpVals': addedTestVals}" 
+                ng-disabled="addedTestVals"  
+                ng-click="addDemoIpAddresses()">Add Valid IPs</button> 
+        <button class="btn btn-warning" 
+                type="button" 
+                ng-click="addRandomIpAddresses()">Get Random IPs</button> 
+    </li>
+</ul>

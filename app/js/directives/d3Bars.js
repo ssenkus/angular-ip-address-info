@@ -1,4 +1,4 @@
-angular.module('IpLocatorApp')
+IpApp
         .directive('d3Bars', ['$window', '$timeout', function ($window, $timeout) {
                 return {
                     restrict: 'A',

@@ -1,7 +1,21 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
+IpApp.factory('ipAddressRepository', ['$http', function($http) {
+        
+        var ipAddressRepository = {
+            getIpInfo: function(ip) {
+                return $http({
+                    method: 'GET',
+                    url: 'http://www.freegeoip.net/json/' + ip
+                }).then(function(response) {
+                    return response.data;
+                });
+            }
+           
+        };
+        
+        
+        
+        
+        
+        return ipAddressRepository;
+        
+}]);

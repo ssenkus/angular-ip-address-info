@@ -1,8 +1,8 @@
+(function() {
+    
 'use strict';
 
-
-// Declare app level module which depends on filters, and services
-angular.module('IpLocatorApp', [
+window.IpApp = angular.module('IpLocatorApp', [
     'ngRoute',
     'ui.bootstrap',
     'ui.router',
@@ -28,5 +28,6 @@ angular.module('IpLocatorApp', [
 
     }]);
 
-
-
+    
+    
+})();

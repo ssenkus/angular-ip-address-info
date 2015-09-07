@@ -1,37 +1,33 @@
-<div ng-hide="locations.length > 0" class='row'>
+<div ng-hide="hasLocations()" class='row' ng-init="initialize()">
     <h1>No locations added yet!</h1>
     <p>Add Locations </p>
 </div>
 <div class="row">
-    <div style="margin: 10px auto 0; text-align: center;" ng-show="locations.length > 0" data="locations" world-map></div>        
+    <div class="worldMap" ng-show="hasLocations()" data="locations" world-map></div>        
 </div>
-<div class="row" ng-controller="LocationsTableCtrl">
-    <div>    
-        <table style="font-size: 11px;" class="table table-striped table-bordered table-responsive table-condensed">
-            <thead>
-                <tr>
-                    <th>IP Address</th>
-                    <th>Location Info</th>
-                    <th>Coordinates (Lat, Long)</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="location in locations">
-                    <td>{{location.ip}}</td>
-                    <td>
-                        {{location.city || '[CITY]'}}, {{location.region_code || '[REGION_CODE]'}} {{location.zip_code || '[ZIP]'}}<br />
-                        {{location.country_name || '[CTRY_CODE]'}} ({{location.country_code || '[CTRY_CODE]'}}) {{location.metro_code || '[METRO_CODE]'}}</td>
-                    <td>{{location.latitude || '[LAT]'}}, {{location.longitude || '[LNG]'}}</td>
+<div class="row">   
+    <table id="locationsTable" class="table table-striped table-bordered table-responsive table-condensed">
+        <thead>
+            <tr>
+                <th>IP Address</th>
+                <th>Location Info</th>
+                <th>Coordinates (Lat, Long)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="location in locations">
+                <td>{{location.ip}}</td>
+                <td>
+                    {{location.city|| '[CITY]'}}, {{location.region_code|| '[REGION_CODE]'}} {{location.zip_code|| '[ZIP]'}}<br />
+                    {{location.country_name|| '[CTRY_CODE]'}} ({{location.country_code|| '[CTRY_CODE]'}}) {{location.metro_code|| '[METRO_CODE]'}}</td>
+                <td>{{location.latitude|| '[LAT]'}}, {{location.longitude|| '[LNG]'}}</td>
 
-                    <td>                        
-                        <button class="btn btn-warning" ng-click="getWhois(location.ip)">WHOIS <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                        <button class="btn btn-danger" ng-click="deleteLoc($index)" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    </td>                
-                </tr>
-            </tbody>
-
-        </table>
-    </div>
-</div>    
+                <td>                        
+                    <button class="btn btn-warning" ng-click="getWhois(location.ip)">WHOIS <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    <button class="btn btn-danger" ng-click="deleteLoc($index)" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                </td>                
+            </tr>
+        </tbody>
+    </table>
 </div>

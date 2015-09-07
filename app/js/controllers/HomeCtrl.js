@@ -1,4 +1,4 @@
-angular.module('IpLocatorApp').controller('HomeCtrl',
+IpApp.controller('HomeCtrl',
         ['$scope',
             function ($scope) {
                 $scope.message = "Hello, World";
@@ -17,5 +17,8 @@ angular.module('IpLocatorApp').controller('HomeCtrl',
                         score: 28
                     }
                 ];
+                
+              //  $scope.userIp = 
+                
             }]
         );

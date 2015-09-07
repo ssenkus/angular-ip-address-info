@@ -10,542 +10,569 @@
 4 verbose install     'protractor' ] ]
 5 verbose install where, peers [ '/Users/steve/Code/Projects/angular-ip-address-info', [] ]
 6 info preinstall angularjs-seed@
-7 silly cache add args [ 'phantomjs@~1.9', null ]
-8 verbose cache add spec phantomjs@~1.9
-9 silly cache add args [ 'karma@~0.10', null ]
-10 verbose cache add spec karma@~0.10
-11 silly cache add parsed spec { raw: 'phantomjs@~1.9',
-11 silly cache add   scope: null,
-11 silly cache add   name: 'phantomjs',
-11 silly cache add   rawSpec: '~1.9',
-11 silly cache add   spec: '>=1.9.0 <1.10.0',
-11 silly cache add   type: 'range' }
-12 verbose addNamed phantomjs@>=1.9.0 <1.10.0
-13 silly addNamed semver.valid null
-14 silly addNamed semver.validRange >=1.9.0 <1.10.0
-15 silly addNameRange { name: 'phantomjs', range: '>=1.9.0 <1.10.0', hasData: false }
-16 silly mapToRegistry name phantomjs
-17 silly mapToRegistry using default registry
-18 silly mapToRegistry registry https://registry.npmjs.org/
-19 silly mapToRegistry uri https://registry.npmjs.org/phantomjs
-20 verbose addNameRange registry:https://registry.npmjs.org/phantomjs not in flight; fetching
-21 silly cache add parsed spec { raw: 'karma@~0.10',
+7 silly cache add args [ 'karma@~0.10', null ]
+8 verbose cache add spec karma@~0.10
+9 silly cache add parsed spec { raw: 'karma@~0.10',
+9 silly cache add   scope: null,
+9 silly cache add   name: 'karma',
+9 silly cache add   rawSpec: '~0.10',
+9 silly cache add   spec: '>=0.10.0 <0.11.0',
+9 silly cache add   type: 'range' }
+10 verbose addNamed karma@>=0.10.0 <0.11.0
+11 silly addNamed semver.valid null
+12 silly addNamed semver.validRange >=0.10.0 <0.11.0
+13 silly addNameRange { name: 'karma', range: '>=0.10.0 <0.11.0', hasData: false }
+14 silly mapToRegistry name karma
+15 silly mapToRegistry using default registry
+16 silly mapToRegistry registry https://registry.npmjs.org/
+17 silly mapToRegistry uri https://registry.npmjs.org/karma
+18 verbose addNameRange registry:https://registry.npmjs.org/karma not in flight; fetching
+19 silly cache add args [ 'karma-junit-reporter@~0.1', null ]
+20 verbose cache add spec karma-junit-reporter@~0.1
+21 silly cache add parsed spec { raw: 'karma-junit-reporter@~0.1',
 21 silly cache add   scope: null,
-21 silly cache add   name: 'karma',
-21 silly cache add   rawSpec: '~0.10',
-21 silly cache add   spec: '>=0.10.0 <0.11.0',
+21 silly cache add   name: 'karma-junit-reporter',
+21 silly cache add   rawSpec: '~0.1',
+21 silly cache add   spec: '>=0.1.0 <0.2.0',
 21 silly cache add   type: 'range' }
-22 verbose addNamed karma@>=0.10.0 <0.11.0
+22 verbose addNamed karma-junit-reporter@>=0.1.0 <0.2.0
 23 silly addNamed semver.valid null
-24 silly addNamed semver.validRange >=0.10.0 <0.11.0
-25 silly addNameRange { name: 'karma', range: '>=0.10.0 <0.11.0', hasData: false }
-26 silly mapToRegistry name karma
+24 silly addNamed semver.validRange >=0.1.0 <0.2.0
+25 silly addNameRange { name: 'karma-junit-reporter',
+25 silly addNameRange   range: '>=0.1.0 <0.2.0',
+25 silly addNameRange   hasData: false }
+26 silly mapToRegistry name karma-junit-reporter
 27 silly mapToRegistry using default registry
 28 silly mapToRegistry registry https://registry.npmjs.org/
-29 silly mapToRegistry uri https://registry.npmjs.org/karma
-30 verbose addNameRange registry:https://registry.npmjs.org/karma not in flight; fetching
-31 silly cache add args [ 'karma-junit-reporter@~0.1', null ]
-32 verbose cache add spec karma-junit-reporter@~0.1
-33 silly cache add parsed spec { raw: 'karma-junit-reporter@~0.1',
+29 silly mapToRegistry uri https://registry.npmjs.org/karma-junit-reporter
+30 verbose addNameRange registry:https://registry.npmjs.org/karma-junit-reporter not in flight; fetching
+31 silly cache add args [ 'karma-jasmine@~0.1', null ]
+32 verbose cache add spec karma-jasmine@~0.1
+33 silly cache add parsed spec { raw: 'karma-jasmine@~0.1',
 33 silly cache add   scope: null,
-33 silly cache add   name: 'karma-junit-reporter',
+33 silly cache add   name: 'karma-jasmine',
 33 silly cache add   rawSpec: '~0.1',
 33 silly cache add   spec: '>=0.1.0 <0.2.0',
 33 silly cache add   type: 'range' }
-34 verbose addNamed karma-junit-reporter@>=0.1.0 <0.2.0
+34 verbose addNamed karma-jasmine@>=0.1.0 <0.2.0
 35 silly addNamed semver.valid null
 36 silly addNamed semver.validRange >=0.1.0 <0.2.0
-37 silly addNameRange { name: 'karma-junit-reporter',
+37 silly addNameRange { name: 'karma-jasmine',
 37 silly addNameRange   range: '>=0.1.0 <0.2.0',
 37 silly addNameRange   hasData: false }
-38 silly mapToRegistry name karma-junit-reporter
+38 silly mapToRegistry name karma-jasmine
 39 silly mapToRegistry using default registry
 40 silly mapToRegistry registry https://registry.npmjs.org/
-41 silly mapToRegistry uri https://registry.npmjs.org/karma-junit-reporter
-42 verbose addNameRange registry:https://registry.npmjs.org/karma-junit-reporter not in flight; fetching
-43 silly cache add args [ 'karma-jasmine@~0.1', null ]
-44 verbose cache add spec karma-jasmine@~0.1
-45 silly cache add parsed spec { raw: 'karma-jasmine@~0.1',
+41 silly mapToRegistry uri https://registry.npmjs.org/karma-jasmine
+42 verbose addNameRange registry:https://registry.npmjs.org/karma-jasmine not in flight; fetching
+43 silly cache add args [ 'protractor@~0.17.0', null ]
+44 verbose cache add spec protractor@~0.17.0
+45 silly cache add parsed spec { raw: 'protractor@~0.17.0',
 45 silly cache add   scope: null,
-45 silly cache add   name: 'karma-jasmine',
-45 silly cache add   rawSpec: '~0.1',
-45 silly cache add   spec: '>=0.1.0 <0.2.0',
+45 silly cache add   name: 'protractor',
+45 silly cache add   rawSpec: '~0.17.0',
+45 silly cache add   spec: '>=0.17.0 <0.18.0',
 45 silly cache add   type: 'range' }
-46 verbose addNamed karma-jasmine@>=0.1.0 <0.2.0
+46 verbose addNamed protractor@>=0.17.0 <0.18.0
 47 silly addNamed semver.valid null
-48 silly addNamed semver.validRange >=0.1.0 <0.2.0
-49 silly addNameRange { name: 'karma-jasmine',
-49 silly addNameRange   range: '>=0.1.0 <0.2.0',
-49 silly addNameRange   hasData: false }
-50 silly mapToRegistry name karma-jasmine
+48 silly addNamed semver.validRange >=0.17.0 <0.18.0
+49 silly addNameRange { name: 'protractor', range: '>=0.17.0 <0.18.0', hasData: false }
+50 silly mapToRegistry name protractor
 51 silly mapToRegistry using default registry
 52 silly mapToRegistry registry https://registry.npmjs.org/
-53 silly mapToRegistry uri https://registry.npmjs.org/karma-jasmine
-54 verbose addNameRange registry:https://registry.npmjs.org/karma-jasmine not in flight; fetching
-55 silly cache add args [ 'protractor@~0.17.0', null ]
-56 verbose cache add spec protractor@~0.17.0
-57 silly cache add parsed spec { raw: 'protractor@~0.17.0',
+53 silly mapToRegistry uri https://registry.npmjs.org/protractor
+54 verbose addNameRange registry:https://registry.npmjs.org/protractor not in flight; fetching
+55 silly cache add args [ 'phantomjs@~1.9', null ]
+56 verbose cache add spec phantomjs@~1.9
+57 silly cache add parsed spec { raw: 'phantomjs@~1.9',
 57 silly cache add   scope: null,
-57 silly cache add   name: 'protractor',
-57 silly cache add   rawSpec: '~0.17.0',
-57 silly cache add   spec: '>=0.17.0 <0.18.0',
+57 silly cache add   name: 'phantomjs',
+57 silly cache add   rawSpec: '~1.9',
+57 silly cache add   spec: '>=1.9.0 <1.10.0',
 57 silly cache add   type: 'range' }
-58 verbose addNamed protractor@>=0.17.0 <0.18.0
+58 verbose addNamed phantomjs@>=1.9.0 <1.10.0
 59 silly addNamed semver.valid null
-60 silly addNamed semver.validRange >=0.17.0 <0.18.0
-61 silly addNameRange { name: 'protractor', range: '>=0.17.0 <0.18.0', hasData: false }
-62 silly mapToRegistry name protractor
+60 silly addNamed semver.validRange >=1.9.0 <1.10.0
+61 silly addNameRange { name: 'phantomjs', range: '>=1.9.0 <1.10.0', hasData: false }
+62 silly mapToRegistry name phantomjs
 63 silly mapToRegistry using default registry
 64 silly mapToRegistry registry https://registry.npmjs.org/
-65 silly mapToRegistry uri https://registry.npmjs.org/protractor
-66 verbose addNameRange registry:https://registry.npmjs.org/protractor not in flight; fetching
-67 verbose request uri https://registry.npmjs.org/phantomjs
+65 silly mapToRegistry uri https://registry.npmjs.org/phantomjs
+66 verbose addNameRange registry:https://registry.npmjs.org/phantomjs not in flight; fetching
+67 verbose request uri https://registry.npmjs.org/karma-junit-reporter
 68 verbose request no auth needed
-69 info attempt registry request try #1 at 22:35:56
-70 verbose request id bd4422babed3bc54
-71 verbose etag "BZSG2ID344HEOMYOGQFIET8J0"
-72 http request GET https://registry.npmjs.org/phantomjs
-73 verbose request uri https://registry.npmjs.org/karma-junit-reporter
+69 info attempt registry request try #1 at 21:01:54
+70 verbose request id 5d92466bf219335a
+71 verbose etag "4G0CYEUJAUPQO57KF3F2GGQJC"
+72 http request GET https://registry.npmjs.org/karma-junit-reporter
+73 verbose request uri https://registry.npmjs.org/karma-jasmine
 74 verbose request no auth needed
-75 info attempt registry request try #1 at 22:35:56
-76 verbose etag "9H5OGXAD75VVEE6ISGYK8MSE4"
-77 http request GET https://registry.npmjs.org/karma-junit-reporter
-78 verbose request uri https://registry.npmjs.org/karma-jasmine
+75 info attempt registry request try #1 at 21:01:54
+76 verbose etag "57FWKVZWXA8GGLE64XJZ4M38L"
+77 http request GET https://registry.npmjs.org/karma-jasmine
+78 verbose request uri https://registry.npmjs.org/protractor
 79 verbose request no auth needed
-80 info attempt registry request try #1 at 22:35:56
-81 verbose etag "OXG99YFNU6DF9GC5IWTC8P02"
-82 http request GET https://registry.npmjs.org/karma-jasmine
-83 verbose request uri https://registry.npmjs.org/karma
+80 info attempt registry request try #1 at 21:01:54
+81 verbose etag "1W4CRONGFH8N91F4E9DCI6EO6"
+82 http request GET https://registry.npmjs.org/protractor
+83 verbose request uri https://registry.npmjs.org/phantomjs
 84 verbose request no auth needed
-85 info attempt registry request try #1 at 22:35:56
-86 verbose etag "172JHDJ08HJNGUNQ0D2MWEM9I"
-87 http request GET https://registry.npmjs.org/karma
-88 verbose request uri https://registry.npmjs.org/protractor
+85 info attempt registry request try #1 at 21:01:54
+86 verbose etag "6YE4TN60KDQ7PX4GU3W0ZRVL5"
+87 http request GET https://registry.npmjs.org/phantomjs
+88 verbose request uri https://registry.npmjs.org/karma
 89 verbose request no auth needed
-90 info attempt registry request try #1 at 22:35:56
-91 verbose etag "BJH3VDHMAOOW7PVHGHQFY5191"
-92 http request GET https://registry.npmjs.org/protractor
-93 http 200 https://registry.npmjs.org/karma-jasmine
+90 info attempt registry request try #1 at 21:01:54
+91 verbose etag "EOSSBXXP2ADARIAVXYV5FNNKC"
+92 http request GET https://registry.npmjs.org/karma
+93 http 200 https://registry.npmjs.org/karma-junit-reporter
 94 silly get cb [ 200,
-94 silly get   { date: 'Wed, 04 Feb 2015 06:35:57 GMT',
-94 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-94 silly get     etag: '"66RY0W4P6MFAVVPURN6OGTICZ"',
+94 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+94 silly get     etag: '"7ESDFHVFO9VEBEU6U2VZSX9K3"',
 94 silly get     'content-type': 'application/json',
 94 silly get     'cache-control': 'max-age=60',
-94 silly get     'content-length': '32143',
+94 silly get     'content-length': '24428',
 94 silly get     'accept-ranges': 'bytes',
+94 silly get     date: 'Mon, 07 Sep 2015 04:01:54 GMT',
 94 silly get     via: '1.1 varnish',
-94 silly get     age: '46',
-94 silly get     'x-served-by': 'cache-lax1428-LAX',
+94 silly get     age: '0',
+94 silly get     connection: 'keep-alive',
+94 silly get     'x-served-by': 'cache-sjc3122-SJC',
 94 silly get     'x-cache': 'HIT',
 94 silly get     'x-cache-hits': '1',
-94 silly get     'x-timer': 'S1423031757.158868,VS0,VE0',
-94 silly get     vary: 'Accept',
-94 silly get     'keep-alive': 'timeout=10, max=50',
-94 silly get     connection: 'Keep-Alive' } ]
-95 silly addNameRange number 2 { name: 'karma-jasmine', range: '>=0.1.0 <0.2.0', hasData: true }
-96 silly addNameRange versions [ 'karma-jasmine',
+94 silly get     'x-timer': 'S1441598514.730416,VS0,VE41',
+94 silly get     vary: 'Accept' } ]
+95 silly addNameRange number 2 { name: 'karma-junit-reporter',
+95 silly addNameRange   range: '>=0.1.0 <0.2.0',
+95 silly addNameRange   hasData: true }
+96 silly addNameRange versions [ 'karma-junit-reporter',
 96 silly addNameRange   [ '0.0.1',
 96 silly addNameRange     '0.0.2',
-96 silly addNameRange     '0.0.3',
 96 silly addNameRange     '0.1.0',
-96 silly addNameRange     '0.1.1',
-96 silly addNameRange     '0.1.2',
-96 silly addNameRange     '0.1.3',
-96 silly addNameRange     '0.1.4',
-96 silly addNameRange     '0.1.5',
-96 silly addNameRange     '0.2.0',
 96 silly addNameRange     '0.2.1',
 96 silly addNameRange     '0.2.2',
-96 silly addNameRange     '0.2.3',
 96 silly addNameRange     '0.3.0',
 96 silly addNameRange     '0.3.1',
 96 silly addNameRange     '0.3.2',
 96 silly addNameRange     '0.3.3',
-96 silly addNameRange     '0.3.4',
-96 silly addNameRange     '0.3.5' ] ]
-97 verbose addNamed karma-jasmine@0.1.5
-98 silly addNamed semver.valid 0.1.5
-99 silly addNamed semver.validRange 0.1.5
-100 silly cache afterAdd karma-jasmine@0.1.5
-101 verbose afterAdd /Users/steve/.npm/karma-jasmine/0.1.5/package/package.json not in flight; writing
-102 verbose afterAdd /Users/steve/.npm/karma-jasmine/0.1.5/package/package.json written
-103 http 200 https://registry.npmjs.org/karma-junit-reporter
-104 silly get cb [ 200,
-104 silly get   { date: 'Wed, 04 Feb 2015 06:35:57 GMT',
-104 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-104 silly get     etag: '"4G0CYEUJAUPQO57KF3F2GGQJC"',
-104 silly get     'content-type': 'application/json',
-104 silly get     'cache-control': 'max-age=60',
-104 silly get     'content-length': '8172',
-104 silly get     'accept-ranges': 'bytes',
-104 silly get     via: '1.1 varnish',
-104 silly get     age: '0',
-104 silly get     'x-served-by': 'cache-lax1427-LAX',
-104 silly get     'x-cache': 'HIT',
-104 silly get     'x-cache-hits': '1',
-104 silly get     'x-timer': 'S1423031757.157302,VS0,VE175',
-104 silly get     vary: 'Accept',
-104 silly get     'keep-alive': 'timeout=10, max=50',
-104 silly get     connection: 'Keep-Alive' } ]
-105 silly addNameRange number 2 { name: 'karma-junit-reporter',
-105 silly addNameRange   range: '>=0.1.0 <0.2.0',
-105 silly addNameRange   hasData: true }
-106 silly addNameRange versions [ 'karma-junit-reporter',
-106 silly addNameRange   [ '0.0.1', '0.0.2', '0.1.0', '0.2.1', '0.2.2' ] ]
-107 verbose addNamed karma-junit-reporter@0.1.0
-108 silly addNamed semver.valid 0.1.0
-109 silly addNamed semver.validRange 0.1.0
-110 silly mapToRegistry name karma-junit-reporter
-111 silly mapToRegistry using default registry
-112 silly mapToRegistry registry https://registry.npmjs.org/
-113 silly mapToRegistry uri https://registry.npmjs.org/karma-junit-reporter
-114 verbose addRemoteTarball https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.1.0.tgz not in flight; adding
-115 verbose addRemoteTarball [ 'https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.1.0.tgz',
-115 verbose addRemoteTarball   '7af72b64d7e9f192d1a40f4ef063ffbcf9e7bba5' ]
-116 info retry fetch attempt 1 at 22:35:57
-117 info attempt registry request try #1 at 22:35:57
-118 http fetch GET https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.1.0.tgz
-119 http 200 https://registry.npmjs.org/protractor
-120 silly get cb [ 200,
-120 silly get   { date: 'Wed, 04 Feb 2015 06:35:57 GMT',
-120 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-120 silly get     etag: '"2D0QT3ZZT2O4CT7C6PT35GBQD"',
-120 silly get     'content-type': 'application/json',
-120 silly get     'cache-control': 'max-age=60',
-120 silly get     'content-length': '80379',
-120 silly get     'accept-ranges': 'bytes',
-120 silly get     via: '1.1 varnish',
-120 silly get     age: '40',
-120 silly get     'x-served-by': 'cache-lax1435-LAX',
-120 silly get     'x-cache': 'HIT',
-120 silly get     'x-cache-hits': '1',
-120 silly get     'x-timer': 'S1423031757.180356,VS0,VE0',
-120 silly get     vary: 'Accept',
-120 silly get     'keep-alive': 'timeout=10, max=50',
-120 silly get     connection: 'Keep-Alive' } ]
-121 silly addNameRange number 2 { name: 'protractor', range: '>=0.17.0 <0.18.0', hasData: true }
-122 silly addNameRange versions [ 'protractor',
-122 silly addNameRange   [ '0.1.0',
-122 silly addNameRange     '0.1.1',
-122 silly addNameRange     '0.1.2',
-122 silly addNameRange     '0.1.3',
-122 silly addNameRange     '0.2.0',
-122 silly addNameRange     '0.2.1',
-122 silly addNameRange     '0.3.0',
-122 silly addNameRange     '0.4.0',
-122 silly addNameRange     '0.4.1',
-122 silly addNameRange     '0.5.0',
-122 silly addNameRange     '0.6.1',
-122 silly addNameRange     '0.7.0',
-122 silly addNameRange     '0.8.0',
-122 silly addNameRange     '0.9.0',
-122 silly addNameRange     '0.10.0',
-122 silly addNameRange     '0.11.0',
-122 silly addNameRange     '0.12.0',
-122 silly addNameRange     '0.12.1',
-122 silly addNameRange     '0.13.0',
-122 silly addNameRange     '0.14.0',
-122 silly addNameRange     '0.15.0',
-122 silly addNameRange     '0.16.0',
-122 silly addNameRange     '0.16.1',
-122 silly addNameRange     '0.17.0',
-122 silly addNameRange     '0.18.0',
-122 silly addNameRange     '0.18.1',
-122 silly addNameRange     '0.19.0',
-122 silly addNameRange     '0.20.0',
-122 silly addNameRange     '0.20.1',
-122 silly addNameRange     '0.21.0',
-122 silly addNameRange     '0.22.0',
-122 silly addNameRange     '0.23.0',
-122 silly addNameRange     '0.23.1',
-122 silly addNameRange     '0.24.0',
-122 silly addNameRange     '0.24.1',
-122 silly addNameRange     '0.24.2',
-122 silly addNameRange     '1.0.0-rc1',
-122 silly addNameRange     '1.0.0-rc2',
-122 silly addNameRange     '1.0.0-rc3',
-122 silly addNameRange     '1.0.0-rc4',
-122 silly addNameRange     '1.0.0-rc5',
-122 silly addNameRange     '1.0.0-rc6',
-122 silly addNameRange     '1.0.0',
-122 silly addNameRange     '1.1.0',
-122 silly addNameRange     '1.1.1',
-122 silly addNameRange     '1.2.0-beta1',
-122 silly addNameRange     '1.2.0',
-122 silly addNameRange     '1.3.0',
-122 silly addNameRange     '1.3.1',
-122 silly addNameRange     '1.4.0',
-122 silly addNameRange     '1.5.0',
-122 silly addNameRange     '1.6.0',
-122 silly addNameRange     '1.6.1' ] ]
-123 verbose addNamed protractor@0.17.0
-124 silly addNamed semver.valid 0.17.0
-125 silly addNamed semver.validRange 0.17.0
-126 silly mapToRegistry name protractor
-127 silly mapToRegistry using default registry
-128 silly mapToRegistry registry https://registry.npmjs.org/
-129 silly mapToRegistry uri https://registry.npmjs.org/protractor
-130 verbose addRemoteTarball https://registry.npmjs.org/protractor/-/protractor-0.17.0.tgz not in flight; adding
-131 verbose addRemoteTarball [ 'https://registry.npmjs.org/protractor/-/protractor-0.17.0.tgz',
-131 verbose addRemoteTarball   'eb54c1979e602e9e488515a67d899f3aee49f69d' ]
-132 info retry fetch attempt 1 at 22:35:57
-133 info attempt registry request try #1 at 22:35:57
-134 http fetch GET https://registry.npmjs.org/protractor/-/protractor-0.17.0.tgz
-135 http 200 https://registry.npmjs.org/phantomjs
-136 silly get cb [ 200,
-136 silly get   { date: 'Wed, 04 Feb 2015 06:35:57 GMT',
-136 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-136 silly get     etag: '"327UE9QWMPYUO7QBME4O6T4OU"',
-136 silly get     'content-type': 'application/json',
-136 silly get     'cache-control': 'max-age=60',
-136 silly get     'content-length': '93183',
-136 silly get     'accept-ranges': 'bytes',
-136 silly get     via: '1.1 varnish',
-136 silly get     age: '0',
-136 silly get     'x-served-by': 'cache-lax1427-LAX',
-136 silly get     'x-cache': 'HIT',
-136 silly get     'x-cache-hits': '1',
-136 silly get     'x-timer': 'S1423031757.149146,VS0,VE184',
-136 silly get     vary: 'Accept',
-136 silly get     'keep-alive': 'timeout=10, max=50',
-136 silly get     connection: 'Keep-Alive' } ]
-137 silly addNameRange number 2 { name: 'phantomjs', range: '>=1.9.0 <1.10.0', hasData: true }
-138 silly addNameRange versions [ 'phantomjs',
-138 silly addNameRange   [ '0.0.1',
-138 silly addNameRange     '0.0.2',
-138 silly addNameRange     '0.0.3',
-138 silly addNameRange     '0.0.4',
-138 silly addNameRange     '0.0.5',
-138 silly addNameRange     '0.0.6',
-138 silly addNameRange     '0.0.7',
-138 silly addNameRange     '0.0.8',
-138 silly addNameRange     '0.0.9',
-138 silly addNameRange     '0.1.0',
-138 silly addNameRange     '0.1.1',
-138 silly addNameRange     '0.2.0',
-138 silly addNameRange     '0.2.1',
-138 silly addNameRange     '0.2.2',
-138 silly addNameRange     '0.2.3',
-138 silly addNameRange     '0.2.4',
-138 silly addNameRange     '0.2.5',
-138 silly addNameRange     '0.2.6',
-138 silly addNameRange     '1.8.0-1',
-138 silly addNameRange     '1.8.1-1',
-138 silly addNameRange     '1.8.1-2',
-138 silly addNameRange     '1.8.1-3',
-138 silly addNameRange     '1.8.2-0',
-138 silly addNameRange     '1.8.2-1',
-138 silly addNameRange     '1.8.2-2',
-138 silly addNameRange     '1.9.0-0',
-138 silly addNameRange     '1.9.0-1',
-138 silly addNameRange     '1.9.0-2',
-138 silly addNameRange     '1.9.0-3',
-138 silly addNameRange     '1.9.0-4',
-138 silly addNameRange     '1.9.0-5',
-138 silly addNameRange     '1.9.0-6',
-138 silly addNameRange     '1.9.1-0',
-138 silly addNameRange     '1.9.1-2',
-138 silly addNameRange     '1.9.1-3',
-138 silly addNameRange     '1.9.1-4',
-138 silly addNameRange     '1.9.1-5',
-138 silly addNameRange     '1.9.1-6',
-138 silly addNameRange     '1.9.1-7',
-138 silly addNameRange     '1.9.1-8',
-138 silly addNameRange     '1.9.1-9',
-138 silly addNameRange     '1.9.2-0',
-138 silly addNameRange     '1.9.2-1',
-138 silly addNameRange     '1.9.2-2',
-138 silly addNameRange     '1.9.2-3',
-138 silly addNameRange     '1.9.2-4',
-138 silly addNameRange     '1.9.2-5',
-138 silly addNameRange     '1.9.2-6',
-138 silly addNameRange     '1.9.6-0',
-138 silly addNameRange     '1.9.7-1',
-138 silly addNameRange     '1.9.7-3',
-138 silly addNameRange     '1.9.7-4',
-138 silly addNameRange     '1.9.7-5',
-138 silly addNameRange     '1.9.7-6',
-138 silly addNameRange     '1.9.7-7',
-138 silly addNameRange     '1.9.7-8',
-138 silly addNameRange     '1.9.7-9',
-138 silly addNameRange     '1.9.7-10',
-138 silly addNameRange     '1.9.7-11',
-138 silly addNameRange     '1.9.7-12',
-138 silly addNameRange     '1.9.7-13',
-138 silly addNameRange     '1.9.7-14',
-138 silly addNameRange     '1.9.7-15',
-138 silly addNameRange     '1.8.2-3',
-138 silly addNameRange     '1.9.8',
-138 silly addNameRange     '1.9.9',
-138 silly addNameRange     '1.9.10',
-138 silly addNameRange     '1.9.11',
-138 silly addNameRange     '1.9.12',
-138 silly addNameRange     '1.9.13',
-138 silly addNameRange     '1.9.15' ] ]
-139 verbose addNamed phantomjs@1.9.15
-140 silly addNamed semver.valid 1.9.15
-141 silly addNamed semver.validRange 1.9.15
-142 silly mapToRegistry name phantomjs
-143 silly mapToRegistry using default registry
-144 silly mapToRegistry registry https://registry.npmjs.org/
-145 silly mapToRegistry uri https://registry.npmjs.org/phantomjs
-146 verbose addRemoteTarball https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.15.tgz not in flight; adding
-147 verbose addRemoteTarball [ 'https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.15.tgz',
-147 verbose addRemoteTarball   '10032c8b36bd3541ecef953e764d5d177c33f72f' ]
-148 info retry fetch attempt 1 at 22:35:57
-149 info attempt registry request try #1 at 22:35:57
-150 http fetch GET https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.15.tgz
-151 http fetch 200 https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.1.0.tgz
-152 silly fetchAndShaCheck shasum 7af72b64d7e9f192d1a40f4ef063ffbcf9e7bba5
-153 verbose addTmpTarball /var/folders/lj/1165k9h57l32bbvqrj4s_7fm0000gn/T/npm-11944-5a561c30/registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.1.0.tgz not in flight; adding
-154 verbose addTmpTarball already have metadata; skipping unpack for karma-junit-reporter@0.1.0
-155 silly cache afterAdd karma-junit-reporter@0.1.0
-156 verbose afterAdd /Users/steve/.npm/karma-junit-reporter/0.1.0/package/package.json not in flight; writing
-157 verbose afterAdd /Users/steve/.npm/karma-junit-reporter/0.1.0/package/package.json written
-158 http fetch 200 https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.15.tgz
-159 silly fetchAndShaCheck shasum 10032c8b36bd3541ecef953e764d5d177c33f72f
-160 http 200 https://registry.npmjs.org/karma
-161 silly get cb [ 200,
-161 silly get   { date: 'Wed, 04 Feb 2015 06:35:57 GMT',
-161 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-161 silly get     etag: '"BTWLRAZASL2KNKUB72J8A6VUX"',
-161 silly get     'content-type': 'application/json',
-161 silly get     'cache-control': 'max-age=60',
-161 silly get     'content-length': '667521',
-161 silly get     'accept-ranges': 'bytes',
-161 silly get     via: '1.1 varnish',
-161 silly get     age: '23',
-161 silly get     'x-served-by': 'cache-lax1432-LAX',
-161 silly get     'x-cache': 'HIT',
-161 silly get     'x-cache-hits': '1',
-161 silly get     'x-timer': 'S1423031757.162582,VS0,VE3',
-161 silly get     vary: 'Accept',
-161 silly get     'keep-alive': 'timeout=10, max=50',
-161 silly get     connection: 'Keep-Alive' } ]
-162 verbose addTmpTarball /var/folders/lj/1165k9h57l32bbvqrj4s_7fm0000gn/T/npm-11944-5a561c30/registry.npmjs.org/phantomjs/-/phantomjs-1.9.15.tgz not in flight; adding
-163 verbose addTmpTarball already have metadata; skipping unpack for phantomjs@1.9.15
-164 http fetch 200 https://registry.npmjs.org/protractor/-/protractor-0.17.0.tgz
-165 silly addNameRange number 2 { name: 'karma', range: '>=0.10.0 <0.11.0', hasData: true }
-166 silly addNameRange versions [ 'karma',
-166 silly addNameRange   [ '0.8.0',
-166 silly addNameRange     '0.9.0-dart',
-166 silly addNameRange     '0.8.1',
-166 silly addNameRange     '0.8.2',
-166 silly addNameRange     '0.8.3',
-166 silly addNameRange     '0.9.0',
-166 silly addNameRange     '0.8.4',
-166 silly addNameRange     '0.9.1',
-166 silly addNameRange     '0.8.5',
-166 silly addNameRange     '0.9.2',
-166 silly addNameRange     '0.9.2-dart',
-166 silly addNameRange     '0.9.3',
-166 silly addNameRange     '0.8.6',
-166 silly addNameRange     '0.9.4',
-166 silly addNameRange     '0.8.7',
-166 silly addNameRange     '0.9.5',
-166 silly addNameRange     '0.9.6',
-166 silly addNameRange     '0.8.8',
-166 silly addNameRange     '0.9.7',
-166 silly addNameRange     '0.9.8',
-166 silly addNameRange     '0.10.0',
-166 silly addNameRange     '0.10.1',
-166 silly addNameRange     '0.10.2',
-166 silly addNameRange     '0.11.0',
-166 silly addNameRange     '0.11.1',
-166 silly addNameRange     '0.10.3',
-166 silly addNameRange     '0.10.4',
-166 silly addNameRange     '0.11.2',
-166 silly addNameRange     '0.11.3',
-166 silly addNameRange     '0.10.5',
-166 silly addNameRange     '0.11.4',
-166 silly addNameRange     '0.11.5',
-166 silly addNameRange     '0.10.6',
-166 silly addNameRange     '0.11.6',
-166 silly addNameRange     '0.10.7',
-166 silly addNameRange     '0.11.7',
-166 silly addNameRange     '0.11.8',
-166 silly addNameRange     '0.11.9',
-166 silly addNameRange     '0.10.8',
-166 silly addNameRange     '0.11.10',
-166 silly addNameRange     '0.11.11',
-166 silly addNameRange     '0.11.12',
-166 silly addNameRange     '0.11.11-dev',
-166 silly addNameRange     '0.10.9',
-166 silly addNameRange     '0.11.12-dev',
-166 silly addNameRange     '0.11.12-dev2',
-166 silly addNameRange     '0.11.13',
-166 silly addNameRange     '0.11.14',
-166 silly addNameRange     '0.12.0',
-166 silly addNameRange     '0.10.10',
-166 silly addNameRange     '0.12.1',
-166 silly addNameRange     '0.12.2',
-166 silly addNameRange     '0.12.3',
-166 silly addNameRange     '0.12.4',
-166 silly addNameRange     '0.12.5',
-166 silly addNameRange     '0.12.6',
-166 silly addNameRange     '0.12.6-beta-43e6e28',
-166 silly addNameRange     '0.12.7',
-166 silly addNameRange     '0.12.8',
-166 silly addNameRange     '0.12.9',
-166 silly addNameRange     '0.12.10',
-166 silly addNameRange     '0.12.11',
-166 silly addNameRange     '0.12.12',
-166 silly addNameRange     '0.12.11-beta-3029418',
-166 silly addNameRange     '0.12.13',
-166 silly addNameRange     '0.12.14',
-166 silly addNameRange     '0.12.15',
-166 silly addNameRange     '0.12.16',
-166 silly addNameRange     '0.12.16-beta-905422d',
-166 silly addNameRange     '0.12.17',
-166 silly addNameRange     '0.12.18',
-166 silly addNameRange     '0.12.19',
-166 silly addNameRange     '0.12.20',
-166 silly addNameRange     '0.12.21',
-166 silly addNameRange     '0.12.22',
-166 silly addNameRange     '0.12.23',
-166 silly addNameRange     '0.12.24',
-166 silly addNameRange     '0.12.24-beta-6cf7955',
-166 silly addNameRange     '0.12.25',
-166 silly addNameRange     '0.12.25-beta-37a7958',
-166 silly addNameRange     '0.12.25-beta-ad5bc24',
-166 silly addNameRange     '0.12.26',
-166 silly addNameRange     '0.12.27',
-166 silly addNameRange     '0.12.28',
-166 silly addNameRange     '0.12.28-beta-b9be580',
-166 silly addNameRange     '0.12.29',
-166 silly addNameRange     '0.12.30',
-166 silly addNameRange     '0.12.31',
-166 silly addNameRange     '0.12.28-beta-f65c864',
-166 silly addNameRange     '0.12.24-dev-test',
-166 silly addNameRange     '0.12.24-dev-socketio10',
-166 silly addNameRange     '0.12.24-dev-socketio10-2' ] ]
-167 verbose addNamed karma@0.10.10
-168 silly addNamed semver.valid 0.10.10
-169 silly addNamed semver.validRange 0.10.10
-170 silly cache afterAdd karma@0.10.10
-171 verbose afterAdd /Users/steve/.npm/karma/0.10.10/package/package.json not in flight; writing
-172 verbose afterAdd /Users/steve/.npm/karma/0.10.10/package/package.json written
-173 silly fetchAndShaCheck shasum eb54c1979e602e9e488515a67d899f3aee49f69d
-174 verbose addTmpTarball /var/folders/lj/1165k9h57l32bbvqrj4s_7fm0000gn/T/npm-11944-5a561c30/registry.npmjs.org/protractor/-/protractor-0.17.0.tgz not in flight; adding
-175 verbose addTmpTarball already have metadata; skipping unpack for protractor@0.17.0
-176 silly cache afterAdd protractor@0.17.0
-177 verbose afterAdd /Users/steve/.npm/protractor/0.17.0/package/package.json not in flight; writing
-178 verbose afterAdd /Users/steve/.npm/protractor/0.17.0/package/package.json written
-179 verbose stack Error: EACCES, mkdir '/Users/steve/.npm/phantomjs/1.9.15'
-180 verbose cwd /Users/steve/Code/Projects/angular-ip-address-info
-181 error Darwin 14.0.0
-182 error argv "node" "/usr/local/bin/npm" "install"
-183 error node v0.10.31
-184 error npm  v2.1.18
-185 error path /Users/steve/.npm/phantomjs/1.9.15
-186 error code EACCES
-187 error errno 3
-188 error Error: EACCES, mkdir '/Users/steve/.npm/phantomjs/1.9.15'
-188 error  { [Error: EACCES, mkdir '/Users/steve/.npm/phantomjs/1.9.15']
-188 error   errno: 3,
-188 error   code: 'EACCES',
-188 error   path: '/Users/steve/.npm/phantomjs/1.9.15',
-188 error   parent: 'angularjs-seed' }
-189 error Please try running this command again as root/Administrator.
-190 verbose exit [ 3, true ]
+96 silly addNameRange     '0.3.4' ] ]
+97 verbose addNamed karma-junit-reporter@0.1.0
+98 silly addNamed semver.valid 0.1.0
+99 silly addNamed semver.validRange 0.1.0
+100 http 200 https://registry.npmjs.org/protractor
+101 silly get cb [ 200,
+101 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+101 silly get     etag: '"DGGU0YUNV8GA1KOKVTWAGD7PK"',
+101 silly get     'content-type': 'application/json',
+101 silly get     'cache-control': 'max-age=60',
+101 silly get     'content-length': '89925',
+101 silly get     'accept-ranges': 'bytes',
+101 silly get     date: 'Mon, 07 Sep 2015 04:01:54 GMT',
+101 silly get     via: '1.1 varnish',
+101 silly get     age: '0',
+101 silly get     connection: 'keep-alive',
+101 silly get     'x-served-by': 'cache-sjc3125-SJC',
+101 silly get     'x-cache': 'HIT',
+101 silly get     'x-cache-hits': '1',
+101 silly get     'x-timer': 'S1441598514.726207,VS0,VE38',
+101 silly get     vary: 'Accept' } ]
+102 silly cache afterAdd karma-junit-reporter@0.1.0
+103 verbose afterAdd /Users/steve/.npm/karma-junit-reporter/0.1.0/package/package.json not in flight; writing
+104 silly addNameRange number 2 { name: 'protractor', range: '>=0.17.0 <0.18.0', hasData: true }
+105 silly addNameRange versions [ 'protractor',
+105 silly addNameRange   [ '0.1.0',
+105 silly addNameRange     '0.1.1',
+105 silly addNameRange     '0.1.2',
+105 silly addNameRange     '0.1.3',
+105 silly addNameRange     '0.2.0',
+105 silly addNameRange     '0.2.1',
+105 silly addNameRange     '0.3.0',
+105 silly addNameRange     '0.4.0',
+105 silly addNameRange     '0.4.1',
+105 silly addNameRange     '0.5.0',
+105 silly addNameRange     '0.6.1',
+105 silly addNameRange     '0.7.0',
+105 silly addNameRange     '0.8.0',
+105 silly addNameRange     '0.9.0',
+105 silly addNameRange     '0.10.0',
+105 silly addNameRange     '0.11.0',
+105 silly addNameRange     '0.12.0',
+105 silly addNameRange     '0.12.1',
+105 silly addNameRange     '0.13.0',
+105 silly addNameRange     '0.14.0',
+105 silly addNameRange     '0.15.0',
+105 silly addNameRange     '0.16.0',
+105 silly addNameRange     '0.16.1',
+105 silly addNameRange     '0.17.0',
+105 silly addNameRange     '0.18.0',
+105 silly addNameRange     '0.18.1',
+105 silly addNameRange     '0.19.0',
+105 silly addNameRange     '0.20.0',
+105 silly addNameRange     '0.20.1',
+105 silly addNameRange     '0.21.0',
+105 silly addNameRange     '0.22.0',
+105 silly addNameRange     '0.23.0',
+105 silly addNameRange     '0.23.1',
+105 silly addNameRange     '0.24.0',
+105 silly addNameRange     '0.24.1',
+105 silly addNameRange     '0.24.2',
+105 silly addNameRange     '1.0.0-rc1',
+105 silly addNameRange     '1.0.0-rc2',
+105 silly addNameRange     '1.0.0-rc3',
+105 silly addNameRange     '1.0.0-rc4',
+105 silly addNameRange     '1.0.0-rc5',
+105 silly addNameRange     '1.0.0-rc6',
+105 silly addNameRange     '1.0.0',
+105 silly addNameRange     '1.1.0',
+105 silly addNameRange     '1.1.1',
+105 silly addNameRange     '1.2.0-beta1',
+105 silly addNameRange     '1.2.0',
+105 silly addNameRange     '1.3.0',
+105 silly addNameRange     '1.3.1',
+105 silly addNameRange     '1.4.0',
+105 silly addNameRange     '1.5.0',
+105 silly addNameRange     '1.6.0',
+105 silly addNameRange     '1.6.1',
+105 silly addNameRange     '1.7.0',
+105 silly addNameRange     '1.8.0',
+105 silly addNameRange     '2.0.0',
+105 silly addNameRange     '2.1.0',
+105 silly addNameRange     '2.2.0' ] ]
+106 verbose addNamed protractor@0.17.0
+107 silly addNamed semver.valid 0.17.0
+108 silly addNamed semver.validRange 0.17.0
+109 verbose afterAdd /Users/steve/.npm/karma-junit-reporter/0.1.0/package/package.json written
+110 silly cache afterAdd protractor@0.17.0
+111 verbose afterAdd /Users/steve/.npm/protractor/0.17.0/package/package.json not in flight; writing
+112 verbose afterAdd /Users/steve/.npm/protractor/0.17.0/package/package.json written
+113 http 200 https://registry.npmjs.org/karma-jasmine
+114 silly get cb [ 200,
+114 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+114 silly get     etag: '"89BCRPEMUUUYIOOLABS2B5PA2"',
+114 silly get     'content-type': 'application/json',
+114 silly get     'cache-control': 'max-age=60',
+114 silly get     'content-length': '35086',
+114 silly get     'accept-ranges': 'bytes',
+114 silly get     date: 'Mon, 07 Sep 2015 04:01:55 GMT',
+114 silly get     via: '1.1 varnish',
+114 silly get     age: '0',
+114 silly get     connection: 'keep-alive',
+114 silly get     'x-served-by': 'cache-sjc3123-SJC',
+114 silly get     'x-cache': 'HIT',
+114 silly get     'x-cache-hits': '1',
+114 silly get     'x-timer': 'S1441598514.720114,VS0,VE346',
+114 silly get     vary: 'Accept' } ]
+115 silly addNameRange number 2 { name: 'karma-jasmine', range: '>=0.1.0 <0.2.0', hasData: true }
+116 silly addNameRange versions [ 'karma-jasmine',
+116 silly addNameRange   [ '0.0.1',
+116 silly addNameRange     '0.0.2',
+116 silly addNameRange     '0.0.3',
+116 silly addNameRange     '0.1.0',
+116 silly addNameRange     '0.1.1',
+116 silly addNameRange     '0.1.2',
+116 silly addNameRange     '0.1.3',
+116 silly addNameRange     '0.1.4',
+116 silly addNameRange     '0.1.5',
+116 silly addNameRange     '0.2.0',
+116 silly addNameRange     '0.2.1',
+116 silly addNameRange     '0.2.2',
+116 silly addNameRange     '0.2.3',
+116 silly addNameRange     '0.3.0',
+116 silly addNameRange     '0.3.1',
+116 silly addNameRange     '0.3.2',
+116 silly addNameRange     '0.3.3',
+116 silly addNameRange     '0.3.4',
+116 silly addNameRange     '0.3.5',
+116 silly addNameRange     '0.3.6',
+116 silly addNameRange     '0.1.6' ] ]
+117 verbose addNamed karma-jasmine@0.1.6
+118 silly addNamed semver.valid 0.1.6
+119 silly addNamed semver.validRange 0.1.6
+120 silly mapToRegistry name karma-jasmine
+121 silly mapToRegistry using default registry
+122 silly mapToRegistry registry https://registry.npmjs.org/
+123 silly mapToRegistry uri https://registry.npmjs.org/karma-jasmine
+124 verbose addRemoteTarball https://registry.npmjs.org/karma-jasmine/-/karma-jasmine-0.1.6.tgz not in flight; adding
+125 verbose addRemoteTarball [ 'https://registry.npmjs.org/karma-jasmine/-/karma-jasmine-0.1.6.tgz',
+125 verbose addRemoteTarball   '30545057698ebdcbc63132d47be125b75b2fbc55' ]
+126 info retry fetch attempt 1 at 21:01:55
+127 info attempt registry request try #1 at 21:01:55
+128 http fetch GET https://registry.npmjs.org/karma-jasmine/-/karma-jasmine-0.1.6.tgz
+129 http 200 https://registry.npmjs.org/karma
+130 silly get cb [ 200,
+130 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+130 silly get     etag: '"9BCPKVVXFNBU31WVJ9347MPU6"',
+130 silly get     'content-type': 'application/json',
+130 silly get     'cache-control': 'max-age=60',
+130 silly get     'content-length': '1010054',
+130 silly get     'accept-ranges': 'bytes',
+130 silly get     date: 'Mon, 07 Sep 2015 04:01:55 GMT',
+130 silly get     via: '1.1 varnish',
+130 silly get     age: '0',
+130 silly get     connection: 'keep-alive',
+130 silly get     'x-served-by': 'cache-sjc3133-SJC',
+130 silly get     'x-cache': 'HIT',
+130 silly get     'x-cache-hits': '1',
+130 silly get     'x-timer': 'S1441598514.739977,VS0,VE357',
+130 silly get     vary: 'Accept' } ]
+131 silly addNameRange number 2 { name: 'karma', range: '>=0.10.0 <0.11.0', hasData: true }
+132 silly addNameRange versions [ 'karma',
+132 silly addNameRange   [ '0.8.0',
+132 silly addNameRange     '0.9.0-dart',
+132 silly addNameRange     '0.8.1',
+132 silly addNameRange     '0.8.2',
+132 silly addNameRange     '0.8.3',
+132 silly addNameRange     '0.9.0',
+132 silly addNameRange     '0.8.4',
+132 silly addNameRange     '0.9.1',
+132 silly addNameRange     '0.8.5',
+132 silly addNameRange     '0.9.2',
+132 silly addNameRange     '0.9.2-dart',
+132 silly addNameRange     '0.9.3',
+132 silly addNameRange     '0.8.6',
+132 silly addNameRange     '0.9.4',
+132 silly addNameRange     '0.8.7',
+132 silly addNameRange     '0.9.5',
+132 silly addNameRange     '0.9.6',
+132 silly addNameRange     '0.8.8',
+132 silly addNameRange     '0.9.7',
+132 silly addNameRange     '0.9.8',
+132 silly addNameRange     '0.10.0',
+132 silly addNameRange     '0.10.1',
+132 silly addNameRange     '0.10.2',
+132 silly addNameRange     '0.11.0',
+132 silly addNameRange     '0.11.1',
+132 silly addNameRange     '0.10.3',
+132 silly addNameRange     '0.10.4',
+132 silly addNameRange     '0.11.2',
+132 silly addNameRange     '0.11.3',
+132 silly addNameRange     '0.10.5',
+132 silly addNameRange     '0.11.4',
+132 silly addNameRange     '0.11.5',
+132 silly addNameRange     '0.10.6',
+132 silly addNameRange     '0.11.6',
+132 silly addNameRange     '0.10.7',
+132 silly addNameRange     '0.11.7',
+132 silly addNameRange     '0.11.8',
+132 silly addNameRange     '0.11.9',
+132 silly addNameRange     '0.10.8',
+132 silly addNameRange     '0.11.10',
+132 silly addNameRange     '0.11.11',
+132 silly addNameRange     '0.11.12',
+132 silly addNameRange     '0.11.11-dev',
+132 silly addNameRange     '0.10.9',
+132 silly addNameRange     '0.11.12-dev',
+132 silly addNameRange     '0.11.12-dev2',
+132 silly addNameRange     '0.11.13',
+132 silly addNameRange     '0.11.14',
+132 silly addNameRange     '0.12.0',
+132 silly addNameRange     '0.10.10',
+132 silly addNameRange     '0.12.1',
+132 silly addNameRange     '0.12.2',
+132 silly addNameRange     '0.12.3',
+132 silly addNameRange     '0.12.4',
+132 silly addNameRange     '0.12.5',
+132 silly addNameRange     '0.12.6',
+132 silly addNameRange     '0.12.6-beta-43e6e28',
+132 silly addNameRange     '0.12.7',
+132 silly addNameRange     '0.12.8',
+132 silly addNameRange     '0.12.9',
+132 silly addNameRange     '0.12.10',
+132 silly addNameRange     '0.12.11',
+132 silly addNameRange     '0.12.12',
+132 silly addNameRange     '0.12.11-beta-3029418',
+132 silly addNameRange     '0.12.13',
+132 silly addNameRange     '0.12.14',
+132 silly addNameRange     '0.12.15',
+132 silly addNameRange     '0.12.16',
+132 silly addNameRange     '0.12.16-beta-905422d',
+132 silly addNameRange     '0.12.17',
+132 silly addNameRange     '0.12.18',
+132 silly addNameRange     '0.12.19',
+132 silly addNameRange     '0.12.20',
+132 silly addNameRange     '0.12.21',
+132 silly addNameRange     '0.12.22',
+132 silly addNameRange     '0.12.23',
+132 silly addNameRange     '0.12.24',
+132 silly addNameRange     '0.12.24-beta-6cf7955',
+132 silly addNameRange     '0.12.25',
+132 silly addNameRange     '0.12.25-beta-37a7958',
+132 silly addNameRange     '0.12.25-beta-ad5bc24',
+132 silly addNameRange     '0.12.26',
+132 silly addNameRange     '0.12.27',
+132 silly addNameRange     '0.12.28',
+132 silly addNameRange     '0.12.28-beta-b9be580',
+132 silly addNameRange     '0.12.29',
+132 silly addNameRange     '0.12.30',
+132 silly addNameRange     '0.12.31',
+132 silly addNameRange     '0.12.28-beta-f65c864',
+132 silly addNameRange     '0.12.24-dev-test',
+132 silly addNameRange     '0.12.24-dev-socketio10',
+132 silly addNameRange     '0.12.24-dev-socketio10-2',
+132 silly addNameRange     '0.12.32-beta.0',
+132 silly addNameRange     '0.12.32',
+132 silly addNameRange     '0.13.0-rc.0',
+132 silly addNameRange     '0.12.33',
+132 silly addNameRange     '0.13.0-rc.1',
+132 silly addNameRange     '0.12.34',
+132 silly addNameRange     '0.13.0-rc.2',
+132 silly addNameRange     '0.12.35',
+132 silly addNameRange     '0.13.0-rc.3',
+132 silly addNameRange     '0.12.36',
+132 silly addNameRange     '0.13.0-rc.4',
+132 silly addNameRange     '0.12.37',
+132 silly addNameRange     '0.13.0-rc.5',
+132 silly addNameRange     '0.13.0-rc.6',
+132 silly addNameRange     '0.13.0-rc.7',
+132 silly addNameRange     '0.13.0-rc.8',
+132 silly addNameRange     '0.13.0-rc.9',
+132 silly addNameRange     '0.13.0',
+132 silly addNameRange     '0.13.1',
+132 silly addNameRange     '0.13.2',
+132 silly addNameRange     '0.13.3',
+132 silly addNameRange     '0.13.4',
+132 silly addNameRange     '0.13.5',
+132 silly addNameRange     '0.13.6',
+132 silly addNameRange     '0.13.7',
+132 silly addNameRange     '0.13.8',
+132 silly addNameRange     '0.13.9' ] ]
+133 verbose addNamed karma@0.10.10
+134 silly addNamed semver.valid 0.10.10
+135 silly addNamed semver.validRange 0.10.10
+136 silly cache afterAdd karma@0.10.10
+137 verbose afterAdd /Users/steve/.npm/karma/0.10.10/package/package.json not in flight; writing
+138 verbose afterAdd /Users/steve/.npm/karma/0.10.10/package/package.json written
+139 http fetch 200 https://registry.npmjs.org/karma-jasmine/-/karma-jasmine-0.1.6.tgz
+140 silly fetchAndShaCheck shasum 30545057698ebdcbc63132d47be125b75b2fbc55
+141 verbose addTmpTarball /var/folders/lj/1165k9h57l32bbvqrj4s_7fm0000gn/T/npm-10657-0a7a5172/registry.npmjs.org/karma-jasmine/-/karma-jasmine-0.1.6.tgz not in flight; adding
+142 verbose addTmpTarball already have metadata; skipping unpack for karma-jasmine@0.1.6
+143 silly cache afterAdd karma-jasmine@0.1.6
+144 verbose afterAdd /Users/steve/.npm/karma-jasmine/0.1.6/package/package.json not in flight; writing
+145 verbose afterAdd /Users/steve/.npm/karma-jasmine/0.1.6/package/package.json written
+146 http 200 https://registry.npmjs.org/phantomjs
+147 silly get cb [ 200,
+147 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+147 silly get     etag: '"S530TAGDZUIT6FUPS7085K74"',
+147 silly get     'content-type': 'application/json',
+147 silly get     'cache-control': 'max-age=60',
+147 silly get     'content-length': '98744',
+147 silly get     'accept-ranges': 'bytes',
+147 silly get     date: 'Mon, 07 Sep 2015 04:01:55 GMT',
+147 silly get     via: '1.1 varnish',
+147 silly get     age: '36',
+147 silly get     connection: 'keep-alive',
+147 silly get     'x-served-by': 'cache-sjc3131-SJC',
+147 silly get     'x-cache': 'HIT',
+147 silly get     'x-cache-hits': '1',
+147 silly get     'x-timer': 'S1441598515.765817,VS0,VE1',
+147 silly get     vary: 'Accept' } ]
+148 silly addNameRange number 2 { name: 'phantomjs', range: '>=1.9.0 <1.10.0', hasData: true }
+149 silly addNameRange versions [ 'phantomjs',
+149 silly addNameRange   [ '0.0.1',
+149 silly addNameRange     '0.0.2',
+149 silly addNameRange     '0.0.3',
+149 silly addNameRange     '0.0.4',
+149 silly addNameRange     '0.0.5',
+149 silly addNameRange     '0.0.6',
+149 silly addNameRange     '0.0.7',
+149 silly addNameRange     '0.0.8',
+149 silly addNameRange     '0.0.9',
+149 silly addNameRange     '0.1.0',
+149 silly addNameRange     '0.1.1',
+149 silly addNameRange     '0.2.0',
+149 silly addNameRange     '0.2.1',
+149 silly addNameRange     '0.2.2',
+149 silly addNameRange     '0.2.3',
+149 silly addNameRange     '0.2.4',
+149 silly addNameRange     '0.2.5',
+149 silly addNameRange     '0.2.6',
+149 silly addNameRange     '1.8.0-1',
+149 silly addNameRange     '1.8.1-1',
+149 silly addNameRange     '1.8.1-2',
+149 silly addNameRange     '1.8.1-3',
+149 silly addNameRange     '1.8.2-0',
+149 silly addNameRange     '1.8.2-1',
+149 silly addNameRange     '1.8.2-2',
+149 silly addNameRange     '1.9.0-0',
+149 silly addNameRange     '1.9.0-1',
+149 silly addNameRange     '1.9.0-2',
+149 silly addNameRange     '1.9.0-3',
+149 silly addNameRange     '1.9.0-4',
+149 silly addNameRange     '1.9.0-5',
+149 silly addNameRange     '1.9.0-6',
+149 silly addNameRange     '1.9.1-0',
+149 silly addNameRange     '1.9.1-2',
+149 silly addNameRange     '1.9.1-3',
+149 silly addNameRange     '1.9.1-4',
+149 silly addNameRange     '1.9.1-5',
+149 silly addNameRange     '1.9.1-6',
+149 silly addNameRange     '1.9.1-7',
+149 silly addNameRange     '1.9.1-8',
+149 silly addNameRange     '1.9.1-9',
+149 silly addNameRange     '1.9.2-0',
+149 silly addNameRange     '1.9.2-1',
+149 silly addNameRange     '1.9.2-2',
+149 silly addNameRange     '1.9.2-3',
+149 silly addNameRange     '1.9.2-4',
+149 silly addNameRange     '1.9.2-5',
+149 silly addNameRange     '1.9.2-6',
+149 silly addNameRange     '1.9.6-0',
+149 silly addNameRange     '1.9.7-1',
+149 silly addNameRange     '1.9.7-3',
+149 silly addNameRange     '1.9.7-4',
+149 silly addNameRange     '1.9.7-5',
+149 silly addNameRange     '1.9.7-6',
+149 silly addNameRange     '1.9.7-7',
+149 silly addNameRange     '1.9.7-8',
+149 silly addNameRange     '1.9.7-9',
+149 silly addNameRange     '1.9.7-10',
+149 silly addNameRange     '1.9.7-11',
+149 silly addNameRange     '1.9.7-12',
+149 silly addNameRange     '1.9.7-13',
+149 silly addNameRange     '1.9.7-14',
+149 silly addNameRange     '1.9.7-15',
+149 silly addNameRange     '1.8.2-3',
+149 silly addNameRange     '1.9.8',
+149 silly addNameRange     '1.9.9',
+149 silly addNameRange     '1.9.10',
+149 silly addNameRange     '1.9.11',
+149 silly addNameRange     '1.9.12',
+149 silly addNameRange     '1.9.13',
+149 silly addNameRange     '1.9.15',
+149 silly addNameRange     '1.9.16',
+149 silly addNameRange     '1.9.17',
+149 silly addNameRange     '1.9.18' ] ]
+150 verbose addNamed phantomjs@1.9.18
+151 silly addNamed semver.valid 1.9.18
+152 silly addNamed semver.validRange 1.9.18
+153 silly mapToRegistry name phantomjs
+154 silly mapToRegistry using default registry
+155 silly mapToRegistry registry https://registry.npmjs.org/
+156 silly mapToRegistry uri https://registry.npmjs.org/phantomjs
+157 verbose addRemoteTarball https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.18.tgz not in flight; adding
+158 verbose addRemoteTarball [ 'https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.18.tgz',
+158 verbose addRemoteTarball   'e876fce89b143a6c01c24e0332ef3822851cace1' ]
+159 info retry fetch attempt 1 at 21:01:55
+160 info attempt registry request try #1 at 21:01:55
+161 http fetch GET https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.18.tgz
+162 http fetch 200 https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.18.tgz
+163 silly fetchAndShaCheck shasum e876fce89b143a6c01c24e0332ef3822851cace1
+164 verbose addTmpTarball /var/folders/lj/1165k9h57l32bbvqrj4s_7fm0000gn/T/npm-10657-0a7a5172/registry.npmjs.org/phantomjs/-/phantomjs-1.9.18.tgz not in flight; adding
+165 verbose addTmpTarball already have metadata; skipping unpack for phantomjs@1.9.18
+166 verbose stack Error: EACCES, mkdir '/Users/steve/.npm/phantomjs/1.9.18'
+167 verbose cwd /Users/steve/Code/Projects/angular-ip-address-info
+168 error Darwin 14.5.0
+169 error argv "node" "/usr/local/bin/npm" "install"
+170 error node v0.10.31
+171 error npm  v2.1.18
+172 error path /Users/steve/.npm/phantomjs/1.9.18
+173 error code EACCES
+174 error errno 3
+175 error Error: EACCES, mkdir '/Users/steve/.npm/phantomjs/1.9.18'
+175 error  { [Error: EACCES, mkdir '/Users/steve/.npm/phantomjs/1.9.18']
+175 error   errno: 3,
+175 error   code: 'EACCES',
+175 error   path: '/Users/steve/.npm/phantomjs/1.9.18',
+175 error   parent: 'angularjs-seed' }
+176 error Please try running this command again as root/Administrator.
+177 verbose exit [ 3, true ]

@@ -1,7 +1,7 @@
-angular.module('IpLocatorApp').controller('WhoisModalCtrl',
-        ['$scope', '$modalInstance', 'locationHandler', 'ip', 'tabs', 'usSpinnerService',
-            function ($scope, $modalInstance, locationHandler, ip, tabs, usSpinnerService) {
-                $scope.items = [0, 1, 2, 3]
+IpApp.controller('WhoisModalCtrl',
+        ['$scope', '$modalInstance', 'locationCollection', 'ip', 'tabs', 'usSpinnerService',
+            function ($scope, $modalInstance, locationCollection, ip, tabs, usSpinnerService) {
+                $scope.items = [0, 1, 2, 3];
                 $scope.reports = [];
                 $scope.tabs = tabs;
                 $scope.ip = ip;
@@ -10,9 +10,9 @@ angular.module('IpLocatorApp').controller('WhoisModalCtrl',
                     item: $scope.items[0]
                 };
 
-                locationHandler.getWhois($scope.ip).then(function (data) {
+                locationCollection.getWhois($scope.ip).then(function (data) {
 
-                    locationHandler.addWhoisDataToLocation($scope.ip, data)
+                    locationCollection.addWhoisDataToLocation($scope.ip, data);
                     $scope.reports = data;
                     $scope.tabs = [];
                     for (var report in $scope.reports) {

@@ -1,4 +1,4 @@
-angular.module('IpLocatorApp').controller('TracerouteCtrl',
+IpApp.controller('TracerouteCtrl',
         ['$scope', 'tracerouteManager',
             function ($scope, tracerouteManager) {
                 $scope.routes = [];

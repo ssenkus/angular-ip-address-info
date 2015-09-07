@@ -1,0 +1,9 @@
+<div ng-hide="hasLocations()" class='row' ng-init="initialize()">
+    <h1>No locations added yet!</h1>
+    <p>Add Locations </p>
+</div>
+<div class="row">
+    <div class="worldMap" ng-show="hasLocations()" data="locations" world-map></div>        
+</div>
+<div class="row" ng-include="'views/locationsTable.html'">   
+</div>

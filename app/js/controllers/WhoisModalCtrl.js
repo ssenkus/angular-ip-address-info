@@ -1,28 +1,29 @@
 IpApp.controller('WhoisModalCtrl',
-        ['$scope', '$modalInstance', 'locationCollection', 'ip', 'tabs', 'usSpinnerService',
-            function ($scope, $modalInstance, locationCollection, ip, tabs, usSpinnerService) {
-                $scope.items = [0, 1, 2, 3];
-                $scope.reports = [];
-                $scope.tabs = tabs;
-                $scope.ip = ip;
-                console.log(arguments);
-                $scope.selected = {
-                    item: $scope.items[0]
-                };
+    ['$scope','$modalInstance','locationCollection','usSpinnerService','ip','tabs',
+        function ($scope,$modalInstance,locationCollection,usSpinnerService,ip,tabs) {
+            $scope.items = [0,1,2,3];
+            $scope.reports = [];
+            $scope.ip = ip;
+            $scope.tabs = tabs;
 
-                locationCollection.getWhois($scope.ip).then(function (data) {
 
-                    locationCollection.addWhoisDataToLocation($scope.ip, data);
-                    $scope.reports = data;
-                    $scope.tabs = [];
-                    for (var report in $scope.reports) {
-                        $scope.tabs.push({title: $scope.reports[report].regIntReg, content: $scope.reports[report].data})
-                    }
-                    usSpinnerService.stop('whois-spinner')
-                });
+            $scope.selected = {
+                item: $scope.items[0]
+            };
 
-                $scope.cancel = function () {
-                    $modalInstance.dismiss('cancel');
-                };
-            }]
-        );
+            locationCollection.getWhois($scope.ip).then(function (response) {
+                locationCollection.addWhoisDataToLocation($scope.ip, response.data);
+                $scope.reports = response.data;
+                
+                for (var report in $scope.reports) {
+                    $scope.tabs.push({title: $scope.reports[report].regIntReg,content: $scope.reports[report].data})
+                }
+                
+                usSpinnerService.stop('whois-spinner');
+            });
+
+            $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+            };
+        }]
+    );

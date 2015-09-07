@@ -32,10 +32,7 @@
                     <div ui-view></div>
                 </div>
             </div>
-            <!-- /#page-content-wrapper -->
-
         </div>
-        <!-- /#wrapper -->
         <script src="vendor/underscore/underscore.js"></script>
         <script src="vendor/jquery/dist/jquery.js"></script>
         <script src="vendor/angular/angular.js"></script>
@@ -60,13 +57,14 @@
         <script src="js/controllers/SearchByIpCtrl.js"></script>
         <script src="js/controllers/TracerouteCtrl.js"></script>
         <script src="js/controllers/WhoisModalCtrl.js"></script>
+        <script src="js/controllers/LocationModalCtrl.js"></script>
 
         <script src="js/directives/d3Bars.js"></script>
         <script src="js/directives/worldMap.js"></script>
 
         <script src="js/services/locationCollection.js"></script>
         <script src="js/services/tracerouteManager.js"></script>
+        <script src="js/services/modalManager.js"></script>
         <script src="js/services/ipAddressRepository.js"></script>
-        <?php // echo $_SERVER['REMOTE_ADDR']; ?>
     </body>
 </html>

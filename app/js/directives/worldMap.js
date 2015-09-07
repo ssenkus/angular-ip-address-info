@@ -30,28 +30,20 @@ IpApp.directive('worldMap',
 
                     d3.json("data/readme-world.json",function (error,data) {
                         world = data;
-                        console.log('map data',arguments)
                     });
 
 
                     scope.$watch('data',function (newData,curData) {
                         if (newData.length !== curData.length) {
-                            console.log('mismatched length');
                             scope.render(newData);
                         }
-                        console.log('data watch',arguments);
-
                     },true);
 
                     scope.render = function (data) {
-
-                        console.log();
-
                         svg.selectAll('circle').remove();
                         if (!data) {
                             return;
                         }
-                        console.log('data',data)
 
                         var countries = topojson.feature(world,world.objects.countries).features,
                             neighbors = topojson.neighbors(world.objects.countries.geometries);

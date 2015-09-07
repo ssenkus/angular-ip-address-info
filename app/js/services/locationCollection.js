@@ -24,7 +24,6 @@ IpApp.factory('locationCollection',
                 } else {
                     location.locStatus = "ok";
                 }
-                console.log('location',location)
                 locations.push(location);
             }
 
@@ -72,7 +71,6 @@ IpApp.factory('locationCollection',
                 getIp: function (ip) {
                     return ipAddressRepository.getIpInfo(ip)
                         .then(function (data) {
-                            console.log(data);
                             addLocation(data);
                         },function (data,status,headers,config) {
                             console.log('error',status);
@@ -82,19 +80,19 @@ IpApp.factory('locationCollection',
                     return locations;
                 },
                 addWhoisDataToLocation: function (ip,whoisData) {
-                    console.log(_.findWhere(locations,{'ip': ip}));
                     var location = _.findWhere(locations,{'ip': ip});
                     location.whoisData = whoisData;
-                    console.log('location!',location);
                 },
                 getWhois: function (ip) {
                     var defer = $q.defer();
                     var target = 'api/whois.php';
-                    console.log('find before ajax',_.findWhere(locations,{ip: ip}));
-                    if (_.findWhere(locations,{ip: ip}).whoisData) {
+
+                    var foundLocation = _.findWhere(locations,{ip: ip});
+
+                    if (foundLocation && foundLocation.whoisData) {
                         var selected = _.findWhere(locations,{ip: ip});
-                        console.log('selected',selected.whoisData)
                         defer.resolve(selected.whoisData);
+
                     } else {
                         $http({
                             method: 'GET',
@@ -103,12 +101,9 @@ IpApp.factory('locationCollection',
                                 whois_domain: ip
                             }
                         })
-                            .success(function (data,status,headers,config) {
-                                console.log('got whois data',data)
-
+                            .then(function (data) {
                                 defer.resolve(data);
-                            })
-                            .error(function (data,status,headers,config) {
+                            },function (data,status,headers,config) {
                                 defer.resolve({"status": false});
                             });
                     }

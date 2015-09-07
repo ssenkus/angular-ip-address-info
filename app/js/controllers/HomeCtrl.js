@@ -17,8 +17,5 @@ IpApp.controller('HomeCtrl',
                         score: 28
                     }
                 ];
-                
-              //  $scope.userIp = 
-                
             }]
         );

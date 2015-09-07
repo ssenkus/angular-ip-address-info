@@ -3,7 +3,7 @@
 </div>
 <div class="modal-body">
     <div ng-hide="tabs.length > 0" style="width: 100%;height: 200px;">
-    <span us-spinner spinner-key="whois-spinner" spinner-start-active="true"></span>
+        <span us-spinner spinner-key="whois-spinner" spinner-start-active="true"></span>
     </div>
     <tabset>
         <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
@@ -11,6 +11,4 @@
         </tab>
     </tabset>
 </div>
-<div class="modal-footer">
-
-</div>
+<div class="modal-footer"></div>

@@ -1,33 +1,31 @@
-(function() {
-    
-'use strict';
+(function (win) {
+    'use strict';
 
-window.IpApp = angular.module('IpLocatorApp', [
-    'ngRoute',
-    'ui.bootstrap',
-    'ui.router',
-    'angularSpinner'
-]).config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
-        $stateProvider
-                .state('home', {
+    win.IpApp = angular.module('IpLocatorApp',[
+        'ngRoute',
+        'ui.bootstrap',
+        'ui.router',
+        'angularSpinner'
+    ]).config([
+        '$stateProvider','$urlRouterProvider',
+        function ($stateProvider,$urlRouterProvider) {
+            $urlRouterProvider.otherwise('/');
+            $stateProvider
+                .state('home',{
                     url: '/',
-                    templateUrl: 'views/HomeView.html',
+                    templateUrl: 'views/home.html',
                     controller: 'HomeCtrl'
                 })
-                .state('locations', {
+                .state('locations',{
                     url: '/locations',
-                    templateUrl: 'views/LocationsLayout.html',
+                    templateUrl: 'views/locationsLayout.html',
                     controller: 'LocationsTableCtrl'
                 })
-                .state('traceroute', {
+                .state('traceroute',{
                     url: '/traceroute',
-                    templateUrl: 'views/TracerouteTableView.html',
+                    templateUrl: 'views/tracerouteTable.html',
                     controller: 'TracerouteCtrl'
                 });
-
-    }]);
-
-    
-    
-})();
+        }
+    ]);
+})(window);

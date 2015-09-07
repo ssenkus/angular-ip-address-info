@@ -1,9 +1,11 @@
-IpApp.controller('MenuCtrl',['$scope',function ($scope) {
+IpApp.controller('MenuCtrl',
+    ['$scope',
+        function ($scope) {
 
-        $scope.toggleMenu = function ($event) {
-            $event.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        };
+            $scope.toggleMenu = function ($event) {
+                $event.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            };
 
-    }]);
+        }]);
 

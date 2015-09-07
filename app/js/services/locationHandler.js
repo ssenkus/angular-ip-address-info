@@ -76,7 +76,7 @@ angular.module('IpLocatorApp').factory('locationHandler', ['$http', '$q', functi
                     console.log('selected', selected.whoisData)
                     defer.resolve(selected.whoisData);
 
-                } else {
+                } else  {
                     $http({
                         method: 'GET',
                         url: target,

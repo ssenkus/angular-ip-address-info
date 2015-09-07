@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/services/d3Service.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/services/geoService.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/services/topojsonService.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/controllers/TracerouteCtrl.js</file>
+            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/views/modals/WhoisModalView.html</file>
+            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/services/locationHandler.js</file>
             <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/controllers/WhoisModalCtrl.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/d3.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/directives/worldMap.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/directives/d3Bars.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/controllers/HomeCtrl.js</file>
-            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/index.html</file>
+            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/index.php</file>
+            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/controllers/SearchByIpCtrl.js</file>
+            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/js/controllers/LocationsTableCtrl.js</file>
+            <file>file:/Users/steve/Code/Projects/angular-ip-address-info/app/css/app.css</file>
         </group>
     </open-files>
 </project-private>

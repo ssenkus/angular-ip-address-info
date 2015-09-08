@@ -11,6 +11,7 @@
         function ($stateProvider,$urlRouterProvider) {
             $stateProvider
                 .state('locations',{
+                    url: '/',
                     templateUrl: 'views/locationsLayout.html',
                     controller: 'LocationsTableCtrl'
                 })
@@ -18,6 +19,7 @@
                     templateUrl: 'views/tracerouteTable.html',
                     controller: 'TracerouteCtrl'
                 });
+                $urlRouterProvider.otherwise('/');
                
         }
     ]);

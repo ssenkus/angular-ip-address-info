@@ -17,6 +17,17 @@ IpApp.directive('worldMap',
                 }).direction('ne');
             }
 
+            function registerDataWatch(scope) {
+                scope.$watch('data',function (newData,curData) {
+                  //  console.log('data',arguments);
+//                    newData = newData || [];
+//                    curData = curData || [];
+                    //if (newData.length !== curData.length) {
+                    scope.render(newData);
+                },true);
+
+            }
+
             function linkFn(scope,ele,attrs) {
 
                 var tip = applyTooltip();
@@ -26,70 +37,64 @@ IpApp.directive('worldMap',
                     .attr("height",height).style('background-color','#fafafa').call(tip);
 
                 d3.json("data/readme-world.json",function (error,data) {
-                    console.log(arguments)
                     world = data;
-                });
+
+                    registerDataWatch(scope);
+                    
+                    scope.render = function (data) {
+                        svg.selectAll('circle').remove();
+                        if (!data) {
+                            return;
+                        }
+
+                        console.log(world);
+
+                        var countries = topojson.feature(world,world.objects.countries).features,
+                            neighbors = topojson.neighbors(world.objects.countries.geometries);
 
 
-                scope.$watch('data',function (newData,curData) {
-                    console.log('data',arguments);
-//                    newData = newData || [];
-//                    curData = curData || [];
-                    //if (newData.length !== curData.length) {
-                        scope.render(newData);
-                   // }
-                },true);
-
-                scope.render = function (data) {
-                    svg.selectAll('circle').remove();
-                    if (!data) {
-                        return;
-                    }
-
-                    var countries = topojson.feature(world,world.objects.countries).features,
-                        neighbors = topojson.neighbors(world.objects.countries.geometries);
+                        svg.selectAll(".country")
+                            .data(countries)
+                            .enter().insert("path",".graticule")
+                            .attr("class","country")
+                            .attr("d",path)
+                            .style("fill",function (d,i) {
+                                return '#000';
+                            });
 
 
-                    svg.selectAll(".country")
-                        .data(countries)
-                        .enter().insert("path",".graticule")
-                        .attr("class","country")
-                        .attr("d",path)
-                        .style("fill",function (d,i) {
-                            return '#000';
-                        });
-
-
-                    svg.selectAll('circle')
-                        .data(data)
-                        .enter()
-                        .append('circle')
-                        .attr("r",2)
-                        .attr('y',function (d) {
-                            return d
-                        })
-                        .attr('x',function (d,i) {
-                            return i
-                        })
-                        .attr("transform",function (d,i) {
-
-                            return "translate(" + projection([d.longitude,d.latitude]) + ")";
-                        })
-                        .attr('fill',function (d) {
-                            if (d['locStatus'] === 'warn') {
-                                return '#ac0';
-                            } else {
-                                return '#f90';
-                            }
-                        })
-                        .on('mouseover',tip.show)
-                        .on('mouseout',tip.hide)
-                        .on('click',function (location) {
-                            modalManager.openLocationModal({
-                                location: location
+                        svg.selectAll('circle')
+                            .data(data)
+                            .enter()
+                            .append('circle')
+                            .attr("r",2)
+                            .attr('y',function (d) {
+                                return d;
                             })
-                        });
-                };
+                            .attr('x',function (d,i) {
+                                return i;
+                            })
+                            .attr("transform",function (d,i) {
+
+                                return "translate(" + projection([d.longitude,d.latitude]) + ")";
+                            })
+                            .attr('fill',function (d) {
+                                if (d['locStatus'] === 'warn') {
+                                    return '#ac0';
+                                } else {
+                                    return '#f90';
+                                }
+                            })
+                            .on('mouseover',tip.show)
+                            .on('mouseout',tip.hide)
+                            .on('click',function (location) {
+                                modalManager.openLocationModal({
+                                    location: location
+                                });
+                            });
+
+                    };
+                });
 
             }
 

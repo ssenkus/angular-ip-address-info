@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/app.css"/>
     </head>
     <body>
-        <div id="wrapper" ng-controller="MenuCtrl">
+        <div id="wrapper" menu-toggler>
             <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -21,12 +21,11 @@
                         <a class="navbar-brand" ui-sref="home">AngularJS IP Address Info</a>
                     </div>
                     <ul class="nav navbar-nav">
-                        <li><a  ng-click="toggleMenu($event)" href="#menu-toggle" id="menu-toggle">Toggle Menu</a></li>
+                        <li><a href="#menu-toggle" id="menu-toggle">Toggle Menu</a></li>
                     </ul>
                 </div>
             </div>
             <div id="sidebar-wrapper" ng-include="'/views/sidebar.html'"></div>
-            <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <div ui-view></div>
@@ -70,8 +69,8 @@
         <script src="js/controllers/WhoisModalCtrl.js"></script>
         <script src="js/controllers/LocationModalCtrl.js"></script>
 
-        <script src="js/directives/d3Bars.js"></script>
         <script src="js/directives/worldMap.js"></script>
+        <script src="js/directives/menuToggler.js"></script>
 
         <script src="js/services/locationCollection.js"></script>
         <script src="js/services/tracerouteManager.js"></script>

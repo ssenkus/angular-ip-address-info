@@ -4,5 +4,6 @@ IpApp.controller('HomeCtrl',
                 $scope.locations = [];
                 locationCollection.getUserLocation();
                 $scope.locations = locationCollection.getLocations();
+                
             }]
         );

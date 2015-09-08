@@ -28,6 +28,8 @@ IpApp.controller('LocationsTableCtrl',
                     location: location
                 });
             };
-
+            $scope.getHostByAddr = function(ip) {
+                locationCollection.getHostByAddr(ip).then(function(d) { alert(d)},function() {});
+            };
         }
     ]);

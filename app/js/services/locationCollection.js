@@ -134,12 +134,20 @@ IpApp.factory('locationCollection',
                         ip: userIp
                     });
                 },
+                getHostByAddr: function (ip) {
+                    return ipAddressRepository.getHostByAddr(ip)
+                        .then(function (response) {
+                            console.log(response);
+                            return response.data;
+                        },function (e) {
+                            console.log('error',e);
+                        });
+                },
                 initialize: function () {
                     var self = this;
                     function getUserIp() {
                         return $http.jsonp('https://api.ipify.org/?format=jsonp&callback=JSON_CALLBACK').then(function (response) {
                             userIp = response.data.ip;
-                            console.log(this);
                             self.getIp(userIp);
                         },function () {
                             console.log('ERROR',arguments);
@@ -147,7 +155,6 @@ IpApp.factory('locationCollection',
                     }
 
                     getUserIp();
-
                 }
             };
             locationCollection.initialize();

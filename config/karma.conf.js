@@ -3,18 +3,14 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-      'app/lib/angular/angular.js',
-      'app/lib/angular/angular-*.js',
+      'app/vendor/angular/angular.js',
       'test/lib/angular/angular-mocks.js',
-      'app/js/**/*.js',
+      'app/js/modules/*.js',
+      'app/js/controllers/*.js',
       'test/unit/**/*.js'
     ],
 
-    exclude : [
-      'app/lib/angular/angular-loader.js',
-      'app/lib/angular/*.min.js',
-      'app/lib/angular/angular-scenario.js'
-    ],
+    exclude : [],
 
     autoWatch : true,
 
@@ -28,10 +24,4 @@ module.exports = function(config){
             'karma-firefox-launcher',
             'karma-jasmine'
             ],
-
-    junitReporter : {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
-
 })}

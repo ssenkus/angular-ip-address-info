@@ -1,32 +1,55 @@
 IpApp.controller('SearchByIpCtrl',
-    ['$scope','$http','locationCollection',
-        function ($scope,$http,locationCollection) {
+    ['$scope','locationCollection',
+        function ($scope,locationCollection) {
+
+            var KEY_CODE = {
+                ENTER: 13
+            };
+
             $scope.ipAddress = '';
             $scope.locations = locationCollection.getLocations();
             $scope.validInput = false;
             $scope.inputPattern = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
-            $scope.submitIp = function (ev) {
-                if (ev.which === 13) {
-                    ($scope.ipAddressMatch($scope.ipAddress)) ? $scope.getIp($scope.ipAddress) : '';
-                }
+
+
+            $scope.initialize = function () {
+
             };
+
             $scope.ipAddressMatch = function (ip) {
                 return $scope.inputPattern.test(ip);
             };
 
-            $scope.addValidIps = locationCollection.addValidIps;
-            $scope.addedTestVals = locationCollection.addedTestVals;
+            $scope.submitIp = function (ev) {
+                if (ev.which === KEY_CODE.ENTER) {
+                    if ($scope.ipAddressMatch($scope.ipAddress)) {
+                        $scope.getIp($scope.ipAddress);
+                    }
+                }
+            };
+
+            $scope.addValidIps = function () {
+                locationCollection.addValidIps();
+            };
+
+            $scope.addedTestVals = function () {
+                locationCollection.addedTestVals();
+            };
+
             $scope.deleteLocation = function (ip) {
                 locationCollection.deleteLocation(ip);
             };
+
             $scope.getWhoisReports = function (ip) {
                 locationCollection.getWhois(ip).then(
                     function (response) {
                         locationCollection.addWhoisDataToLocation(ip,response.data);
                     },
-                    function () {
+                    function (error) {
+                        console.log(error);
                     });
             };
+
             $scope.getIp = function (ip) {
                 $scope.ipAddress = '';
                 locationCollection.getIp(ip);

@@ -47,8 +47,7 @@
         <script src="vendor/jquery/dist/jquery.js"></script>
         <script src="vendor/angular/angular.js"></script>
         <script src="vendor/angular-bootstrap/ui-bootstrap.js"></script>
-        <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="vendor/angular-route/angular-route.js"></script>     
+        <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>  
         <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="vendor/spinjs/spin.js"></script>
         <script src="vendor/angular-spinner/angular-spinner.js"></script>

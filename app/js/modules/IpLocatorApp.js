@@ -2,7 +2,6 @@
     'use strict';
 
     win.IpApp = angular.module('IpLocatorApp',[
-        'ngRoute',
         'ui.bootstrap',
         'ui.router',
         'angularSpinner'

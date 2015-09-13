@@ -1,4 +1,4 @@
-describe('HomeCtrl',function () {
+describe('SearchByIpCtrl',function () {
 
     var controller,
         rootScope,
@@ -13,24 +13,24 @@ describe('HomeCtrl',function () {
         _locationCollection = locationCollection;
         spyOn(_locationCollection,'getUserLocation');
         spyOn(_locationCollection,'getLocations');
-        controller = $controller('HomeCtrl',{
+        controller = $controller('SearchByIpCtrl',{
             $scope: scope,
             locationCollection: _locationCollection
         });
     }));
 
-    describe('initialization',function () {
-        beforeEach(function () {
-            scope.initialize();
+    describe('IP Address validation', function() {
+        
+        it('should validate a valid ip address', function () {
+            var ip = '12.12.12.12';
+            expect(scope.ipAddressMatch(ip)).toBe(true);            
         });
-
-        it('should get the user location',function () {
-            expect(_locationCollection.getUserLocation).toHaveBeenCalled();
+        
+        it('should invalidate an out-of-range ip address', function() {
+            var ip = '312.12.12.12';
+            expect(scope.ipAddressMatch(ip)).toBe(false);
         });
-
-        it('should get all locations',function () {
-            expect(_locationCollection.getLocations).toHaveBeenCalled();
-        });
-
+        
+        
     });
 });

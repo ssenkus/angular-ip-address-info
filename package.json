@@ -1,6 +1,6 @@
 {
-  "name": "angularjs-seed",
-  "description": "A starter project for AngularJS",
+  "name": "angular-ip-address-info",
+  "description": "An IP address app",
   "repository": "https://github.com/angular/angular-seed",
   "devDependencies": {
     "phantomjs" : "~1.9",

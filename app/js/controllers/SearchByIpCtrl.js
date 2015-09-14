@@ -11,9 +11,7 @@ IpApp.controller('SearchByIpCtrl',
             $scope.validInput = false;
             $scope.inputPattern = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
 
-
             $scope.initialize = function () {
-
             };
 
             $scope.ipAddressMatch = function (ip) {
@@ -51,8 +49,8 @@ IpApp.controller('SearchByIpCtrl',
             };
 
             $scope.getIp = function (ip) {
+                locationCollection.getIp($scope.ipAddress);
                 $scope.ipAddress = '';
-                locationCollection.getIp(ip);
             };
 
             $scope.addDemoIpAddresses = function () {

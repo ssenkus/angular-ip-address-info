@@ -14,13 +14,44 @@ describe('SearchByIpCtrl',function () {
         _locationCollection = locationCollection;
         spyOn(_locationCollection,'getUserLocation');
         spyOn(_locationCollection,'getLocations');
+        spyOn(_locationCollection,'addRandomIpAddresses');
+        spyOn(_locationCollection,'addDemoIpAddresses');
         controller = $controller('SearchByIpCtrl',{
             $scope: scope,
             locationCollection: _locationCollection
         });
     }));
 
-    describe('IP Address validation',function () {
+    describe('Initialization:', function() {
+        beforeEach(function() {
+            scope.initialize();
+        });
+        it('should fetch locations', function() {
+            expect(_locationCollection.getLocations).toHaveBeenCalled();
+        });
+        
+    });
+
+    describe('Retrieving IP Addresses', function() {
+        beforeEach(function() {
+            scope.initialize();
+        });
+        it('should fetch locations', function() {
+            expect(_locationCollection.getLocations).toHaveBeenCalled();
+        });
+        
+        it('should fetch random IP addresses:', function() {
+            scope.addRandomIpAddresses();
+            expect(_locationCollection.addRandomIpAddresses).toHaveBeenCalled();            
+        });
+        it('should fetch demo IP addresses:', function() {
+            scope.addDemoIpAddresses();
+            expect(_locationCollection.addDemoIpAddresses).toHaveBeenCalled();
+        });
+        
+    });
+
+    describe('IP address validation:',function () {
 
         it('should validate a valid ip address',function () {
             var ip = '12.12.12.12';
@@ -53,6 +84,14 @@ describe('SearchByIpCtrl',function () {
                 givenUserEntersIpAddress('12.12.3.4');
 
                 whenUserHitsNonReturnKey();
+
+                expect(scope.getIp).not.toHaveBeenCalled();
+            });
+            
+                 it('should not get IP address in the input field when invalid IP address is entered',function () {
+                givenUserEntersIpAddress('asdf');
+
+                whenUserHitsReturnKey();
 
                 expect(scope.getIp).not.toHaveBeenCalled();
             });

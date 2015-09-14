@@ -7,11 +7,12 @@ IpApp.controller('SearchByIpCtrl',
             };
 
             $scope.ipAddress = '';
-            $scope.locations = locationCollection.getLocations();
+            $scope.locations = [];
             $scope.validInput = false;
             $scope.inputPattern = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
 
             $scope.initialize = function () {
+                $scope.locations = locationCollection.getLocations();
             };
 
             $scope.ipAddressMatch = function (ip) {
@@ -30,22 +31,10 @@ IpApp.controller('SearchByIpCtrl',
                 locationCollection.addValidIps();
             };
 
-            $scope.addedTestVals = function () {
-                locationCollection.addedTestVals();
-            };
+            $scope.addedDemoIpAddresses = false;
 
             $scope.deleteLocation = function (ip) {
                 locationCollection.deleteLocation(ip);
-            };
-
-            $scope.getWhoisReports = function (ip) {
-                locationCollection.getWhois(ip).then(
-                    function (response) {
-                        locationCollection.addWhoisDataToLocation(ip,response.data);
-                    },
-                    function (error) {
-                        console.log(error);
-                    });
             };
 
             $scope.getIp = function (ip) {
@@ -54,7 +43,9 @@ IpApp.controller('SearchByIpCtrl',
             };
 
             $scope.addDemoIpAddresses = function () {
+
                 locationCollection.addDemoIpAddresses();
+                $scope.addedDemoIpAddresses = true;
             };
 
             $scope.addRandomIpAddresses = function () {

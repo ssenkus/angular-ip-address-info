@@ -12,7 +12,8 @@ IpApp.factory('locationCollection',
                 '22.54.76.202',
                 '24.4.76.202',
                 '24.24.24.24',
-                '84.45.22.12'];
+                '84.45.22.12'
+            ];
 
             var addedTestVals = false;
 

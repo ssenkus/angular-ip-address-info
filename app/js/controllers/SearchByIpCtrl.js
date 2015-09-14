@@ -27,10 +27,6 @@ IpApp.controller('SearchByIpCtrl',
                 }
             };
 
-            $scope.addValidIps = function () {
-                locationCollection.addValidIps();
-            };
-
             $scope.addedDemoIpAddresses = false;
 
             $scope.deleteLocation = function (ip) {
@@ -43,7 +39,6 @@ IpApp.controller('SearchByIpCtrl',
             };
 
             $scope.addDemoIpAddresses = function () {
-
                 locationCollection.addDemoIpAddresses();
                 $scope.addedDemoIpAddresses = true;
             };

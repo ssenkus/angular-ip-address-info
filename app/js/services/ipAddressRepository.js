@@ -1,6 +1,7 @@
-IpApp.factory('ipAddressRepository',['$http',function ($http) {
+IpApp.factory('ipAddressRepository', ['$http',
+    function ($http) {
 
-        var ipAddressRepository = {
+        return {
             getIpInfo: function (ip) {
                 return $http({
                     method: 'GET',
@@ -19,7 +20,5 @@ IpApp.factory('ipAddressRepository',['$http',function ($http) {
                 });
             }
         };
-
-        return ipAddressRepository;
     }
 ]);

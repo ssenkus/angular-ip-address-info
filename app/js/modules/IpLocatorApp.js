@@ -14,10 +14,6 @@
                     templateUrl: 'views/locationsLayout.html',
                     controller: 'LocationsTableCtrl'
                 })
-                .state('traceroute',{
-                    templateUrl: 'views/tracerouteTable.html',
-                    controller: 'TracerouteCtrl'
-                });
                 $urlRouterProvider.otherwise('/');
                
         }

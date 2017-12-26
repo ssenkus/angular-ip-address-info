@@ -1,6 +1,6 @@
 IpApp.factory('locationCollection',
-    ['$http','$q','ipAddressRepository','$window',
-        function ($http,$q,ipAddressRepository,$window) {
+    ['$http', '$q', 'ipAddressRepository', '$window',
+        function ($http, $q, ipAddressRepository, $window) {
 
             var locations = [];
             var demoLocations = [
@@ -29,7 +29,7 @@ IpApp.factory('locationCollection',
             }
 
 
-            function randomiseNumbers(t,e,r,n) {
+            function randomiseNumbers(t, e, r, n) {
                 var i = e - t + 1,
                     o = [];
                 if (n) {
@@ -39,21 +39,21 @@ IpApp.factory('locationCollection',
                     return o;
                 }
                 for (var a = 1,
-                    s = 0; i > s; s++) {
-                    a = (r - o.length) / (i - s),Math.random() <= a && o.push(s + t);
+                         s = 0; i > s; s++) {
+                    a = (r - o.length) / (i - s), Math.random() <= a && o.push(s + t);
                 }
-                return randomise(o,r,n);
+                return randomise(o, r, n);
             }
 
-            function randomise(t,e,r) {
-                if ([].isArray(t) || (t = t.split("")),t.shuffle(),r) {
+            function randomise(t, e, r) {
+                if ([].isArray(t) || (t = t.split("")), t.shuffle(), r) {
                     for (var n = [],
-                        i = 0; e > i; i++) {
+                             i = 0; e > i; i++) {
                         n[i] = t[Math.floor(Math.random() * t.length)];
                     }
                     return n
                 }
-                return e > 0 && e < t.length && (t.length = e),t
+                return e > 0 && e < t.length && (t.length = e), t
             }
 
             var locationCollection = {
@@ -66,31 +66,31 @@ IpApp.factory('locationCollection',
                     locations.push(location);
                 },
                 deleteLocation: function (index) {
-                    locations.splice(index,1);
+                    locations.splice(index, 1);
                 },
                 getIp: function (ip) {
                     return ipAddressRepository.getIpInfo(ip)
                         .then(function (data) {
                             addLocation(data);
-                        },function (data,status,headers,config) {
-                            console.log('error',status);
+                        }, function (data, status, headers, config) {
+                            console.log('error', arguments);
                         });
                 },
                 getLocations: function () {
                     return locations;
                 },
-                addWhoisDataToLocation: function (ip,whoisData) {
-                    var location = _.findWhere(locations,{'ip': ip});
+                addWhoisDataToLocation: function (ip, whoisData) {
+                    var location = _.findWhere(locations, {'ip': ip});
                     location.whoisData = whoisData;
                 },
                 getWhois: function (ip) {
                     var defer = $q.defer();
                     var target = 'api/whois.php';
 
-                    var foundLocation = _.findWhere(locations,{ip: ip});
+                    var foundLocation = _.findWhere(locations, {ip: ip});
 
                     if (foundLocation && foundLocation.whoisData) {
-                        var selected = _.findWhere(locations,{ip: ip});
+                        var selected = _.findWhere(locations, {ip: ip});
                         defer.resolve(selected.whoisData);
 
                     } else {
@@ -103,7 +103,7 @@ IpApp.factory('locationCollection',
                         })
                             .then(function (data) {
                                 defer.resolve(data);
-                            },function (data,status,headers,config) {
+                            }, function (data, status, headers, config) {
                                 defer.resolve({"status": false});
                             });
                     }
@@ -120,7 +120,7 @@ IpApp.factory('locationCollection',
                     var options = opts || {},
                         qty = options.quantity || 10,
                         randomIps = [],
-                        r = randomiseNumbers(0,255,4 * qty,true),
+                        r = randomiseNumbers(0, 255, 4 * qty, true),
                         i;
 
                     for (i = 0; i < r.length; i += 4) {
@@ -131,7 +131,7 @@ IpApp.factory('locationCollection',
                     randomIps.forEach(this.getIp);
                 },
                 getUserLocation: function () {
-                    return _.findWhere(locations,{
+                    return _.findWhere(locations, {
                         ip: userIp
                     });
                 },
@@ -140,18 +140,19 @@ IpApp.factory('locationCollection',
                         .then(function (response) {
                             console.log(response);
                             return response.data;
-                        },function (e) {
-                            console.log('error',e);
+                        }, function (e) {
+                            console.log('error', e);
                         });
                 },
                 initialize: function () {
                     var self = this;
+
                     function getUserIp() {
                         return $http.jsonp('https://api.ipify.org/?format=jsonp&callback=JSON_CALLBACK').then(function (response) {
                             userIp = response.data.ip;
                             self.getIp(userIp);
-                        },function () {
-                            console.log('ERROR',arguments);
+                        }, function () {
+                            console.log('ERROR', arguments);
                         });
                     }
 

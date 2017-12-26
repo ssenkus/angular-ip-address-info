@@ -1,13 +1,20 @@
 {
   "name": "angular-ip-address-info",
-  "description": "An IP address app",
-  "repository": "https://github.com/angular/angular-seed",
-  "devDependencies": {
-    "phantomjs" : "~1.9",
-    "karma" : "~0.10",
-    "karma-junit-reporter" : "~0.1",
-    "karma-jasmine" : "~0.1",
-    "protractor" : "~0.17.0",
-    "karma-coverage": "^0.2.7"
+  "version": "1.0.0",
+  "description": "Find IP address info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ssenkus@bitbucket.org/ssenkus/angular-ip-address-info.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ssenkus/angular-ip-address-info#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
   }
 }

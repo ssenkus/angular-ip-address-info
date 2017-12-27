@@ -69,6 +69,7 @@ IpApp.factory('locationCollection',
                 getIp: function (ip) {
                     return ipAddressRepository.getIpInfo(ip)
                         .then(function (data) {
+                            console.log('data', data);
                             addLocation(data);
                         }, function (data, status, headers, config) {
                             console.log('error', arguments);

@@ -4,11 +4,11 @@ const async = require('async');
 exports.getWhoIs = (done) => {
 
     var whoisSitesUrls = [
-        'whois.internic.net',
-        'whois.apnic.net',
-        'whois.arin.net',
-        'whois.lacnic.net',
-        'whois.afrinic.net'
+        'https://whois.internic.net',
+        'https://whois.apnic.net',
+        'https://whois.arin.net',
+        'https://whois.lacnic.net',
+        'https://whois.afrinic.net'
     ];
 
     var whoisData = [];
@@ -20,6 +20,7 @@ exports.getWhoIs = (done) => {
             asyncCallback(null);
         });
     }, (finalErr) => {
+        if (finalErr) console.log(finalErr);
         if (finalErr) return done(finalErr);
 
         done(null, whoisData);

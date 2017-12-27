@@ -9,15 +9,6 @@ IpApp.factory('ipAddressRepository', ['$http',
                 }).then(function (response) {
                     return response.data;
                 });
-            },
-            getHostByAddr: function (ip) {
-                return $http({
-                    method: 'GET',
-                    url: '/api/gethostbyaddr.php',
-                    params: {
-                        ip: ip
-                    }
-                });
             }
         };
     }

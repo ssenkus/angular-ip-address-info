@@ -85,7 +85,7 @@ IpApp.factory('locationCollection',
                 },
                 getWhois: function (ip) {
                     var defer = $q.defer();
-                    var target = 'api/whois.php';
+                    var target = 'api/v1/whois';
 
                     var foundLocation = _.findWhere(locations, {ip: ip});
 
@@ -147,16 +147,16 @@ IpApp.factory('locationCollection',
                 initialize: function () {
                     var self = this;
 
-                    function getUserIp() {
-                        return $http.jsonp('https://api.ipify.org/?format=jsonp&callback=JSON_CALLBACK').then(function (response) {
-                            userIp = response.data.ip;
-                            self.getIp(userIp);
-                        }, function () {
-                            console.log('ERROR', arguments);
-                        });
-                    }
-
-                    getUserIp();
+                    // function getUserIp() {
+                    //     return $http.jsonp('https://api.ipify.org/?format=jsonp&callback=JSON_CALLBACK').then(function (response) {
+                    //         userIp = response.data.ip;
+                    //         self.getIp(userIp);
+                    //     }, function () {
+                    //         console.log('ERROR', arguments);
+                    //     });
+                    // }
+                    //
+                    // getUserIp();
                 }
             };
             locationCollection.initialize();

@@ -1,11 +1,15 @@
-var server = null;
-
-// function startServer() {
-var express = require('express');
+const routes = require('./api/lib/routes/routes.js');
+const  express = require('express');
+const bodyParser = require('body-parser');
 // var favicon = require('serve-favicon');
-var bodyParser = require('body-parser');
 // var errorHandler = require('./errorHandler.js');
 // var routes = require('../routes/routes.js');
+
+
+
+let server = null;
+
+
 
 var app = express();
 
@@ -24,13 +28,4 @@ server = app.listen(8080, function () {
     console.log('Express server listening on port ' + 8080);
 });
 
-// var io = require('socket.io')(server);
-// io.on('connection', function(socket){
-//     log.info('User connected');
-// });
-// routes.configure(app, io);
-
-
-// hookUpEvents();
-//   socketMonitor.start(server);
-// }
+routes.configure(app);

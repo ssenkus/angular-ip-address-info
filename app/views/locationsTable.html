@@ -14,16 +14,18 @@
         <td>
             {{location.city || '[CITY]'}}, {{location.region_code || '[REGION_CODE]'}} {{location.zip_code ||
             '[ZIP]'}}<br/>
-            {{location.country_name || '[CTRY_CODE]'}} ({{location.country_code || '[CTRY_CODE]'}})
+            {{location.country_name || '[CTRY_NAME]'}} ({{location.country_code || '[CTRY_CODE]'}})
             {{location.metro_code || '[METRO_CODE]'}}
         </td>
         <td>{{location.latitude || '[LAT]'}}, {{location.longitude || '[LNG]'}}</td>
 
         <td>
-            <button class="btn btn-warning" ng-click="getWhois(location.ip)">WHOIS <span
-                    class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-            <button class="btn btn-danger" ng-click="deleteLoc($index)"><span class="glyphicon glyphicon-remove"
-                                                                              aria-hidden="true"></span></button>
+            <button class="btn btn-warning" ng-click="getWhois(location.ip)">WHOIS
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn-danger" ng-click="deleteLoc($index)">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
         </td>
     </tr>
     </tbody>

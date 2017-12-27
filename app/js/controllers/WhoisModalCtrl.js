@@ -4,8 +4,6 @@ IpApp.controller('WhoisModalCtrl',
             $scope.items = [0, 1, 2, 3];
             $scope.reports = [];
             $scope.ip = ip;
-
-
             $scope.selected = {
                 item: $scope.items[0]
             };

@@ -1,19 +1,19 @@
+// TODO: move this into the lib/runtime folder
+
+
 const routes = require('./api/lib/routes/routes.js');
-const  express = require('express');
+// const errorHandler = require('./api/lib/runtime/errorHandler.js');
+const express = require('express');
 const bodyParser = require('body-parser');
-// var favicon = require('serve-favicon');
-// var errorHandler = require('./errorHandler.js');
-// var routes = require('../routes/routes.js');
+// const favicon = require('serve-favicon');
 
 
 
 let server = null;
+let app = express();
 
+let appFolder = __dirname + '/app/';
 
-
-var app = express();
-
-var appFolder = __dirname + '/app/';
 app.use('/', express.static(appFolder, {
     index: 'index.html'
 }));

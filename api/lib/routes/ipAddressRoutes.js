@@ -1,22 +1,16 @@
-'use strict';
-// const log = require('../log.js');
 const ipAddressRepo = require('../dataAccess/ipAddressRepository.js');
-// const Contact = require('../models/contact.js');
-
 
 exports.configure = (app) => {
-    app.get('/api/:v?/ipaddress', getWhois);
+    app.get('/api/:v?/ipaddress/:ipaddr', getIpAddressInfo);
 };
 
-function getWhois(req, res, done) {
-    console.log('hit ipAddressRoute', req);
+function getIpAddressInfo(req, res, done) {
+    // TODO: add validation for IP address
 
-    ipAddressRepo.getIpAddressInfo((err, result) => {
+    ipAddressRepo.getIpAddressInfo(req.params.ipaddr, (err, result) => {
         if (err) return done(err);
 
-        console.log('ipAddressRepo results', result);
-
-        done();
-    })
+        return done(null, result);
+    });
 }
 

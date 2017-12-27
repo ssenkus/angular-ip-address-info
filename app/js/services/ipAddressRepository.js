@@ -5,7 +5,7 @@ IpApp.factory('ipAddressRepository', ['$http',
             getIpInfo: function (ip) {
                 return $http({
                     method: 'GET',
-                    url: 'http://www.freegeoip.net/json/' + ip
+                    url: 'http://localhost:8080/api/v1/ipaddress/' + ip
                 }).then(function (response) {
                     return response.data;
                 });

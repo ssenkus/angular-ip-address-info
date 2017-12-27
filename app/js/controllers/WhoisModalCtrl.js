@@ -1,7 +1,7 @@
 IpApp.controller('WhoisModalCtrl',
-    ['$scope','$modalInstance','locationCollection','usSpinnerService','ip','tabs',
-        function ($scope,$modalInstance,locationCollection,usSpinnerService,ip,tabs) {
-            $scope.items = [0,1,2,3];
+    ['$scope', '$modalInstance', 'locationCollection', 'usSpinnerService', 'ip', 'tabs',
+        function ($scope, $modalInstance, locationCollection, usSpinnerService, ip, tabs) {
+            $scope.items = [0, 1, 2, 3];
             $scope.reports = [];
             $scope.ip = ip;
 
@@ -12,18 +12,18 @@ IpApp.controller('WhoisModalCtrl',
 
             locationCollection.getWhois(ip).then(function (response) {
                 locationCollection.addWhoisDataToLocation(ip, response.data);
-                
+
 
                 var reports = response.data;
                 $scope.tabs = [];
-                
-                reports.forEach(function(report) {
-                     $scope.tabs.push({
+
+                reports.forEach(function (report) {
+                    $scope.tabs.push({
                         title: report.regIntReg,
                         content: report.data
                     });
                 });
-                
+
                 usSpinnerService.stop('whois-spinner');
             });
 
@@ -31,4 +31,4 @@ IpApp.controller('WhoisModalCtrl',
                 $modalInstance.dismiss('cancel');
             };
         }]
-    );
+);

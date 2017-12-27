@@ -2,14 +2,14 @@ IpApp.directive('worldMap',
     ['$window', '$timeout', 'modalManager',
         function ($window, $timeout, modalManager) {
 
-            var d3 = $window.d3,
-                width = '100%',
-                height = 500,
-                projection = d3.geo.equirectangular(),
-                color = d3.scale.category20c(),
-                path = d3.geo.path()
-                    .projection(projection),
-                world;
+            var d3 = $window.d3;
+            var width = '100%';
+            var height = 500;
+            var projection = d3.geo.equirectangular();
+            var color = d3.scale.category20c();
+            var path = d3.geo.path()
+                .projection(projection);
+            var world;
 
             function applyTooltip() {
                 return d3.tip().attr('class', 'd3-tip').html(function (d) {

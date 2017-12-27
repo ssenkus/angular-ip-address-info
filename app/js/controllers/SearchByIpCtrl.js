@@ -1,6 +1,6 @@
 IpApp.controller('SearchByIpCtrl',
-    ['$scope','locationCollection',
-        function ($scope,locationCollection) {
+    ['$scope', 'locationCollection',
+        function ($scope, locationCollection) {
 
             var KEY_CODE = {
                 ENTER: 13

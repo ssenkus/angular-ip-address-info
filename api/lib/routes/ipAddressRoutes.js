@@ -5,22 +5,13 @@ exports.configure = (app) => {
 };
 
 function getIpAddressInfo(req, res, done) {
-    return res.json({
-        city: 'Test',
-        region_code: 'TS',
-        zip_code: '12345',
-        latitude: 45.00,
-        longitude: -121.00,
-        ip: '0.0.0.0'
-    });
-
-
     // TODO: add validation for IP address
-    //
-    // ipAddressRepo.getIpAddressInfo(req.params.ipaddr, (err, result) => {
-    //     if (err) return done(err);
-    //
-    //     return done(null, result);
-    // });
+    console.log('got here');
+    ipAddressRepo.getIpAddressInfo(req.params.ipaddr, (err, result) => {
+        console.log('got here', err, result);
+        if (err) return done(err);
+
+        return res.json(JSON.parse(result.body));
+    });
 }
 

@@ -19,14 +19,15 @@
     "express": "^4.16.2",
     "request": "^2.83.0",
     "serve-favicon": "^2.4.5",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "whois": "^2.5.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "jasmine-core": "^2.8.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.0"
+    "karma-jasmine": "^1.1.0",
     "browser-sync": "^2.18.13",
     "gulp-clean-css": "^3.9.0",
     "gulp-cli": "^1.4.0",

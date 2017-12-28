@@ -11,16 +11,10 @@ IpApp.controller('WhoisModalCtrl',
             locationCollection.getWhois(ip).then(function (response) {
                 locationCollection.addWhoisDataToLocation(ip, response.data);
 
+                console.log(response);
+                var report = response.data.result;
 
-                var reports = response.data;
-                $scope.tabs = [];
-
-                reports.forEach(function (report) {
-                    $scope.tabs.push({
-                        title: report.regIntReg,
-                        content: report.data
-                    });
-                });
+                $scope.content = report;
 
                 usSpinnerService.stop('whois-spinner');
             });

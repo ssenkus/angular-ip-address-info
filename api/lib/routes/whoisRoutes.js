@@ -5,14 +5,14 @@ exports.configure = (app) => {
 };
 
 function getWhois(req, res, done) {
-    console.log('hit getWhois', req);
+    let whoisIpAddress = req.query.whoisIpAddress;
 
-    whoisRepo.getWhoIs((err, result) => {
-        if (err) return done(err);
+    whoisRepo.getWhoIs(whoisIpAddress, (err, result) => {
+        if (err) return done(err, result);
 
-        console.log('whoisRepo results', result);
-
-        done();
+        res.json({
+            result: result
+        });
     })
 }
 

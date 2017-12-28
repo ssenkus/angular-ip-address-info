@@ -267,3 +267,9 @@
 #locationsTable {
     font-size: 11px;
 }
+
+.modal-content {
+    height: auto;
+    max-height: 600px;
+    overflow: scroll;
+}

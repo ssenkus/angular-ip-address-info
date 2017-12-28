@@ -1,13 +1,41 @@
 {
   "name": "angular-ip-address-info",
-  "description": "An IP address app",
-  "repository": "https://github.com/angular/angular-seed",
+  "version": "1.0.0",
+  "description": "Find IP address info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ssenkus@bitbucket.org/ssenkus/angular-ip-address-info.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/ssenkus/angular-ip-address-info#readme",
+  "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0",
+    "serve-favicon": "^2.4.5",
+    "underscore": "^1.8.3",
+    "whois": "^2.5.0"
+  },
   "devDependencies": {
-    "phantomjs" : "~1.9",
-    "karma" : "~0.10",
-    "karma-junit-reporter" : "~0.1",
-    "karma-jasmine" : "~0.1",
-    "protractor" : "~0.17.0",
-    "karma-coverage": "^0.2.7"
+    "gulp": "^3.9.1",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "browser-sync": "^2.18.13",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-cli": "^1.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^1.8.9",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
   }
 }

@@ -1,6 +1,6 @@
 IpApp.controller('HomeCtrl',
-    ['$scope','locationCollection',
-        function ($scope,locationCollection) {
+    ['$scope', 'locationCollection',
+        function ($scope, locationCollection) {
             $scope.locations = [];
 
             $scope.initialize = function () {
@@ -9,4 +9,4 @@ IpApp.controller('HomeCtrl',
             };
 
         }]
-    );
+);

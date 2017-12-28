@@ -1,8 +1,8 @@
-IpApp.factory('modalManager',[
+IpApp.factory('modalManager', [
     '$modal',
     function ($modal) {
 
-        var modalManager = {
+        return {
             openWhoIsModal: function (options) {
                 $modal.open({
                     templateUrl: 'views/modals/whoIsModal.html',
@@ -11,9 +11,6 @@ IpApp.factory('modalManager',[
                     resolve: {
                         ip: function () {
                             return options.ip;
-                        },
-                        tabs: function () {
-                            return options.tabs;
                         }
                     }
                 });
@@ -31,9 +28,5 @@ IpApp.factory('modalManager',[
                 });
             }
         };
-
-
-
-
-        return modalManager;
-    }]);
+    }
+]);

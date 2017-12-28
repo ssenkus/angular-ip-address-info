@@ -1,6 +1,5 @@
 <ul class="sidebar-nav">
     <li><a ui-sref="locations">World Map</a></li>
-    <li><a ui-sref="traceroute">Traceroute</a></li>
     <li ng-controller="SearchByIpCtrl" style="padding: 10px;" ng-init="initialize()">
         <input class="form-control" 
                type="text" 
@@ -8,6 +7,11 @@
                ng-pattern="::inputPattern" 
                placeholder="xxx.xxx.xxx.xxx" 
                ng-model="ipAddress" />
+        <input class="form-control"
+               type="text"
+               ng-keypress="submitDomain($event)"
+               placeholder="Enter domain"
+               ng-model="domain" />
         <button class="ipSearchSubmit btn" 
                 ng-class="{'btn-success': ipAddress, 'btn-info': !ipAddress }" 
                 type="button" ng-disabled="!ipAddress" 

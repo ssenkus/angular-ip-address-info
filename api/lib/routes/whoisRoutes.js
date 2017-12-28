@@ -1,10 +1,12 @@
 const whoisRepo = require('../dataAccess/whoisRepository.js');
 
 exports.configure = (app) => {
-    app.get('/api/:v?/whois', getWhois);
+    app.get('/api/:v?/whois', getWhoisFromIpAddress);
+    app.get('/api/:v?/whoisdomain', getWhoisFromDomain);
+
 };
 
-function getWhois(req, res, done) {
+function getWhoisFromIpAddress(req, res, done) {
     let whoisIpAddress = req.query.whoisIpAddress;
 
     whoisRepo.getWhoIs(whoisIpAddress, (err, result) => {
@@ -16,3 +18,14 @@ function getWhois(req, res, done) {
     })
 }
 
+function getWhoisFromDomain(req, res, done) {
+    let whoisDomain = req.query.whoisDomain;
+
+    whoisRepo.getWhoIs(whoisDomain, (err, result) => {
+        if (err) return done(err, result);
+
+        res.json({
+            result: result
+        });
+    })
+}

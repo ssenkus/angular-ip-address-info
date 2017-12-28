@@ -11,9 +11,6 @@ IpApp.factory('modalManager', [
                     resolve: {
                         ip: function () {
                             return options.ip;
-                        },
-                        tabs: function () {
-                            return options.tabs;
                         }
                     }
                 });

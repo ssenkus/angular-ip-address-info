@@ -55,14 +55,6 @@ IpApp.factory('locationCollection',
             }
 
             return {
-                addLocation: function (location) {
-                    if (location.city === "") {
-                        location.locStatus = "warn";
-                    } else {
-                        location.locStatus = "ok";
-                    }
-                    locations.push(location);
-                },
                 deleteLocation: function (index) {
                     locations.splice(index, 1);
                 },
@@ -75,12 +67,21 @@ IpApp.factory('locationCollection',
                             console.log('error', arguments);
                         });
                 },
+                getDomain: function (ip) {
+                    return ipAddressRepository.getDomainInfo(ip)
+                        .then(function (data) {
+                            console.log('data', data);
+                            addLocation(data);
+                        }, function (data, status, headers, config) {
+                            console.log('error', arguments);
+                        });
+                },
                 getLocations: function () {
                     return locations;
                 },
                 addWhoisDataToLocation: function (ip, whoisData) {
-                    var location = _.findWhere(locations, {'ip': ip});
-                    location.whoisData = whoisData;
+                    // var location = _.findWhere(locations, {'ip': ip});
+                    // location.whoisData = whoisData;
                 },
                 getWhois: function (ip) {
                     var defer = $q.defer();
@@ -99,8 +100,8 @@ IpApp.factory('locationCollection',
                             params: {
                                 whoisIpAddress: ip
                             }
-                        })
-                            .then(function (data) {
+                        }).then(
+                            function (data) {
                                 defer.resolve(data);
                             }, function (data, status, headers, config) {
                                 defer.resolve({"status": false});
@@ -142,21 +143,6 @@ IpApp.factory('locationCollection',
                         }, function (e) {
                             console.log('error', e);
                         });
-                },
-                initialize: function () {
-                    var self = this;
-
-
-                    // function getUserIp() {
-                    //     return $http.jsonp('https://api.ipify.org/?format=jsonp&callback=JSON_CALLBACK').then(function (response) {
-                    //         userIp = response.data.ip;
-                    //         self.getIp(userIp);
-                    //     }, function () {
-                    //         console.log('ERROR', arguments);
-                    //     });
-                    // }
-                    //
-                    // getUserIp();
                 }
             };
         }

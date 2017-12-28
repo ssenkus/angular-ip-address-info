@@ -6,12 +6,10 @@ exports.configure = (app) => {
 
 function getIpAddressInfo(req, res, done) {
     // TODO: add validation for IP address
-    console.log('got here');
     ipAddressRepo.getIpAddressInfo(req.params.ipaddr, (err, result) => {
-        console.log('got here', err, result);
         if (err) return done(err);
 
-        return res.json(JSON.parse(result.body));
+        return res.json(result);
     });
 }
 

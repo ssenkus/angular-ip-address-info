@@ -1,23 +1,19 @@
 IpApp.controller('WhoisModalCtrl',
-    ['$scope', '$modalInstance', 'locationCollection', 'usSpinnerService', 'ip', 'tabs',
-        function ($scope, $modalInstance, locationCollection, usSpinnerService, ip, tabs) {
-            $scope.items = [0, 1, 2, 3];
-            $scope.reports = [];
-            $scope.ip = ip;
-            $scope.selected = {
-                item: $scope.items[0]
+    ['$scope', '$modalInstance', 'locationCollection', 'usSpinnerService', 'ip',
+        function ($scope, $modalInstance, locationCollection, usSpinnerService, ip) {
+            $scope.m = {
+                ip: ip,
+                content: null
             };
 
-            locationCollection.getWhois(ip).then(function (response) {
-                locationCollection.addWhoisDataToLocation(ip, response.data);
-
-                console.log(response);
-                var report = response.data.result;
-
-                $scope.content = report;
-
-                usSpinnerService.stop('whois-spinner');
-            });
+            locationCollection.getWhois(ip).then(
+                function (response) {
+                    locationCollection.addWhoisDataToLocation(ip, response.data);
+                    $scope.m.content = response.data.result;
+                    usSpinnerService.stop('whois-spinner');
+                }, function () {
+                    alert('There was an error while requesting WHOIS data.');
+                });
 
             $scope.cancel = function () {
                 $modalInstance.dismiss('cancel');

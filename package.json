@@ -25,10 +25,10 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "jasmine-core": "^2.8.0",
-    "karma": "^1.7.1",
+    "karma": "^6.4.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.27.10",
     "gulp-clean-css": "^3.9.0",
     "gulp-cli": "^1.4.0",
     "gulp-concat": "^2.6.1",

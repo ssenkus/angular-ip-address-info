@@ -20,7 +20,7 @@
     "request": "^2.83.0",
     "serve-favicon": "^2.4.5",
     "underscore": "^1.8.3",
-    "whois": "^2.5.0"
+    "whois": "^2.13.6"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
